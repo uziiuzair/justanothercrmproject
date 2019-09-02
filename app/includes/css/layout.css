@@ -1,0 +1,7992 @@
+/**
+ * Project: Just Another CRM
+ * 
+ * Last Updated: 31 August 2019
+ * 
+ * 
+ * Table of Contents
+ * 1. General
+ * 2. 
+ * 3. 
+ * 4. 
+ * 
+ */
+
+
+
+/**
+ *	General
+ *******************************/
+
+
+/**
+ * The Awesome Font
+ */
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-black.otf'); 			 font-weight: 800; font-style: normal; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-blackItalic.otf'); 		 font-weight: 800; font-style: italic; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-bold.otf'); 			 font-weight: 700; font-style: normal; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-boldItalic.otf'); 		 font-weight: 700; font-style: italic; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-semiBold.otf'); 		 font-weight: 600; font-style: normal; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-semiBoldItalic.otf'); 	 font-weight: 600; font-style: italic; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-medium.otf'); 			 font-weight: 500; font-style: normal; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-mediumItalic.otf'); 	 font-weight: 500; font-style: italic; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-regular.otf'); 			 font-weight: 400; font-style: normal; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-italic.otf'); 			 font-weight: 400; font-style: italic; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-light.otf'); 			 font-weight: 300; font-style: normal; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-lightItalic.otf'); 		 font-weight: 300; font-style: italic; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-extraLight.otf'); 		 font-weight: 200; font-style: normal; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-extraLightItalic.otf');	 font-weight: 200; font-style: italic; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-ultraLight.otf'); 		 font-weight: 100; font-style: normal; }
+@font-face { font-family: 'Sofia Pro'; src:  url('../fonts/sofiapro-ultraLightItalics.otf'); font-weight: 100; font-style: italic; }
+
+* { margin: 0; padding: 0; }
+
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+ 
+.clearfix {
+	*zoom: 1;
+}
+
+body {
+	font-family: 'Sofia Pro', sans-serif;
+	font-weight: 300;
+	/* color: #9b9b9b; */
+	/* background: #fafafa; */
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;  
+	-o-transition: all 0.3s ease-out;  
+	transition: all 0.3s ease-out;
+}
+
+body.modal-active {
+	overflow-y: hidden;
+}
+
+.container {
+	width: 100%;
+}
+
+.wrapper {
+	width: 1440px;
+	margin: 0 auto;
+}
+
+.microWrapper {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.row {
+	width: 100%;
+}
+
+.debugInformation {
+	width: 100%;
+	/* color: #000; */
+	font-size: 14px;
+	font-weight: 300;
+	padding: 15px;
+	/* background-color: #fff; */
+	line-height: 28px;
+	margin-bottom:30px;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;  
+	-o-transition: all 0.3s ease-out;  
+	transition: all 0.3s ease-out;
+}
+
+	.debugInformation span {
+		display: block;
+		font-weight: 600;
+		margin: 10px 0
+	}
+
+/**
+ * Spans
+ */
+.span12 { width:100%; 	float: left;}
+.span11 { width:91.66%; float: left;}
+.span10 { width:83.33%; float: left;}
+.span9  { width:75.00%; float: left;}
+.span8  { width:66.66%; float: left;}
+.span7  { width:58.33%; float: left;}
+.span6  { width:50.00%; float: left;}
+.span5  { width:41.66%; float: left;}
+.span4  { width:33.33%; float: left;}
+.span3  { width:25.00%;	float: left;}
+.span2  { width:16.66%; float: left;}
+.span1  { width:8.33%; 	float: left;}
+
+.offset11 { width: 91.66%; 	float: right;}
+.offset10 { width: 83.33%; 	float: right;}
+.offset9 { width: 75.00%; 	float: right;}
+.offset8 { width: 66.66%; 	float: right;}
+.offset7 { width: 58.33%; 	float: right;}
+.offset6 { width: 50.00%; 	float: right;}
+.offset5 { width: 41.66%; 	float: right;}
+.offset4 { width: 33.33%; 	float: right;}
+.offset3 { width: 25.00%; 	float: right;}
+.offset2 { width: 16.66%; 	float: right;}
+.offset1 { width: 8.33%; 	float: right;}
+
+.half { width: 50%; float: left; }
+.third { width: 33.33%; float: left; }
+.twothird { width: 66.66%; float: left; }
+
+.inline-float { float: left; width: auto; }
+
+/**
+ * Margins and Paddings
+ */
+
+/* Margin */
+.m-10 { margin: 10px; }
+.m-20 { margin: 20px; }
+.m-50 { margin: 50px; }
+
+/* Margin Left */
+.m-l-10 { margin-left: 10px; }
+.m-l-20 { margin-left: 20px; }
+.m-l-50 { margin-left: 50px; }
+
+/* Margin Right */
+.m-r-10 { margin-right: 10px; }
+.m-r-20 { margin-right: 20px; }
+.m-r-50 { margin-right: 50px; }
+
+/* Margin Bottom */
+.m-b-10 { margin-bottom: 10px; }
+.m-b-20 { margin-bottom: 20px; }
+.m-b-50 { margin-bottom: 50px; }
+
+/* Margin Top */
+.m-t-10 { margin-top: 10px; }
+.m-t-20 { margin-top: 20px; }
+.m-t-50 { margin-top: 50px; }
+
+
+/* Padding */
+.p-10 { padding: 10px; }
+.p-20 { padding: 20px; }
+.p-50 { padding: 50px; }
+
+/* Padding Left */
+.p-l-10 { padding-left: 10px; }
+.p-l-20 { padding-left: 20px; }
+.p-l-50 { padding-left: 50px; }
+
+/* Padding Right */
+.p-r-10 { padding-right: 10px; }
+.p-r-20 { padding-right: 20px; }
+.p-r-50 { padding-right: 50px; }
+
+/* Padding Bottom */
+.p-b-10 { padding-bottom: 10px; }
+.p-b-20 { padding-bottom: 20px; }
+.p-b-50 { padding-bottom: 50px; }
+
+/* Padding Top */
+.p-t-10 { padding-top: 10px; }
+.p-t-20 { padding-top: 20px; }
+.p-t-50 { padding-top: 50px; }
+
+
+/**
+ * Pulls
+ */
+.pull-left { float: left; }
+.pull-right { float: right; }
+
+
+
+
+/**
+ * Typography
+ */
+h1, h2, h3, 
+h4, h5, h6 {
+	margin: 10px 0;
+	font-weight: 300;
+	/* color: #2c2c2c; */
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;  
+	-o-transition: all 0.3s ease-out;  
+	transition: all 0.3s ease-out;
+}
+
+h1 { font-size: 44px; line-height: 55px; letter-spacing: -0.08px; }
+h2 { font-size: 31px; line-height: 40px; }
+h3 { font-size: 27px; line-height: 35px; }
+h4 { font-size: 22px; line-height: 31.88px; }
+h5 { font-size: 18px; line-height: 25.88px; }
+h6 { font-size: 12px; }
+
+h1 small,
+h2 small,
+h3 small {
+	font-weight: 300;
+}
+
+p {
+	/* color: #626262; */
+	display: block;
+  	font-size: 14px;
+  	font-weight: 400;
+  	letter-spacing: 0.01em;
+  	line-height: 22px;
+  	margin: 0px 0px 10px 0px;
+  	font-style: normal;
+  	white-space: normal;
+  	-webkit-transition: all 0.3s ease-out;
+  	-moz-transition: all 0.3s ease-out;  
+  	-o-transition: all 0.3s ease-out;  
+  	transition: all 0.3s ease-out;
+}
+
+	p.align-left 	{ text-align: left; }
+	p.align-right 	{ text-align: right; }
+	p.align-center 	{ text-align: center; }
+
+	p.text-primary 	{ color: #46389b; }
+	p.text-complete { color: #4eb1f4; }
+	p.text-success 	{ color: #28cebd; }
+	p.text-danger 	{ color: #f35857; }
+	p.text-warning 	{ color: #f7cf5d; }
+
+a {
+	text-shadow: none !important;
+	/* color: #7057D2; */
+	transition: color 0.1s linear 0s, background-color 0.1s linear 0s, opacity 0.2s linear 0s !important;
+}
+
+a:focus,
+a:hover,
+a:active {
+	/* color: #4228A8; */
+}
+
+a,
+a:focus,
+a:hover,
+a:active {
+	outline: 0 !important;
+	text-decoration: none;
+}
+
+br {
+	line-height: normal;
+	clear: both;
+}
+
+small,
+.small {
+	line-height: 18px;
+}
+
+label.inline {
+	display: inline-block;
+	position: relative;
+	top: 0px;
+	font-size: 13px;
+}
+
+/* Lists */
+ul > li,
+ol > li {
+	line-height: 24px;
+}
+
+ul.no-style,
+ol.no-style {
+	list-style: none;
+	padding-left: 5px;
+}
+
+/* Address */
+address {
+	margin-bottom: 0px;
+}
+
+address a {
+	color: #626262;
+}
+
+/* Blockquotes */
+blockquote {
+	padding: 0 0 0 18px;
+	border-left: 0;
+}
+
+blockquote:before {
+	content: '';
+	font-family: FontAwesome;
+	content: "\f10d";
+	margin-right: 13px;
+	float: left;
+}
+
+blockquote p {
+	font-size: 16px;
+}
+
+blockquote small {
+	line-height: 29px;
+	color: #8b91a0;
+	padding-left: 30px;
+}
+
+blockquote small:before {
+	content: "";
+}
+
+blockquote.pull-right {
+	border-right: 0;
+}
+
+blockquote.pull-right:before {
+	float: right;
+	content: '';
+	font-family: FontAwesome;
+	content: "\f10d";
+	margin-left: 13px;
+	margin-right: 0;
+}
+
+blockquote.pull-right small {
+	padding-right: 30px;
+}
+
+blockquote.pull-right small:after {
+	content: "";
+}
+
+/* Horizontal Line */
+hr {
+	border-color: #e6e6e6;
+}
+
+hr.double {
+	border-width: 2px;
+}
+
+hr.dotted {
+	border-style: dotted none none;
+}
+
+
+/**
+ *	Forms
+ *******************************/
+form {
+
+}
+
+	form input[type=text] {
+		background: #fff;
+		border: 0;
+		font-size: 14px;
+		color: #000;
+		font-weight: 300;
+		outline: 0;
+		-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		-webkit-transition: all 0.3s ease-out;
+		-moz-transition: all 0.3s ease-out;
+		-o-transition: all 0.3s ease-out;
+		transition: all 0.3s ease-out;
+	}
+
+		form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			color: inherit;
+		}
+		form input::-moz-placeholder { /* Firefox 19+ */
+			color: inherit;
+		}
+		form input:-ms-input-placeholder { /* IE 10+ */
+			color: inherit;
+		}
+		form input:-moz-placeholder { /* Firefox 18- */
+			color: inherit;
+		}
+
+	form .stoken {
+		width: 1px;
+		height: 1px;
+		opacity: 0;
+		position: absolute;
+		left: -900000px
+	}
+
+	form .checbox {
+		background: #fff;
+		border: 0;
+		font-size: 14px;
+		color: #000;
+		font-weight: 300;
+		outline: 0;
+		-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		-webkit-transition: all 0.3s ease-out;
+		-moz-transition: all 0.3s ease-out;
+		-o-transition: all 0.3s ease-out;
+		transition: all 0.3s ease-out;
+	}
+
+/**
+ * Notification
+ */
+.crmNotificationsWrapper {
+
+}
+
+	.crmNotificationsWrapper hr {
+		width: 50px;
+		border: 0;
+		border-bottom: 1px solid;
+		margin-bottom: 15px;
+	}
+
+	.crmNotificationsWrapper .crmNotificationsInner {
+
+	}
+
+	.notifyjs-crmLight-base hr {
+		border-bottom-color: #00afb2;
+	}
+
+	.notifyjs-crmLight-success hr {
+		border-bottom-color: #00afb2;
+	}
+
+	.notifyjs-crmLight-error hr {
+		border-bottom-color: #f58989;
+	}
+
+
+/**
+ * Page Contents
+ */
+
+.pageHeader {
+
+}
+
+	.pageHeader h1 {
+		font-size: 24px;
+		font-weight: 400;
+	}
+
+	.pageHeader .headerButton {
+		display: inline-block;
+		padding: 12px 20px;
+		font-size: 14px;
+		float: right;
+		text-align: center;
+		color: #000;
+		background: #fff;
+		text-decoration: none;
+		-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		-webkit-transition: all 0.3s ease-out;
+		-moz-transition: all 0.3s ease-out;
+		-o-transition: all 0.3s ease-out;
+		transition: all 0.3s ease-out;
+		margin-top: 12px;
+	}
+
+		.pageHeader .headerButton:hover {
+			background: rgba(0, 0, 0, 0.008);
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;  
+			-o-transition: all 0.3s ease-out;  
+			transition: all 0.3s ease-out;
+		}
+
+		.pageHeader .headerButton:active {
+			background: rgba(0, 0, 0, 0.03);
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;  
+			-o-transition: all 0.3s ease-out;  
+			transition: all 0.3s ease-out;
+		}
+
+.pageContent {
+
+}
+
+
+/**
+ * Sidebar
+ */
+.sidebar {
+	width: 70px;
+	height: 100vh;
+	position: fixed;
+	top: 0; left: 0;
+	/* background: #f5f5f5; */
+	padding: 15px 0;
+	/* border-right: 1px solid #e0e0e0; */
+	z-index: 999999;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;  
+	-o-transition: all 0.3s ease-out;  
+	transition: all 0.3s ease-out;
+}
+
+	.sidebar .logo {
+		width: 100%;
+		margin-bottom: 70px;
+		padding: 0 18px;
+		/* color: #000; */
+		-webkit-transition: all 0.3s ease-out;
+		-moz-transition: all 0.3s ease-out;  
+		-o-transition: all 0.3s ease-out;  
+		transition: all 0.3s ease-out;
+	}
+
+	.sidebar .menu {
+		
+	}
+
+		.sidebar .menu ul {
+			list-style: none;
+		}
+
+			.sidebar .menu ul li {
+				position: relative;
+			}
+
+				
+
+				.sidebar .menu ul li:after {
+					position: absolute;
+					left: 90%;
+					opacity: 0;
+					visibility: hidden;
+					top: 18px;
+					/* background: #000; */
+					width: 100px;
+					padding: 3px 5px 2px;
+					display: block;
+					content: attr(data-page);
+					font-size: 13px;
+					border-radius: 5px;
+					/* color: #fff; */
+					text-transform: lowercase;
+					text-align: center;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+					.sidebar .menu ul li:hover:after {
+						left: 99%;
+						opacity: 1;
+						visibility: visible;
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;  
+						-o-transition: all 0.3s ease-out;  
+						transition: all 0.3s ease-out;
+					}
+
+				.sidebar .menu ul li:before {
+					position: absolute;
+					left: 82%;
+					top: 25px;
+					content: "";
+					display: block;
+					width: 0; 
+					height: 0; 
+					border-top: 7px solid transparent;
+					border-bottom: 7px solid transparent; 
+					/* border-right:7px solid #000; */
+					visibility: hidden;
+					opacity: 0;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+					.sidebar .menu ul li:hover:before {
+						left: 88%;
+						opacity: 1;
+						visibility: visible;
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;  
+						-o-transition: all 0.3s ease-out;  
+						transition: all 0.3s ease-out;
+					}
+
+				.sidebar .menu ul li a {
+					/* color: #000; */
+					font-size: 16px;
+					width: 100%;
+					display: block;
+					padding: 20px 0 10px;
+					text-align: center;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+					.sidebar .menu ul li:hover a {
+						/* background: #efefef; */
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;  
+						-o-transition: all 0.3s ease-out;  
+						transition: all 0.3s ease-out;
+					}
+
+					.sidebar .menu ul li a svg {
+						width: 19px;
+						display: inline-block;
+					}
+
+
+/**
+ * Header
+ */
+.header {
+	width: calc(100% - 70px);
+	/* height: 60px; */
+	position: fixed;
+	top: 0;
+	left: 70px;
+	/* background: #fafafa; */
+	/* border-bottom: 1px solid #e0e0e0; */
+	z-index: 999999;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;  
+	-o-transition: all 0.3s ease-out;  
+	transition: all 0.3s ease-out;
+}
+
+	.header .leftContainer {
+		float: left;
+	}
+
+		.header .leftContainer .menu {
+			float: left;
+			padding:0 25px 0 0;
+		}
+
+			.header .leftContainer .menu ul {
+				list-style: none;
+			}
+
+				.header .leftContainer .menu ul li {
+					display: inline-block;
+				}
+
+				.header .leftContainer .menu ul li a {
+					padding: 15px 10px 0;
+					display: block;
+					font-size: 15px;
+					/* color: #9B9B9B; */
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+				.header .leftContainer .menu ul li:hover a {
+					/* color: #7057D2; */
+				}
+
+	.header .rightContainer {
+		float: right;
+	}
+
+		.header .time {
+			float: left;
+			position: relative;
+			padding: 0 25px;
+		}
+
+			.header .time p {
+				padding: 14px 0;
+				margin: 0;
+				font-weight: 300;
+			}
+
+		.header .search {
+			float: left;
+			position: relative;
+			width: 251px;
+			/* border-left: 1px solid #e0e0e0; */
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;  
+			-o-transition: all 0.3s ease-out;  
+			transition: all 0.3s ease-out;
+		}
+
+			.header .search .icon {
+				width: 50px;
+				padding:13px 10px 10px 20px;
+				float: left;
+			}
+
+			.header .search .searchBox {
+				width: 200px;
+				float: left;
+			}
+
+				.header .search .searchBox input {
+					border: 0;
+					padding: 14px 12px 15px;
+					background: transparent;
+					font-size: 16px;
+					box-shadow: none;
+					font-family: inherit;
+					font-weight: 300;
+					/* color: #9b9b9b; */
+					outline: 0;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+					.header .search .searchBox input::-webkit-input-placeholder, /* Chrome/Opera/Safari */
+					.header .search .searchBox input::-moz-placeholder, /* Firefox 19+ */
+					.header .search .searchBox input:-ms-input-placeholder, /* IE 10+ */
+					.header .search .searchBox input:-moz-placeholder, { /* Firefox 18- */
+						/* color: #9b9b9b; */
+						font-weight: 300;
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;  
+						-o-transition: all 0.3s ease-out;  
+						transition: all 0.3s ease-out;
+					}
+
+			.header .search .results {
+				position: absolute;
+				top: 100%;
+				width: 400px;
+				padding: 10px;
+				/* background: #fff; */
+				display: none;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+		.header .settings {
+			float: left;
+			/* border-left: 1px solid #e0e0e0; */
+			width: 65px;
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;  
+			-o-transition: all 0.3s ease-out;  
+			transition: all 0.3s ease-out;
+		}
+
+				.header .settings a {
+					display: block;
+					padding:13px 19.5px 5px;
+					/* color: #9b9b9b; */
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+		.header .add {
+			float: left;
+			/* border-left: 1px solid #e0e0e0; */
+			padding: 13px 21px 6px 18px;
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;  
+			-o-transition: all 0.3s ease-out;  
+			transition: all 0.3s ease-out;
+		}
+
+			.header .add:hover {
+				/* background: #f5f5f5; */
+				cursor: pointer;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+				.header .add:hover .addContainer {
+					top: 38px;
+					visibility: visible;
+					opacity: 1;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+			.header .add svg {
+				width: 23px;
+				/* color: #9b9b9b; */
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+			.header .add ul {
+				list-style: none;
+				position: relative;
+			}
+
+				.header .add .addContainer {
+					width: 350px;
+					position: absolute;
+					top: 43px;
+					left:-156px;
+					opacity: 0;
+					/* background: #fff; */
+					visibility: hidden;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+					.header .add .addContainer ul li {
+						width: 50%;
+						float: left;
+						text-align: center;
+					}
+
+						.header .add .addContainer ul li a {
+							/* color: #000; */
+							font-size: 14px;
+							font-weight: 300;
+							padding: 10px;
+							display: block;
+							-webkit-transition: all 0.3s ease-out;
+							-moz-transition: all 0.3s ease-out;  
+							-o-transition: all 0.3s ease-out;  
+							transition: all 0.3s ease-out;
+						}
+
+						.header .add .addContainer ul li:hover {
+							/* background: #f5f5f5; */
+							-webkit-transition: all 0.3s ease-out;
+							-moz-transition: all 0.3s ease-out;  
+							-o-transition: all 0.3s ease-out;  
+							transition: all 0.3s ease-out;
+						}
+
+
+
+		.header .userProfile {
+			float: left;	
+			/* border-left: 1px solid #e0e0e0;	 */
+			padding-left: 15px;
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;  
+			-o-transition: all 0.3s ease-out;  
+			transition: all 0.3s ease-out;
+		}
+
+			.header .userProfile p {
+				padding: 7px 25px 0 14px;
+				margin-bottom: 0;
+			}
+
+			.header .userProfile .userImage {
+				width: 35px;
+				height: 35px;
+				border-radius: 25px;
+				padding: 4px;
+				/* border: 1px solid #9b9b9b; */
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+				.header .userProfile .userImage .inner {
+					width: 25px;
+					height: 25px;
+					border-radius: 20px;
+					/* background: #000; */
+					background-size: cover;
+					background-position: center;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+			.header .userProfile ul {
+				list-style: none;
+				position: relative;
+			}
+
+				.header .userProfile > ul > li {
+					float: left;
+					padding: 8px 0 7px;
+				}
+
+					.header .userProfile ul ul {
+						position: absolute;
+						top: 100%;
+						display: none;
+						/* background: #fff; */
+						min-width: 150px;
+						right: 0;
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;  
+						-o-transition: all 0.3s ease-out;  
+						transition: all 0.3s ease-out;
+					}
+
+						.header .userProfile ul:hover ul {
+							display: block;
+						}
+
+						.header .userProfile ul ul li {
+							padding: 0;
+						}
+							
+							.header .userProfile ul ul li a {
+								/* color: #8A8FA1; */
+								width: 100%;
+								display: block;
+								padding: 8px 12px;
+								text-decoration: none;
+								font-size: 14px;
+								-webkit-transition: all 0.3s ease-out;
+								-moz-transition: all 0.3s ease-out;  
+								-o-transition: all 0.3s ease-out;  
+								transition: all 0.3s ease-out;
+							}
+
+								.header .userProfile ul ul li a:hover {
+									/* background: rgba(0, 0, 0, 0.01); */
+									/* color: #7057D2; */
+									-webkit-transition: all 0.3s ease-out;
+									-moz-transition: all 0.3s ease-out;  
+									-o-transition: all 0.3s ease-out;  
+									transition: all 0.3s ease-out;
+								}
+
+								.header .userProfile ul ul li:hover a:active {
+									/* background: rgba(0, 0, 0, 0.03); */
+									/* color: #7057D2; */
+									-webkit-transition: all 0.3s ease-out;
+									-moz-transition: all 0.3s ease-out;  
+									-o-transition: all 0.3s ease-out;  
+									transition: all 0.3s ease-out;
+								}
+
+/**
+ * Content
+ */
+.content {
+	padding-left: 70px;
+	padding-top: 130px;
+}
+
+	.content .panel {
+		width: 100%;
+		/* background: #fff; */
+		padding: 15px;
+		margin-bottom: 25px;
+		-webkit-transition: all 0.3s ease-out;
+		-moz-transition: all 0.3s ease-out;  
+		-o-transition: all 0.3s ease-out;  
+		transition: all 0.3s ease-out;
+	}
+
+		.content .panel.transparent {
+			background: transparent;
+		}
+
+		.content .panel .inner {
+
+		}
+
+		.content .panel.no-padding {
+			padding: 0;
+		}
+
+		.content .panel .panelHeader {
+			/* padding: 10px 15px; */
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;  
+			-o-transition: all 0.3s ease-out;  
+			transition: all 0.3s ease-out;
+		}
+
+			.content .panel .panelHeader h1 {
+				font-size: 14px;
+				line-height: 24px;
+				letter-spacing: 0.3px;
+				/* color: #666; */
+				font-weight: 400;
+				margin: 0;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+			.content .panel .panelHeader .left {
+				float: left;
+			}
+
+			.content .panel .panelHeader .right {
+				float: right;
+			}
+
+				.content .panel .panelHeader p {
+					margin: 0;
+				    font-size: 12px;
+				    padding-top: 2px;
+				    text-align: right;
+				}
+
+				.content .panel .panelHeader .right ul {
+					list-style: none;
+				}
+
+				.content .panel .panelHeader .right ul li {
+					display: inline-block;
+					font-size: 14px;
+				}
+
+		.content .panel .panelContent {
+
+		}
+
+		.content .panel .panelFooter {
+
+		}
+
+	.content .column {
+		padding: 0 12.5px;
+	}
+
+		.content .column:first-child {
+			padding-left: 0;
+		}
+
+		.content .column:last-child {
+			padding-right: 0;
+		}
+
+	.content .footer {
+		margin-top: 25px;
+	}
+
+/**
+ * Login Page
+ */
+.loginPage {
+
+}
+
+	.loginPage .loginWrapper {
+		width: 430px;
+		margin: 200px auto 0;
+	}
+
+		.loginPage .loginWrapper img {
+			width: 70%;
+			display: block;
+			margin: 0 auto 50px;
+		}
+
+		.loginPage .loginWrapper p.title {
+			text-align: center;
+			margin-bottom: 40px;
+			font-size: 18px;
+			font-weight: 300;
+		}
+
+		.loginPage .loginStatus {
+			display: none;
+			text-align: center;
+		}
+
+			.loginPage .loginStatus.failed {
+				background-color: #fddddd;
+				color: #933432;
+				padding: 12px 17px 10px;
+				border-radius: 24px;
+				font-size: 14px;
+				margin-bottom: 40px;
+			}
+
+			.loginPage .loginStatus.success {
+				background-color: #cff5f2;
+				color: #0a7c71;
+				padding: 12px 17px 10px;
+				border-radius: 24px;
+				font-size: 14px;
+				margin-bottom: 40px;
+			}
+
+		.loginPage .loginWrapper .input-container {
+			margin-bottom: 30px;
+		}
+
+		.loginPage .loginWrapper input {
+			width: 430px;
+			padding: 20px;
+			border-radius: 40px;
+			border: 1px solid #f7f6f9;
+			background: #f7f6f9;
+			margin: 0 auto;
+			font-size: 16px;
+			font-weight: 300;
+			font-family: inherit;
+			display: block;
+			outline: none;
+		}
+
+		.loginPage .loginWrapper label.error {
+			width: 100%;
+			display: block;
+			color: #f0665c;
+			padding: 10px 20px 0;
+		}
+
+		.loginPage .loginWrapper p.forgotPassword a {
+			margin: 0 0 30px;
+			color: #aba5b6;
+			font-weight: 300;
+			text-decoration: none;
+			display: inline-block;
+			padding-right: 20px;
+		}
+
+		.loginPage .loginWrapper button {
+			width: 170px;
+			padding: 15px;
+			border-radius: 40px;
+			border: 1px solid #ee655a;
+			background: #ee655a;
+			margin: 20px auto 40px;
+			cursor: pointer;
+			font-size: 18px;
+			display: block;
+			font-weight: 300;
+			color: #fff;
+			outline: none;
+			-webkit-box-shadow: 0px 5px 10px 2px rgba(238, 101, 89, 0.19) !important;
+			-moz-box-shadow: 0px 5px 10px 2px rgba(238, 101, 89, 0.19) !important;
+			box-shadow: 0px 5px 10px 2px rgba(238, 101, 89, 0.19) !important;
+		}
+
+			.loginPage .loginWrapper button:hover {
+				border: 1px solid #bf4b45;
+				background: #bf4b45;
+				webkit-transition: all 0.5s ease;
+				-moz-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;
+			}
+
+
+
+
+/**
+ * Customers
+ */
+.customerPage {
+
+}
+
+	.customerPage .pageContent {
+
+	}
+
+		.customerPage .pageContent ul {
+			list-style: none;
+		}
+
+		.customerPage .pageContent .customer {
+			width: 100%;
+			background: #fff;
+			margin-bottom: 15px;
+			padding: 15px 25px;
+			-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;  
+			-o-transition: all 0.3s ease-out;  
+			transition: all 0.3s ease-out;
+		}
+
+			.customerPage .pageContent .customer:hover {
+				background: rgba(0, 0, 0, 0.008);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+			.customerPage .pageContent .customer:active {
+				background: rgba(0, 0, 0, 0.03);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+			.customerPage .pageContent .customer .name {
+				font-size: 16px;
+				font-weight: 300;
+				color: #000;
+				margin-bottom: 0;
+			}
+
+			.customerPage .pageContent .customer .company {
+				color: #8A8FA1;
+				font-size: 14px;
+				margin-bottom: 0;
+				font-weight: 300;
+			}
+
+			.customerPage .pageContent .customer .thisflexes {
+				display: flex;
+				height: 44px;
+				text-align: right
+			}
+
+				.customerPage .pageContent .customer .thisflexes:nth-child(2) { text-align: left; }
+
+			.customerPage .pageContent .customer .email {
+				color: #8A8FA1;
+				font-size: 14px;
+				margin-bottom: 0;
+				align-self: flex-end;
+				font-weight: 300;
+				width: 100%;
+			}
+
+			.customerPage .pageContent .customer .phone {
+				color: #8A8FA1;
+				font-size: 14px;
+				margin-bottom: 0;
+				align-self: flex-end;
+				font-weight: 300;
+				width: 100%;
+			}
+
+			.customerPage .paginationContainer {
+				margin-top: 15px;
+			}
+
+				.customerPage .paginationContainer ul {
+					list-style: none;
+				}
+
+				.customerPage .paginationContainer ul li {
+					display: inline-block;
+				}
+
+					.customerPage .paginationContainer ul li a {
+						padding: 10px;
+						background: #fff;
+						width: 40px;
+						display: block;
+						text-align: center;
+						font-size: 14px;
+						color: #484848;
+						line-height: 20px;
+						margin-right: 10px;
+						-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+						-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+						box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;  
+						-o-transition: all 0.3s ease-out;  
+						transition: all 0.3s ease-out;
+					}
+
+						.customerPage .paginationContainer ul li.active a {
+							color: #7052d5;
+						}
+
+						.customerPage .paginationContainer ul li a:hover {
+							color: #7052d5;
+							background: rgba(255, 255, 255, 0.008);
+							-webkit-transition: all 0.3s ease-out;
+							-moz-transition: all 0.3s ease-out;  
+							-o-transition: all 0.3s ease-out;  
+							transition: all 0.3s ease-out;
+						}
+
+
+
+
+/**
+ * Clients Profile
+ */
+.clientPage {
+
+}
+
+	/* Profile Picture */
+	.clientPage .clientProfilePicture {
+		width: 100%;
+		height: 300px;
+		background-color: #eee;
+		background-size: cover;
+		background-position: center;
+	}
+
+	/* Client Controls */
+	.clientPage .clientControls ul {
+			list-style: none;
+		}
+
+			.clientPage .clientControls ul li {
+				width: 50%;
+				float: left;
+				border-bottom: 1px solid #eff0f3;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+
+				.clientPage .clientControls ul li:nth-child(2n+1) {
+					border-right: 1px solid #eff0f3;
+				}
+
+				.clientPage .clientControls ul li:nth-last-child(-n+2) {
+					border-bottom: 0;
+				}
+
+				.clientPage .clientControls ul li:hover {
+					background-color: rgba(239, 240, 243, 0.3);
+				}
+
+			.clientPage .clientControls ul li a {
+				display: block;
+				font-size: 14px;
+				padding: 13px 0;
+				text-align: center;
+			}
+
+
+	.clientPage .clientProjects {
+
+	}
+
+		.clientPage .clientProjects .panelHeader {
+			padding: 10px 15px;
+			border-bottom: 1px solid #ebebeb;
+		}
+
+		.clientPage .clientProjects .noProjectsWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.clientPage .clientProjects .noProjectsWrapper p {
+				font-weight: 400;
+				color: #9b9b9b;
+				margin-bottom: 0;
+			}
+
+		.clientPage .clientProjects .existingProjectsWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.clientPage .clientProjects .existingProjectsWrapper .individualProject {
+				margin-bottom: 15px;
+			}
+
+				.clientPage .clientProjects .existingProjectsWrapper .individualProject .half:nth-child(1) { width: 66%; }
+				.clientPage .clientProjects .existingProjectsWrapper .individualProject .half:nth-child(2) { width: 33%; }
+
+				.clientPage .clientProjects .existingProjectsWrapper .individualProject:last-child {
+					margin-bottom: 0;
+				}
+
+				.clientPage .clientProjects .existingProjectsWrapper .individualProject .projectName {
+					font-size: 16px;
+					line-height: 24px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.clientPage .clientProjects .existingProjectsWrapper .individualProject .projectValue {
+					text-align: right;
+					font-size: 13px;
+					line-height: 20px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.clientPage .clientProjects .existingProjectsWrapper .individualProject .projectDescription {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.clientPage .clientProjects .existingProjectsWrapper .individualProject .projectActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.clientPage .clientProjects .existingProjectsWrapper .individualProject .projectActions a {
+
+					}
+
+
+	.clientPage .clientInvoices {
+
+	}
+
+		.clientPage .clientInvoices .panelHeader {
+			padding: 10px 15px;
+			border-bottom: 1px solid #ebebeb;
+		}
+
+		.clientPage .clientInvoices .noInvoicesWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.clientPage .clientInvoices .noInvoicesWrapper p {
+				font-weight: 400;
+				color: #9b9b9b;
+				margin-bottom: 0;
+			}
+
+		.clientPage .clientInvoices .existingInvoicesWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.clientPage .clientInvoices .existingInvoicesWrapper .individualInvoice {
+				margin-bottom: 15px;
+			}
+
+				.clientPage .clientInvoices .existingInvoicesWrapper .individualInvoice .half:nth-child(1) { width: 66%; }
+				.clientPage .clientInvoices .existingInvoicesWrapper .individualInvoice .half:nth-child(2) { width: 33%; }
+
+				.clientPage .clientInvoices .existingInvoicesWrapper .individualInvoice:last-child {
+					margin-bottom: 0;
+				}
+
+				.clientPage .clientInvoices .existingInvoicesWrapper .individualInvoice .invoiceName {
+					font-size: 16px;
+					line-height: 24px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.clientPage .clientInvoices .existingInvoicesWrapper .individualInvoice .invoiceDue {
+					text-align: right;
+					font-size: 13px;
+					line-height: 20px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.clientPage .clientInvoices .existingInvoicesWrapper .individualInvoice .invoiceStatus {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.clientPage .clientInvoices .existingInvoicesWrapper .individualInvoice .invoiceActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.clientPage .clientInvoices .existingInvoicesWrapper .individualInvoice .invoiceActions a {
+
+					}
+
+
+	.clientPage .clientMeetings {
+
+	}
+
+		.clientPage .clientMeetings .panelHeader {
+			padding: 10px 15px;
+			border-bottom: 1px solid #ebebeb;
+		}
+
+		.clientPage .clientMeetings .noMeetingsWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.clientPage .clientMeetings .noMeetingsWrapper p {
+				font-weight: 400;
+				color: #9b9b9b;
+				margin-bottom: 0;
+			}
+
+
+	.clientPage .clientInformation {
+
+	}
+
+		.clientPage .clientInformation .clientName {
+			margin-bottom: 0;
+		}
+
+		.clientPage .clientInformation .clientCompany {
+			font-weight: 300;
+		}
+
+		.clientPage .clientInformation .clientInfoMisc {
+			padding-top: 15px;
+		}
+
+			.clientPage .clientInformation .clientInfoMisc p {
+				margin-bottom: 2px;
+				font-weight: 300;
+				font-size: 14px;
+			}
+
+				.clientPage .clientInformation .clientInfoMisc p span {
+					display: inline-block;
+					width: 150px;
+					font-weight: 400;
+				}
+
+					.clientPage .clientInformation .clientInfoMisc p span span {
+						width: 20px;
+						display: inline-block;
+						text-align: right;
+						padding-right: 5px;
+					}
+
+
+	.clientPage .clientTimeline {
+		
+	}
+
+		.clientPage .clientTimeline .panelHeader {
+			padding: 10px 15px;
+			border-bottom: 1px solid #ebebeb
+		}
+
+		.clientPage .clientTimeline .panelContent {
+			padding: 25px 15px;
+			position: relative;
+			padding-top: 15px;
+		}
+
+			.clientPage .clientTimeline .line {
+				width: 1px;
+				height: calc(100% - 50px);
+				position: absolute;
+				top: 25px;
+				left: 15px;
+				background: rgba(138, 143, 161, 0.2);
+			}
+
+			.clientPage .clientTimeline .timelineContainer {
+				padding-left: 10px;
+			}
+
+				.clientPage .clientTimeline .timelineContainer ul {
+					list-style: none;
+				}
+
+				.clientPage .clientTimeline .timelineContainer ul li {
+					position: relative;
+					margin-bottom: 15px;
+				}
+
+					.clientPage .clientTimeline .timelineContainer ul li:last-child {
+						margin-bottom: 0;
+					}
+
+					.clientPage .clientTimeline .timelineContainer ul li:before {
+						display: block;
+						content: " ";
+						width: 5px;
+						height: 5px;
+						background: #8A8FA1;
+						border-radius: 50%;
+						position: absolute;
+						left: -12px;
+						top: 5px;
+					}
+
+					.clientPage .clientTimeline ul li .time p {
+						margin-bottom: 0;
+						color: #8A8FA1;
+						font-weight: 300;
+						font-size: 10px;
+					}
+
+					.clientPage .clientTimeline ul li .task p {
+						margin-bottom: 0;
+						color: #000;
+						font-size: 12px;
+						font-weight: 300
+					}
+
+	.clientPage .clientFiles {
+
+	}
+
+		.clientPage .clientFiles .existingFilesWrapper {
+			width: 100%;
+			padding-top: 10px;
+		}
+
+			.clientPage .clientFiles .existingFilesWrapper .individualFile {
+				margin-bottom: 15px;
+			}
+
+				.clientPage .clientFiles .existingFilesWrapper .individualFile .half:nth-child(1) { width: 60%; }
+				.clientPage .clientFiles .existingFilesWrapper .individualFile .half:nth-child(2) { width: 40%; }
+
+				.clientPage .clientFiles .existingFilesWrapper .individualFile:last-child {
+					margin-bottom: 0;
+				}
+
+				.clientPage .clientFiles .existingFilesWrapper .individualFile .fileName {
+					font-size: 14px;
+					line-height: 22px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.clientPage .clientFiles .existingFilesWrapper .individualFile .fileDate {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.clientPage .clientFiles .existingFilesWrapper .individualFile .fileTag {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.clientPage .clientFiles .existingFilesWrapper .individualFile .fileActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.clientPage .clientFiles .existingFilesWrapper .individualFile .fileActions a {
+
+					}
+
+	.clientPage .clientTaskAdd {
+
+	}
+
+		.clientPage .clientTaskAdd .panelHeader {
+
+		}
+
+			.clientPage .clientTaskAdd .panelHeader h1 {
+				margin-bottom: 5px;
+			}
+
+		.clientPage .clientTaskAdd .panelContent {
+			position: relative;
+		}
+
+			.clientPage .clientTaskAdd .panelContent input {
+				margin: 10px 0;
+				width: 100%;
+				border: 0;
+				padding: 0;
+				font-size: 16px;
+				color: #000;
+				box-shadow: none;
+				font-family: inherit;
+				font-weight: 300;
+				outline: 0;
+			}
+
+			.clientPage .clientTaskAdd .panelContent ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+				color: #000;
+			}
+			.clientPage .clientTaskAdd .panelContent ::-moz-placeholder { /* Firefox 19+ */
+				color: #000;
+			}
+			.clientPage .clientTaskAdd .panelContent :-ms-input-placeholder { /* IE 10+ */
+				color: #000;
+			}
+			.clientPage .clientTaskAdd .panelContent :-moz-placeholder { /* Firefox 18- */
+				color: #000;
+			}
+
+			.clientPage .clientTaskAdd .panelContent ul {
+				list-style: none;
+			}
+
+				.clientPage .clientTaskAdd .panelContent ul li {
+					float: left;
+				}
+
+				.clientPage .clientTaskAdd .panelContent ul li ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+					color: #7057D2;
+				}
+				.clientPage .clientTaskAdd .panelContent ul li ::-moz-placeholder { /* Firefox 19+ */
+					color: #7057D2;
+				}
+				.clientPage .clientTaskAdd .panelContent ul li :-ms-input-placeholder { /* IE 10+ */
+					color: #7057D2;
+				}
+				.clientPage .clientTaskAdd .panelContent ul li :-moz-placeholder { /* Firefox 18- */
+					color: #7057D2;
+				}
+
+			.clientPage .clientTaskAdd .panelContent ul li input {
+				font-size: 12px;
+				text-align: center;
+				cursor: pointer;
+				margin: 0;
+				color: #7057D2;
+			}
+
+			.clientPage .clientTaskAdd .panelContent ul li select {
+				border: 0;
+				cursor: pointer;
+				color: #7057D2;
+				font-size: 12px;
+				font-family: inherit;
+				font-weight: 300;
+				outline: 0;
+				text-align: center;
+				background: transparent;
+			}
+
+			.clientPage .clientTaskAdd .panelContent ul li button {
+				border: 0;
+				background: transparent;
+				color: #7057D2;
+				font-size: 12px;
+				font-weight: 300;
+				font-family: inherit;
+				outline: 0;
+				cursor: pointer;
+				position: absolute;
+				bottom: 5px;
+				right: 10px;
+				opacity: 0;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+				.clientPage .clientTaskAdd .panelContent:focus-within .addFocus {
+					opacity: 1;
+				} 
+
+				.clientPage .clientTaskAdd .panelContent ul li button:hover {
+					letter-spacing: 1px;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+
+	.clientPage .clientTasksContainer ul {
+		list-style: none
+	}
+
+	.clientPage .clientTask {
+
+	}
+
+		.clientPage .clientTask .panelHeader h1 {
+			margin-bottom: 10px;
+		}
+
+		.clientPage .clientTask .panelContent p {
+			color: #000;
+			font-size: 14px;
+			line-height: 24px;
+			font-weight:300;
+		}
+
+			.clientPage .clientTask .panelContent ul {
+				list-style: none;
+			}
+
+				.clientPage .clientTask .panelContent ul li {
+					float: left;
+				}
+
+				.clientPage .clientTask .panelContent ul li ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+					color: #7057D2;
+				}
+				.clientPage .clientTask .panelContent ul li ::-moz-placeholder { /* Firefox 19+ */
+					color: #7057D2;
+				}
+				.clientPage .clientTask .panelContent ul li :-ms-input-placeholder { /* IE 10+ */
+					color: #7057D2;
+				}
+				.clientPage .clientTask .panelContent ul li :-moz-placeholder { /* Firefox 18- */
+					color: #7057D2;
+				}
+
+			.clientPage .clientTask .panelContent ul li input {
+				font-size: 12px;
+				text-align: center;
+				cursor: pointer;
+				margin: 0;
+				color: #7057D2;
+
+				width: 100%;
+				border: 0;
+				padding: 0;
+				font-family: inherit;
+				font-weight: 300;
+				outline: 0;
+			}
+
+			.clientPage .clientTask .panelContent ul li select {
+				border: 0;
+				cursor: pointer;
+				color: #7057D2;
+				font-size: 12px;
+				font-family: inherit;
+				font-weight: 300;
+				background: transparent;
+				outline: 0;
+				text-align: center;
+			}
+		
+		.clientPage .paginationContainer {
+			width: 100%;
+			margin-top: 25px;
+		}
+
+			.clientPage .paginationContainer  ul {
+				list-style: none;
+			}
+
+			.clientPage .paginationContainer  ul li {
+				width: auto;
+				margin: 0;
+				padding: 0;
+				float: left;
+			}
+
+			.clientPage .paginationContainer  ul li a {
+				padding: 10px;
+				background: #fff;
+				width: 40px;
+				display: block;
+				text-align: center;
+				font-size: 14px;
+				color: #484848;
+				line-height: 20px;
+				margin-right: 10px;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+
+				.clientPage .paginationContainer  ul li.active a {
+					color: #7052d5;
+				}
+
+
+/**
+ * Modals
+ */
+.modal {
+	width: 100%;
+	height: 100%;
+	display:none;
+	position:fixed; 
+	top:0; 
+	left:0;
+}
+
+	.modal .cover {
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		z-index: 1;
+		background: rgba(255, 255, 255, 0.8)
+	}
+
+	.modal .inner {
+		width: 700px;
+		min-height: 200px;
+		top: 150px;
+		left: 50%;
+		margin-left: -350px;
+		border: 1px solid rgba(0, 0, 0, 0.02);
+		position: fixed;
+		background: #fff;
+		padding: 25px;
+		z-index: 2;
+		-webkit-box-shadow: 3px 5px 9px 0px rgba(186,186,186,0.19);
+		-moz-box-shadow: 3px 5px 9px 0px rgba(186,186,186,0.19);
+		box-shadow: 3px 5px 9px 0px rgba(186,186,186,0.19);
+	}
+
+		.modal .close {
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			top: 25px;
+			right: 25px;
+			cursor: pointer;
+			opacity: 0.4;
+			-webkit-box-shadow: 3px 5px 9px 0px rgba(186,186,186,0.19);
+			-moz-box-shadow: 3px 5px 9px 0px rgba(186,186,186,0.19);
+			box-shadow: 3px 5px 9px 0px rgba(186,186,186,0.19);
+		}
+
+			.modal .close:hover {
+				opacity: 0.8;
+				-webkit-box-shadow: 3px 5px 9px 0px rgba(186,186,186,0.19);
+				-moz-box-shadow: 3px 5px 9px 0px rgba(186,186,186,0.19);
+				box-shadow: 3px 5px 9px 0px rgba(186,186,186,0.19);
+			}
+
+			.modal .close svg {
+				fill: #000;
+				width: 15px;
+			}
+
+		.modal .modalHeader {
+			
+		}
+
+			.modal .modalHeader h1 {
+				font-size: 14px;
+				line-height: 14px;
+				font-weight: 600;
+				margin: 0;
+				margin-bottom: 15px;
+			}
+
+			.modal .modalHeader p {
+				margin-bottom: 25px;
+				font-size: 16px;
+				line-height: 25px;
+			}
+
+		.modal .modalContent {
+			
+		}
+
+			.modal .modalContent .row {
+				margin-bottom: 10px;	
+			}
+
+		/* Modal Form */
+		.modal .modalContent label {
+			font-weight: 500;
+			font-size: 12px;
+			margin-bottom: 5px;
+			width: 100%;
+			color: #000;
+			display: block;
+		}
+
+			.modal .modalContent label.error {
+				font-size: 10px;
+				font-weight: 300;
+				margin-bottom: 0;
+				color: #FF7B7B;
+				margin-top: 3px;
+				display: none;
+			}
+
+		.modal .modalContent input {
+			font-size: 14px;
+			width: 100%;
+			border: 1px solid #ddd;
+			padding: 5px;
+			color: #000;
+			font-family: inherit;
+			font-weight: 400;
+			outline: 0;
+			-webkit-box-shadow: none !important;
+			-moz-box-shadow: none !important;
+			box-shadow: none !important;
+		}
+
+			.modal .modalContent input.error {
+				border-color: #FF7B7B;
+			}
+
+		.modal .modalContent textarea {
+			font-size: 14px;
+			width: 100%;
+			height: 100px;
+			border: 1px solid #ddd;
+			padding: 5px;
+			color: #000;
+			font-family: inherit;
+			font-weight: 400;
+			outline: 0;
+			margin-bottom: 10px;
+			-webkit-box-shadow: none !important;
+			-moz-box-shadow: none !important;
+			box-shadow: none !important;
+		}
+
+		.modal .modalContent button {
+			width: 150px;
+			padding: 10px;
+			background: #000;
+			color: #fff;
+			font-family: inherit;
+			font-size: 12px;
+			font-weight: 400;
+			margin-top: 15px;
+			border: 0;
+			cursor: pointer;
+			outline:0;
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+		}
+
+			.modal .modalContent button span {
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+
+		.modal .modalContent select {
+			font-size: 14px;
+			width: 100%;
+			border: 1px solid #ddd;
+			padding: 5px;
+			color: #000;
+			font-family: inherit;
+			font-weight: 400;
+			outline: 0;
+			margin-bottom: 10px;
+			-webkit-box-shadow: none !important;
+			-moz-box-shadow: none !important;
+			box-shadow: none !important;
+		}
+
+		.modal .modalContent .checkbox {
+			font-size: 14px;
+			width: 100%;
+			border: 1px solid #ddd;
+			padding: 5px;
+			color: #000;
+			font-family: inherit;
+			font-weight: 400;
+			outline: 0;
+			-webkit-box-shadow: none !important;
+			-moz-box-shadow: none !important;
+			box-shadow: none !important;
+		}
+
+			.modal .modalContent .checkbox label {
+				margin-bottom: 0;
+				cursor: pointer;
+			}
+
+			.modal .modalContent .checkbox input[type="checkbox"] {
+				position: absolute;
+			    opacity: 0;
+			    pointer-events: none;
+			}
+
+			.modal .modalContent .checkbox input[type="checkbox"]+span {
+				position: relative;
+			    padding-left: 35px;
+			    cursor: pointer;
+			    display: inline-block;
+			    height: 19px;
+			    font-weight: 400;
+			    font-size: 14px;
+			    line-height: 19px;
+			    -webkit-user-select: none;
+			    -moz-user-select: none;
+			    -ms-user-select: none;
+			    user-select: none;
+			}
+
+			.modal .modalContent .checkbox input[type="checkbox"]+span:before, 
+			.modal .modalContent .checkbox input[type="checkbox"]+span:after {
+				content: '';
+				left: 0;
+				position: absolute;
+				-webkit-transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+				transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+				z-index: 1;
+			}
+
+			.modal .modalContent .checkbox input[type="checkbox"]+span:before, 
+			.modal .modalContent .checkbox input[type="checkbox"]:not(.filled-in)+span:after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 19px;
+				height: 19px;
+				z-index: 0;
+				-webkit-transition: .2s;
+				transition: .2s;
+			}
+
+				.modal .modalContent .checkbox input[type="checkbox"]+span:before {
+					top: 2px;
+				    left: 1px;
+				    width: 8px;
+				    height: 13px;
+				    border-top: 2px solid transparent;
+				    border-left: 2px solid transparent;
+				    border-right: 2px solid #fff;
+				    border-bottom: 2px solid #fff;
+				    -webkit-transform: rotateZ(40deg);
+				    transform: rotateZ(40deg);
+				    -webkit-transform-origin: 100% 100%;
+				    transform-origin: 100% 100%;
+				    z-index: 1;
+				}
+
+					.modal .modalContent .checkbox input[type="checkbox"]:checked+span:before {
+						top: 2px;
+					    left: 1px;
+					    width: 8px;
+					    height: 13px;
+					    border-top: 2px solid transparent;
+					    border-left: 2px solid transparent;
+					    border-right: 2px solid #fff;
+					    border-bottom: 2px solid #fff;
+					    -webkit-transform: rotate(40deg);
+					    transform: rotate(40deg);
+					    -webkit-backface-visibility: hidden;
+					    backface-visibility: hidden;
+					    -webkit-transform-origin: 100% 100%;
+					    transform-origin: 100% 100%;
+					    z-index: 1;
+					}
+
+				.modal .modalContent .checkbox input[type="checkbox"]+span:after {
+					top: 0;
+					width: 20px;
+					height: 20px;
+					border: 1px solid #ddd;
+					background-color: transparent;
+					z-index: 0;
+				}
+
+					.modal .modalContent .checkbox input[type="checkbox"]:checked+span:after {
+						border-color: #00afb2;
+						background-color: #00afb2;
+					}
+
+
+		.modal .modalContent .errorContainer {
+			text-align: right;
+			padding: 20px 0;
+		}
+
+			.modal .modalContent ::-webkit-input-placeholder {
+				color: #8a8fa1;
+				opacity: 0.5;
+				font-weight: 300;
+			}
+
+			.modal .modalContent :-ms-input-placeholder {
+				color: #8a8fa1;
+				opacity: 0.5;
+				font-weight: 300;
+			}
+
+			.modal .modalContent ::placeholder {
+				color: #8a8fa1;
+				opacity: 0.5;
+				font-weight: 300;
+			}
+
+
+			.modal .modalContent button:hover {
+				opacity: 0.8;
+			}
+
+			.modal .modalContent button:focus {
+				opacity: 0.7;
+			}
+
+			.modal .modalContent input:focus,
+			.modal .modalContent textarea:focus {
+				border: 1px solid #000;
+			}
+
+			.modal .modalContent .third:nth-child(1),
+			.modal .modalContent .third:nth-child(2),
+			.modal .modalContent .half:nth-child(1) {
+				padding-right: 5px;
+			}
+
+			.modal .modalContent .third:nth-child(2),
+			.modal .modalContent .third:nth-child(3),
+			.modal .modalContent .half:nth-child(2) {
+				padding-left: 5px;
+			}
+
+			.modal .modalContent .padding-left {
+				padding-left: 5px;
+			}
+
+			.modal .modalContent .padding-right {
+				padding-right: 5px;
+			}
+
+			.modal .modalContent .nopadding {
+				padding-left: 0;
+				padding-right: 0;
+			}
+
+			.modal .modalContent .nopadding-left {
+				padding-left : 0 !important;
+			}
+			.modal .modalContent .nopadding-right {
+				padding-right : 0 !important;
+			}
+
+
+	/**
+	 * Modal: Edit this Client
+	 */
+	.modal.this-editClientProfile {
+
+	}
+		
+		.modal.this-editClientProfile label {
+			font-weight: 500;
+			font-size: 12px;
+			margin-bottom: 5px;
+			width: 100%;
+			color: #000;
+		}
+
+		.modal.this-editClientProfile input {
+			font-size: 14px;
+			width: 100%;
+			border: 1px solid #ddd;
+			padding: 5px;
+			color: #000;
+			font-family: inherit;
+			font-weight: 400;
+			outline: 0;
+			margin-bottom: 10px;
+			-webkit-box-shadow: none !important;
+			-moz-box-shadow: none !important;
+			box-shadow: none !important;
+		}
+
+		.modal.this-editClientProfile button {
+			width: 150px;
+			padding: 10px;
+			background: #000;
+			color: #fff;
+			font-family: inherit;
+			font-size: 12px;
+			font-weight: 400;
+			border: 0;
+			cursor: pointer;
+			outline:0;
+		}
+
+			.modal.this-editClientProfile button:hover {
+				opacity: 0.8;
+			}
+
+			.modal.this-editClientProfile button:focus {
+				opacity: 0.7;
+			}
+
+			.modal.this-editClientProfile input:focus {
+				border: 1px solid #000;
+			}
+
+			.modal.this-editClientProfile .third:nth-child(1),
+			.modal.this-editClientProfile .third:nth-child(2),
+			.modal.this-editClientProfile .half:nth-child(1) {
+				padding-right: 5px;
+			}
+
+			.modal.this-editClientProfile .third:nth-child(2),
+			.modal.this-editClientProfile .third:nth-child(3),
+			.modal.this-editClientProfile .half:nth-child(2) {
+				padding-left: 5px;
+			}
+
+
+
+	/**
+	 * Modal: viewAddressOnMap
+	 */
+	.modal.this-viewAddressOnMap {
+
+	}
+
+		.modal.this-viewAddressOnMap .googleMapsContainer {
+			width: 100%;
+			height: 450px;
+		}
+
+			.modal.this-viewAddressOnMap .googleMapsContainer iframe {
+				width: 100%;
+				height: 450px;
+			}
+
+
+
+
+	/**
+	 * Modal: addNewClient
+	 */
+	.modal.this-addNewClient {
+
+	}
+
+		.modal.this-addNewClient label {
+			font-weight: 500;
+			font-size: 12px;
+			margin-bottom: 5px;
+			width: 100%;
+			display: block;
+			color: #000;
+		}
+
+		.modal.this-addNewClient input {
+			font-size: 14px;
+			width: 100%;
+			border: 1px solid #ddd;
+			padding: 5px;
+			color: #000;
+			font-family: inherit;
+			font-weight: 400;
+			outline: 0;
+			margin-bottom: 10px;
+			-webkit-box-shadow: none !important;
+			-moz-box-shadow: none !important;
+			box-shadow: none !important;
+		}
+
+		.modal.this-addNewClient button {
+			width: 150px;
+			padding: 10px;
+			background: #000;
+			color: #fff;
+			font-family: inherit;
+			font-size: 12px;
+			font-weight: 400;
+			border: 0;
+			cursor: pointer;
+			outline:0;
+			margin-top: 15px;
+		}
+
+			.modal.this-addNewClient button:hover {
+				opacity: 0.8;
+			}
+
+			.modal.this-addNewClient button:focus {
+				opacity: 0.7;
+			}
+
+			.modal.this-addNewClient input:focus {
+				border: 1px solid #000;
+			}
+
+			.modal.this-addNewClient .third:nth-child(1),
+			.modal.this-addNewClient .third:nth-child(2),
+			.modal.this-addNewClient .half:nth-child(1) {
+				padding-right: 5px;
+			}
+
+			.modal.this-addNewClient .third:nth-child(2),
+			.modal.this-addNewClient .third:nth-child(3),
+			.modal.this-addNewClient .half:nth-child(2) {
+				padding-left: 5px;
+			}
+
+
+
+	/**
+	 * Modal: addNewProject
+	 */
+	.modal.this-addNewProject {
+		
+	}
+
+
+
+
+
+
+	/**
+	 * Modal: addNewExpense
+	 */
+	.modal.this-addNewExpense {
+		
+	}
+
+
+
+
+
+
+	/**
+	 * Modal: addNewInvoice
+	 */
+	.modal.this-addNewInvoice {
+		
+	}
+
+
+
+/**
+ * Staff Page
+ */
+.staffPage {
+	margin-bottom: 100px;
+}
+
+	.staffPage .microWrapper {
+		width: 90%;
+	}
+
+
+	.staffPage .staffCategoryWrapper {
+		padding-right: 50px;
+	}
+
+		.staffPage .staffCategoryWrapper .panelHeader {
+			background-color: #fff;
+			padding: 10px 15px;
+			margin-bottom: 15px;
+			-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);			
+		}
+
+			.staffPage .staffCategoryWrapper .panelHeader h1 {
+				font-size: 14px;
+				line-height: 14px;
+				letter-spacing: 0.3px;
+				color: #000;
+				font-weight: 500;
+				margin: 0;
+			}
+
+		.staffPage .staffCategoryWrapper ul {
+			list-style: none;
+		}
+
+			.staffPage .staffCategoryWrapper ul li {
+				margin-bottom: 15px;
+			}
+
+			.staffPage .staffCategoryWrapper ul li .staffCategory {
+				background: #fff;
+				cursor: pointer;
+				padding: 18px;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);	
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+
+				.staffPage .staffCategoryWrapper ul li:hover .staffCategory {
+					background: rgba(0, 0, 0, 0.008)
+				}
+
+				.staffPage .staffCategoryWrapper ul li .staffCategory h1 {
+					font-size: 15px;
+					font-weight: 400;
+					line-height: 15px;
+					margin: 0;
+				}
+
+				.staffPage .staffCategoryWrapper ul li .staffCategory p {
+					font-size: 12px;
+					line-height: 15px;
+					font-weight: 300;
+					margin-bottom: 0;
+					text-align: right;
+					color: #8A8FA1;
+				}
+
+		.staffPage .staffCategoryActions {
+
+		}
+
+			.staffPage .staffCategoryActions .inline {
+				float: left;
+			}
+
+			.staffPage .staffCategoryActions a {
+				width: 40px;
+				height: 40px;
+				display: block;
+				background: #fff;
+				line-height: 40px;
+				text-align: center;
+				font-size: 20px;
+				color: #4b4b4b;
+				margin-right: 15px;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);	
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+
+			.staffPage .staffCategoryActions input {
+				width: 326px;
+				height: 40px;
+				padding: 15px;
+				background: #fff;
+				font-size: 14px;
+				letter-spacing: 0.3px;
+				color: #4B4B4B;
+				font-weight: 400;		
+				font-family: inherit;	
+			}
+
+			.staffPage .staffCategoryActions .errorContainer {
+				padding: 15px 0 0 56px;
+				font-size: 11px;
+				font-weight: 400;
+				color: #000;
+				text-transform: lowercase;
+			}
+
+
+	.staffPage .staffContainer {
+
+	}
+
+		.staffPage .staffContainer ul {
+			list-style: none;
+		}
+
+			.staffPage .staffContainer li {
+				margin-bottom: 20px;
+			}
+
+			.staffPage .staffContainer ul li .staffMember {
+				background: #fff;
+				cursor: pointer;
+				padding: 18px;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+
+				.staffPage .staffContainer .staffMember h2 {
+					font-size: 14px;
+				    line-height: 18px;
+				    font-weight: 400;
+				    margin: 0 0 5px;
+				    color: #000;
+				}
+
+				.staffPage .staffContainer .staffMember p {
+					font-size: 12px;
+					line-height: 12px;
+					font-weight: 300;
+					margin-bottom: 0;
+					color: #8A8FA1;
+				}
+
+					.staffPage .staffContainer .staffMember .name {
+						width: 25%;
+						float: left;
+						
+					}
+
+					.staffPage .staffContainer .staffMember .email {
+						width: 35%;
+						float: left;
+						
+					}
+
+					.staffPage .staffContainer .staffMember .phone {
+						width: 15%;
+						float: left;
+						
+					}
+
+					.staffPage .staffContainer .staffMember .member {
+						width: 25%;
+						float: left;
+						text-align: right;
+					}
+
+			.staffPage .paginationContainer {
+
+			}
+
+				.staffPage .paginationContainer ul {
+					list-style: none;
+				}
+
+				.staffPage .paginationContainer ul li {
+					display: inline-block;
+				}
+
+				.staffPage .paginationContainer ul li a {
+					padding: 10px;
+					background: #fff;
+					width: 40px;
+					display: block;
+					text-align: center;
+					font-size: 14px;
+					color: #484848;
+					line-height: 20px;
+					margin-right: 10px;
+					-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+					-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+					box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;
+					-o-transition: all 0.3s ease-out;
+					transition: all 0.3s ease-out;
+				}
+
+				.staffPage .paginationContainer ul li.active a {
+					color: #7052d5;
+				}
+
+			
+/**
+ * Staff Member Page
+ */
+.staffMemberPage {
+
+}
+
+	.staffMemberPage .staffProfilePicture {
+		width: 100%;
+		height: 300px;
+		background-color: #eee;
+		background-size: cover;
+		background-position: center;
+	}
+
+	
+	.staffMemberPage .staffControls {
+
+	}
+
+		.staffMemberPage .staffControls ul {
+			list-style: none;
+		}
+
+			.staffMemberPage .staffControls ul li {
+				width: 50%;
+				float: left;
+				border-bottom: 1px solid #eff0f3;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+
+				.staffMemberPage .staffControls ul li:nth-child(2n+1) {
+					border-right: 1px solid #eff0f3;
+				}
+
+				.staffMemberPage .staffControls ul li:nth-last-child(-n+2) {
+					border-bottom: 0;
+				}
+
+				.staffMemberPage .staffControls ul li:hover {
+					background-color: rgba(239, 240, 243, 0.3);
+				}
+
+			.staffMemberPage .staffControls ul li a {
+				display: block;
+				font-size: 14px;
+				padding: 13px 0;
+				text-align: center;
+			}
+
+
+	.staffMemberPage .staffTimeline {
+		
+	}
+
+		.staffMemberPage .staffTimeline .panelHeader {
+			padding: 15px;
+			border-bottom: 1px solid #ebebeb
+		}
+
+		.staffMemberPage .staffTimeline .panelContent {
+			padding: 25px 15px;
+			position: relative;
+			padding-top: 15px;
+		}
+
+			.staffMemberPage .staffTimeline .line {
+				width: 1px;
+				height: calc(100% - 50px);
+				position: absolute;
+				top: 25px;
+				left: 15px;
+				background: rgba(138, 143, 161, 0.2);
+			}
+
+			.staffMemberPage .staffTimeline .timelineContainer {
+				padding-left: 10px;
+			}
+
+				.staffMemberPage .staffTimeline .timelineContainer ul {
+					list-style: none;
+				}
+
+				.staffMemberPage .staffTimeline .timelineContainer ul li {
+					position: relative;
+					margin-bottom: 15px;
+				}
+
+					.staffMemberPage .staffTimeline .timelineContainer ul li:last-child {
+						margin-bottom: 0;
+					}
+
+					.staffMemberPage .staffTimeline .timelineContainer ul li:before {
+						display: block;
+						content: " ";
+						width: 5px;
+						height: 5px;
+						background: #8A8FA1;
+						border-radius: 50%;
+						position: absolute;
+						left: -12px;
+						top: 5px;
+					}
+
+					.staffMemberPage .staffTimeline ul li .time p {
+						margin-bottom: 0;
+						color: #8A8FA1;
+						font-weight: 300;
+						font-size: 10px;
+					}
+
+					.staffMemberPage .staffTimeline ul li .task p {
+						margin-bottom: 0;
+						color: #000;
+						font-size: 12px;
+						font-weight: 300
+					}
+
+
+	.staffMemberPage .staffInformation {
+
+	}
+
+		.staffMemberPage .staffInformation .clientName {
+			margin-bottom: 0;
+		}
+
+		.staffMemberPage .staffInformation .clientCompany {
+			font-weight: 300;
+		}
+
+		.staffMemberPage .staffInformation .clientInfoMisc {
+			padding-top: 15px;
+		}
+
+			.staffMemberPage .staffInformation .clientInfoMisc p {
+				margin-bottom: 2px;
+				font-weight: 300;
+				font-size: 14px;
+			}
+
+				.staffMemberPage .staffInformation .clientInfoMisc p span.span-left {
+					float: left;
+					width: 150px;
+					font-weight: 400;
+				}
+
+					.staffMemberPage .staffInformation .clientInfoMisc p span.span-left span {
+						width: 20px;
+						display: inline-block;
+						text-align: right;
+						padding-right: 5px;
+					}
+
+				.staffMemberPage .staffInformation .clientInfoMisc p span.span-right {
+					float: left;
+					width: 350px;
+				}
+
+	/* Staff Overview */
+	.staffMemberPage .staffOverview {
+		margin-bottom: 35px;
+		background: #fff;
+	}
+
+		.staffMemberPage .staffOverview .overviewBox {
+			float: left;
+			background: #fff;
+			position: relative;
+			width: 33.33%;
+		}
+
+			.staffMemberPage .staffOverview .overviewBox:after {
+				width: 1px;
+				height: 50px;
+				right: 0;
+				top: 50%;
+				margin-top: -25px;
+				background: #ececec;
+				content: " ";
+				display: block;
+				position: absolute;
+			}
+
+				.staffMemberPage .staffOverview .overviewBox:nth-child(3n+3):after {
+					display: none;
+				} 
+
+
+			.staffMemberPage .staffOverview .overviewBox:before {
+				width: 100px;
+				height: 1px;
+				bottom: 0;
+				left: 50%;
+				margin-left: -50px;
+				background: #ececec;
+				content: " ";
+				display: block;
+				position: absolute;
+			}
+
+				.staffMemberPage .staffOverview .overviewBox:nth-last-child(1):before {
+					display: none;
+				} 
+
+				.staffMemberPage .staffOverview .overviewBox:nth-last-child(2):before {
+					display: none;
+				} 
+
+			.staffMemberPage .staffOverview .overviewBox .inner {
+				padding: 15px;
+			}
+
+				.staffMemberPage .staffOverview .overviewBox h2 {
+					font-size: 13px;
+					line-height: 22px;
+					font-weight: 500;
+					margin: 0;
+					color: #000;
+				}
+
+					.staffMemberPage .staffOverview .overviewBox p {
+						font-size: 18px;
+						margin-bottom: 0;
+						margin-top: 5px;
+						text-align: left;
+						color: #7052d5;
+					}
+
+						.staffMemberPage .staffOverview .overviewBox p span {
+							font-size: 11px;
+							position: relative;
+							top: 0px;
+							color: #8a8fa2;
+						}
+
+	/* Staff Reimbursement Requests */
+	.staffMemberPage .reimbursementRequestsWrapper {
+
+	}
+
+		.staffMemberPage .reimbursementRequestsWrapper .panelHeader {
+			background: #fff;
+			padding: 15px;
+			margin-bottom: 15px;
+		}
+
+			.staffMemberPage .reimbursementRequestsWrapper .panelHeader h1 {
+				margin: 0;
+				font-weight: 500;
+				font-size: 14px;
+				color: #000;
+				line-height: 14px;
+			}
+
+		.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList {
+
+		}
+
+			.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList ul {
+				list-style: none;
+			}
+
+				.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList ul li {
+					margin-bottom: 15px;	
+				}
+
+				.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList .reimbursement {
+					background: #fff;
+					padding: 15px;
+				}
+
+					.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList .reimbursement h2 {
+						font-size: 12px;
+						line-height: 14px;
+						font-weight: 500;
+						margin: 0;
+						margin-bottom: 8px;
+						color: #000;
+					}
+
+					.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList .reimbursement p {
+						font-size: 12px;
+						line-height: 16px;
+						font-weight: 300;
+						margin-bottom: 0;
+						color: #8a8fa2;
+					}
+
+					.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList .reimbursement .expenseProjectName {
+						float: left;
+						width: 42%;
+					}
+
+					.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList .reimbursement .expenseNumber {
+						float: left;
+						width: 16%;
+					}
+
+					.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList .reimbursement .expenseDate {
+						float: left;
+						width: 16%;
+					}
+
+					.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList .reimbursement .expenseActions {
+						float: left;
+						width: 26%;
+					}
+		
+						.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList .reimbursement .expenseActions ul {
+							list-style: none;
+							padding: 1px 10px;
+						}
+		
+						.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList .reimbursement .expenseActions li {
+							display: inline-block;
+							margin-bottom: 0;
+							padding: 5px 8px;
+						}
+		
+						.staffMemberPage .reimbursementRequestsWrapper .reimbursementRequestList .reimbursement .expenseActions a {
+							font-size: 12px;
+							line-height: 16px;
+							font-weight: 300;
+						}
+
+
+	/* Staff proposal */
+	.staffMemberPage .staffProposals {
+
+	}
+
+		.staffMemberPage .staffProposals .panelHeader {
+			padding: 15px;
+			border-bottom: 1px solid #ebebeb;
+		}
+
+		.staffMemberPage .staffProposals .noProposalsWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.staffMemberPage .staffProposals .noProposalsWrapper p {
+				font-weight: 400;
+				color: #9b9b9b;
+				margin-bottom: 0;
+			}
+
+		.staffMemberPage .staffProposals .existingProposalsWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.staffMemberPage .staffProposals .existingProposalsWrapper .individualProposal {
+				margin-bottom: 15px;
+			}
+
+				.staffMemberPage .staffProposals .existingProposalsWrapper .individualProposal .half:nth-child(1) { width: 66%; }
+				.staffMemberPage .staffProposals .existingProposalsWrapper .individualProposal .half:nth-child(2) { width: 33%; }
+
+				.staffMemberPage .staffProposals .existingProposalsWrapper .individualProposal:last-child {
+					margin-bottom: 0;
+				}
+
+				.staffMemberPage .staffProposals .existingProposalsWrapper .individualProposal .proposalName {
+					font-size: 16px;
+					line-height: 24px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.staffMemberPage .staffProposals .existingProposalsWrapper .individualProposal .proposalValue {
+					text-align: right;
+					font-size: 13px;
+					line-height: 20px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.staffMemberPage .staffProposals .existingProposalsWrapper .individualProposal .proposalDescription {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.staffMemberPage .staffProposals .existingProposalsWrapper .individualProposal .proposalActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.staffMemberPage .staffProposals .existingProposalsWrapper .individualProposal .proposalActions a {
+
+					}
+
+	.staffMemberPage .staffProjects {
+
+	}
+
+		.staffMemberPage .staffProjects .panelHeader {
+			padding: 15px;
+			border-bottom: 1px solid #ebebeb;
+		}
+
+		.staffMemberPage .staffProjects .noProjectsWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.staffMemberPage .staffProjects .noProjectsWrapper p {
+				font-weight: 400;
+				color: #9b9b9b;
+				margin-bottom: 0;
+			}
+
+		.staffMemberPage .staffProjects .existingProjectsWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.staffMemberPage .staffProjects .existingProjectsWrapper .individualProject {
+				margin-bottom: 15px;
+			}
+
+				.staffMemberPage .staffProjects .existingProjectsWrapper .individualProject .half:nth-child(1) { width: 66%; }
+				.staffMemberPage .staffProjects .existingProjectsWrapper .individualProject .half:nth-child(2) { width: 33%; }
+
+				.staffMemberPage .staffProjects .existingProjectsWrapper .individualProject:last-child {
+					margin-bottom: 0;
+				}
+
+				.staffMemberPage .staffProjects .existingProjectsWrapper .individualProject .projectName {
+					font-size: 16px;
+					line-height: 24px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.staffMemberPage .staffProjects .existingProjectsWrapper .individualProject .projectValue {
+					text-align: right;
+					font-size: 13px;
+					line-height: 20px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.staffMemberPage .staffProjects .existingProjectsWrapper .individualProject .projectDescription {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.staffMemberPage .staffProjects .existingProjectsWrapper .individualProject .projectActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.staffMemberPage .staffProjects .existingProjectsWrapper .individualProject .projectActions a {
+
+					}
+
+
+
+/**
+ * Dashboard
+ */
+.dashboard {
+	
+}
+
+	.dashboard .dashContainer {
+
+	}
+
+		.dashboard .dashContainer .headerContainer {
+
+		}
+
+			.dashboard .dashContainer .headerContainer .headerElement {
+				float: left;
+			}
+			
+			.dashboard .dashContainer .headerContainer .title {
+				
+			}
+
+				.dashboard .dashContainer .headerContainer .title h1 {
+					font-size: 28px;
+					/* color: #000; */
+					font-weight: 500;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;
+					-o-transition: all 0.3s ease-out;
+					transition: all 0.3s ease-out;
+				}
+
+
+	/* Overview Container */
+	.dashboard .overview {
+		margin-bottom: 50px;
+	}
+
+		.dashboard .overview .overviewBox {
+			padding: 20px;
+			width: 20%;
+			float: left;
+			/* background: #fff; */
+			position: relative;
+			/* -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.05);
+			-moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.05);
+			box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.05); */
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+		}
+
+			/* .dashboard .overview .overviewBox:first-child {
+				border-top-left-radius: 10px;
+				border-bottom-left-radius: 10px;
+			}
+
+			.dashboard .overview .overviewBox:last-child {
+				border-top-right-radius: 10px;
+				border-bottom-right-radius: 10px;
+			} */
+
+			.dashboard .overview .overviewBox:after {
+				width: 1px;
+				height: 50px;
+				right: 0;
+				top: 50%;
+				margin-top: -25px;
+				/* background: #ececec; */
+				content: " ";
+				display: block;
+				position: absolute;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+
+				.dashboard .overview .overviewBox:last-child:after {
+					display: none;
+				} 
+
+			.dashboard .overview .overviewBox .inner {
+
+			}
+
+				.dashboard .overview .overviewBox .left {
+					float: left;
+				}
+
+					.dashboard .overview .overviewBox .left .image {
+						width: 90px;
+						height: 90px;
+						/* background-color: #f2f2f2; */
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;
+						-o-transition: all 0.3s ease-out;
+						transition: all 0.3s ease-out;
+					}
+
+				.dashboard .overview .overviewBox .right {
+					float: left;
+					padding-left: 20px;
+					padding-top: 15px;
+				}
+
+					.dashboard .overview .overviewBox .right h2 {
+						font-size: 18px;
+						line-height: 20px;
+						font-weight: 500;
+						margin: 0;
+					}
+
+					.dashboard .overview .overviewBox .right p {
+						font-size: 34px;
+						margin-bottom: 0;
+						margin-top: 20px;
+						text-align: left;
+						/* color: #7052d5; */
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;
+						-o-transition: all 0.3s ease-out;
+						transition: all 0.3s ease-out;
+					}
+
+						.dashboard .overview .overviewBox .right p span {
+							font-size: 9px;
+							position: relative;
+							top: -5px;
+							/* color: #8a8fa2; */
+							-webkit-transition: all 0.3s ease-out;
+							-moz-transition: all 0.3s ease-out;
+							-o-transition: all 0.3s ease-out;
+							transition: all 0.3s ease-out;
+						}
+
+
+	/* Today Container */
+	.dashboard .today {
+		margin-bottom: 50px;
+	}
+
+
+	/* Upcoming Meeting Container */
+	.dashboard .upcomingMeetings {
+		margin-bottom: 50px;
+	}
+
+		.dashboard .upcomingMeetings .meetingBox {
+			width: 23.17%;
+			float: left;
+			margin-right: 35px;
+			/* background: #fff; */
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+		}
+
+			.dashboard .upcomingMeetings .meetingBox:nth-child(4n+4) {
+				margin-right: 0;
+			}
+
+			.dashboard .upcomingMeetings .meetingBox .inner {
+				padding: 25px;
+				padding-bottom: 0;
+			}
+
+			.dashboard .upcomingMeetings .meetingBox .about {
+
+			}
+
+				.dashboard .upcomingMeetings .meetingBox .about .left {
+					float: left;
+					width: 35%;
+				}
+
+					.dashboard .upcomingMeetings .meetingBox .about .left .image {
+						width: 90px;
+						height: 90px;
+						border-radius: 45px;
+						/* background-color: #f3f3f3; */
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;
+						-o-transition: all 0.3s ease-out;
+						transition: all 0.3s ease-out;
+					}
+
+				.dashboard .upcomingMeetings .meetingBox .about .right {
+					float: left;
+					width: 65%;
+					padding-top: 12px;
+				}
+
+					.dashboard .upcomingMeetings .meetingBox .about .right .meetingName {
+						font-size: 18px;
+						line-height: 24px;
+						margin: 0;
+						margin-bottom: 5px;
+						/* color: #000; */
+						font-weight: 500;
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;
+						-o-transition: all 0.3s ease-out;
+						transition: all 0.3s ease-out;
+					}
+
+					.dashboard .upcomingMeetings .meetingBox .about .right p {
+						font-size: 14px;
+						line-height: 16px;
+						/* color: #8a8fa2; */
+						font-weight: 300;
+						margin: 0;
+						margin-bottom: 5px;
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;
+						-o-transition: all 0.3s ease-out;
+						transition: all 0.3s ease-out;
+					}
+
+				.dashboard .upcomingMeetings .meetingBox .about .whenAndWhere {
+					padding: 15px 0;
+				}
+
+					.dashboard .upcomingMeetings .meetingBox .about .whenAndWhere  p {
+						font-size: 12px;
+						font-weight: 300;
+						margin: 0;
+						/* color: #000; */
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;
+						-o-transition: all 0.3s ease-out;
+						transition: all 0.3s ease-out;
+					}
+
+					.dashboard .upcomingMeetings .meetingBox .about .whenAndWhere p span {
+						display: inline-block;
+						width: 70px;
+						/* color: rgba(0, 0, 0, 0.45); */
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;
+						-o-transition: all 0.3s ease-out;
+						transition: all 0.3s ease-out;
+					}
+
+					.dashboard .upcomingMeetings .meetingBox .about .whenAndWhere p a {
+						/* color: #00afb2; */
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;
+						-o-transition: all 0.3s ease-out;
+						transition: all 0.3s ease-out;
+					}
+
+			.dashboard .upcomingMeetings .meetingBox .actions {
+				/* border-top: 1px solid rgba(0, 0, 0, 0.08) */
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+				
+				.dashboard .upcomingMeetings .meetingBox .actions .action {
+					width: 50%;
+					float: left;
+				}
+
+					.dashboard .upcomingMeetings .meetingBox .actions .action:first-child {
+						/* border-right: 1px solid rgba(0, 0, 0, 0.08); */
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;
+						-o-transition: all 0.3s ease-out;
+						transition: all 0.3s ease-out;
+					}
+
+					.dashboard .upcomingMeetings .meetingBox .actions .action a {
+						display: block;
+						width: 100%;
+						text-align: center;
+						padding: 15px 0;
+						font-size: 14px;
+						font-weight: 300;
+
+					}
+
+
+
+/**
+ * Projects
+ */
+.projects {
+
+}
+
+	.projects .projectsContainer {
+
+	}
+
+		.projects .projectsContainer ul {
+			list-style: none;
+		}
+
+			.projects .projectsContainer ul li {
+				float: left;
+				width: 33.3%;
+				padding: 0 15px 30px;
+			}
+
+		.projects .projectsContainer .project {
+			background: #fff;
+		}	
+
+			.projects .projectsContainer .project:nth-child(3n+3) {
+				margin-right: 0;
+			}
+
+			.projects .projectsContainer .project .inner {
+				padding: 25px 20px 20px;
+			}
+			
+			.projects .projectsContainer .project .projectDetails {
+
+			}
+
+				.projects .projectsContainer .project .projectDetails .projectName {
+					font-size: 20px;
+					line-height: 24px;
+					font-weight: 500;
+					margin: 0 0 5px 0;
+					color: #000;
+				}
+
+				.projects .projectsContainer .project .projectDetails .projectCompany {
+					color: #7052d5;
+					font-size: 14px;
+					margin: 0 0 5px 0;
+					font-weight: 400;
+				}
+
+				.projects .projectsContainer .project .projectDetails .half {
+					padding: 0 0 10px 0;
+				}
+
+					.projects .projectsContainer .project .projectDetails .half .projectStarted {
+						color: #7052d5;
+						font-size: 12px;
+						margin: 0;
+						font-weight: 400;
+					}
+
+					.projects .projectsContainer .project .projectDetails .half .projectDue {
+						color: #00afb2;
+						text-align: right;
+						font-size: 12px;
+						margin: 0;
+						font-weight: 400;
+					}
+
+				.projects .projectsContainer .project .projectDetails .actions {
+
+				}
+
+					.projects .projectsContainer .project .projectDetails .actions ul {
+						list-style: none;
+					}
+
+					.projects .projectsContainer .project .projectDetails .actions ul li {
+						display: inline-block;
+						padding: 0;
+					}
+
+						.projects .projectsContainer .project .projectDetails .actions ul li a {
+							color: #8a8fa2;
+							font-size: 12px;
+							font-weight: 300;
+						}
+
+						.projects .projectsContainer .project .projectDetails .actions ul li select {
+							border: 0;
+							cursor: pointer;
+							color: #8a8fa2;
+							font-size: 12px;
+							font-family: inherit;
+							font-weight: 300;
+							outline: 0;
+							text-align: center;
+							background: transparent;
+						}
+
+			.projects .projectsContainer .project .projectTasksOverviewChart {
+				padding: 10px 0;
+			}
+
+				.projects .projectsContainer .project .projectTasksOverviewChart canvas {
+					width: 100%;
+					height: 100px;
+				}
+
+
+	.projects .productivityTracker {
+
+	}
+
+		.projects .productivityTracker .inner {
+
+		}
+
+			.projects .productivityTracker .panelHeader {
+				padding: 15px;
+			}
+
+			.projects .productivityTracker .panelContent {
+				padding: 0 15px 15px;
+				position: relative;
+				padding-top: 15px;
+			}
+
+		.projects .productivityTracker .productivityTrackerWrapper {
+
+		}
+
+			.projects .productivityTracker .productivityTrackerWrapper ul {
+				list-style: none;
+			}
+
+			.projects .productivityTracker .productivityTrackerWrapper ul li {
+				display: inline-block;
+				padding-right: 13px;
+			}
+
+				.projects .productivityTracker .productivityTrackerWrapper ul li:last-child {
+					padding-right: 0;
+				}
+
+			.projects .productivityTracker .productivityTrackerWrapper .bar {
+				height: 175px;
+				position: relative;
+				width: 30px;
+			}
+
+				.projects .productivityTracker .productivityTrackerWrapper .bar .done {
+					position: absolute;
+					bottom: 0;
+					width: 100%;
+					z-index: 2;
+					background: #a7abc2;
+				}
+
+				.projects .productivityTracker .productivityTrackerWrapper .bar .undone {
+					position: absolute;
+					bottom: 0;
+					width: 100%;
+					z-index: 1;
+					background: #e0e0e0;
+				}
+
+	.projects .paginationContainer {
+		width: 100%;
+		margin-top: 25px;
+		padding-left: 15px;
+	}
+
+		.projects .paginationContainer  ul {
+			list-style: none;
+		}
+
+		.projects .paginationContainer  ul li {
+			width: auto;
+			margin: 0;
+			padding: 0;
+		}
+
+		.projects .paginationContainer  ul li a {
+			padding: 10px;
+			background: #fff;
+			width: 40px;
+			display: block;
+			text-align: center;
+			font-size: 14px;
+			color: #484848;
+			line-height: 20px;
+			margin-right: 10px;
+			-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+		}
+
+			.projects .paginationContainer  ul li.active a {
+				color: #7052d5;
+			}
+ 
+ 	/* Project Timeline */
+ 	.projects .projectsLogTimeline {
+
+ 	}
+
+ 		.projects .projectsLogTimeline .inner {
+
+		}
+
+			.projects .projectsLogTimeline .panelHeader {
+				padding: 15px;
+			}
+
+			.projects .projectsLogTimeline .panelContent {
+				padding: 0 15px 15px;
+				position: relative;
+				padding-top: 15px;
+			}
+
+ 		.projects .projectsLogTimeline .panelContent {
+ 			padding: 25px 15px;
+ 			position: relative;
+ 			padding-top: 15px;
+ 		}
+
+ 			.projects .projectsLogTimeline .line {
+ 				width: 1px;
+ 				height: calc(100% - 50px);
+ 				position: absolute;
+ 				top: 25px;
+ 				left: 15px;
+ 				background: rgba(138, 143, 161, 0.2);
+ 			}
+
+ 			.projects .projectsLogTimeline .timelineContainer {
+ 				padding-left: 10px;
+ 			}
+
+ 				.projects .projectsLogTimeline .timelineContainer ul {
+ 					list-style: none;
+ 				}
+
+ 				.projects .projectsLogTimeline .timelineContainer ul li {
+ 					position: relative;
+ 					margin-bottom: 15px;
+ 				}
+
+ 					.projects .projectsLogTimeline .timelineContainer ul li:last-child {
+ 						margin-bottom: 0;
+ 					}
+
+ 					.projects .projectsLogTimeline .timelineContainer ul li:before {
+ 						display: block;
+ 						content: " ";
+ 						width: 5px;
+ 						height: 5px;
+ 						background: #8A8FA1;
+ 						border-radius: 50%;
+ 						position: absolute;
+ 						left: -12px;
+ 						top: 5px;
+ 					}
+
+ 					.projects .projectsLogTimeline ul li .time p {
+ 						margin-bottom: 0;
+ 						color: #8A8FA1;
+ 						font-weight: 300;
+ 						font-size: 10px;
+ 					}
+
+ 					.projects .projectsLogTimeline ul li .task p {
+ 						margin-bottom: 0;
+ 						color: #000;
+ 						font-size: 12px;
+ 						font-weight: 300
+ 					}
+
+
+
+/**
+ * Customers
+ */
+.leadsPage {
+
+}
+
+	.leadsPage .pageContent {
+
+	}
+
+		.leadsPage .pageContent ul {
+			list-style: none;
+		}
+
+		.leadsPage .pageContent .customer {
+			width: 100%;
+			background: #fff;
+			margin-bottom: 15px;
+			padding: 15px 25px;
+			-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;  
+			-o-transition: all 0.3s ease-out;  
+			transition: all 0.3s ease-out;
+		}
+
+			.leadsPage .pageContent .customer:hover {
+				background: rgba(0, 0, 0, 0.008);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+			.leadsPage .pageContent .customer:active {
+				background: rgba(0, 0, 0, 0.03);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+			.leadsPage .pageContent .customer .name {
+				font-size: 16px;
+				font-weight: 300;
+				color: #000;
+				margin-bottom: 0;
+			}
+
+			.leadsPage .pageContent .customer .company {
+				color: #8A8FA1;
+				font-size: 14px;
+				margin-bottom: 0;
+				font-weight: 300;
+			}
+
+			.leadsPage .pageContent .customer .thisflexes {
+				/* display: flex; */
+				/* height: 44px; */
+				text-align: right
+			}
+
+				.leadsPage .pageContent .customer .thisflexes:nth-child(2) { text-align: left; }
+
+			.leadsPage .pageContent .customer .title {
+				font-size: 14px;
+				line-height: 18px;
+				font-weight: 400;
+				margin: 0 0 5px;
+				color: #000;
+			}
+
+			.leadsPage .pageContent .customer .value {
+				color: #8A8FA1;
+				font-size: 14px;
+				margin-bottom: 0;
+				font-weight: 300;
+				width: 100%;
+			}
+
+				.leadsPage .pageContent .customer .email p {
+					text-align: left
+				}
+
+				.leadsPage .pageContent .customer .phone p {
+					text-align: left;
+					padding-left: 40px;
+				}
+
+				.leadsPage .pageContent .customer .staff p {
+					text-align: left;
+				}
+
+				.leadsPage .pageContent .customer .status p {
+					text-align: left;
+				}
+
+			
+
+
+
+	.leadsPage .paginationContainer {
+		margin-top: 15px;
+	}
+
+		.leadsPage .paginationContainer ul {
+			list-style: none;
+		}
+
+		.leadsPage .paginationContainer ul li {
+			display: inline-block;
+		}
+
+			.leadsPage .paginationContainer ul li a {
+				padding: 10px;
+				background: #fff;
+				width: 40px;
+				display: block;
+				text-align: center;
+				font-size: 14px;
+				color: #484848;
+				line-height: 20px;
+				margin-right: 10px;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+				.leadsPage .paginationContainer ul li.active a {
+					color: #7052d5;
+				}
+
+				.leadsPage .paginationContainer ul li a:hover {
+					color: #7052d5;
+					background: rgba(255, 255, 255, 0.008);
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+
+/**
+ * Tickets Page
+ */
+.ticketsPage {
+
+}
+
+	.ticketsPage .span4 {
+		padding-right: 50px;
+	}
+
+	.ticketsPage .ticketHeader {
+		padding-bottom: 15px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid #d2d4da;
+	}
+
+	/* Tickets */
+	.ticketsPage .ticketsContainer {
+
+	}
+
+		.ticketsPage .ticketsContainer .ticketHeader input {
+			width: 100%;
+			border: 0;
+			font-size: inherit;
+			font-family: inherit;
+			font-weight: inherit;
+			background: transparent;
+			color: #8a8fa2;
+			outline: 0;
+			box-shadow: none;
+		}
+
+			.ticketsPage .ticketsContainer .ticketHeader input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+				color: #8a8fa2;
+			}
+			.ticketsPage .ticketsContainer .ticketHeader input::-moz-placeholder { /* Firefox 19+ */
+				color: #8a8fa2;
+			}
+			.ticketsPage .ticketsContainer .ticketHeader input:-ms-input-placeholder { /* IE 10+ */
+				color: #8a8fa2;
+			}
+			.ticketsPage .ticketsContainer .ticketHeader input:-moz-placeholder { /* Firefox 18- */
+				color: #8a8fa2;
+			}
+
+		.ticketsPage .ticketsContainer .ticketLoop {
+			position: relative;
+		}
+
+			.ticketsPage .ticketsContainer .ticketLoop:after {
+				position: absolute;
+				width: 100%;
+				height: 85px;
+				content: " ";
+				display: block;
+				bottom: 0;
+				left: 0;
+				background: rgb(255,255,255);
+				background: linear-gradient(0deg, rgba(250, 250, 250, 1) 0%, rgba(255,255,255,0) 100%);
+			}
+
+			.ticketsPage .ticketsContainer .ticketLoop ul {
+				list-style: none;
+				margin: 0;
+				height: calc(100vh - 270px);
+				padding-right: 20px;
+				overflow-y: scroll;
+			}
+
+			.ticketsPage .ticketsContainer .ticketLoop ul li {
+				margin-bottom: 20px;
+				padding: 0;
+			}
+
+				.ticketsPage .ticketsContainer .ticketLoop ul li .individualTicket {
+					background: #fff;
+					cursor: pointer;
+					padding: 18px;
+					-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+					-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+					box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;
+					-o-transition: all 0.3s ease-out;
+					transition: all 0.3s ease-out;
+				} 
+
+					.ticketsPage .ticketsContainer .ticketLoop ul li:hover .individualTicket {
+						background: rgba(0, 0, 0, 0.008);
+					}
+
+					.ticketsPage .ticketsContainer .ticketLoop ul li .individualTicket .left {
+						float: left;
+						width: 70px;
+					}
+
+						.ticketsPage .ticketsContainer .ticketLoop ul li .individualTicket .left .image {
+							width: 70px;
+							height: 70px;
+							background-color: #e6e6e6;
+							border-radius: 35px;
+						}
+
+					.ticketsPage .ticketsContainer .ticketLoop ul li .individualTicket .center  {
+						float: left;
+						width: 213px;
+						padding-top: 15px;
+						padding-left: 15px;
+					}
+
+						.ticketsPage .ticketsContainer .ticketLoop ul li .individualTicket .center .clientName {
+							font-size: 14px;
+							line-height: 18px;
+							font-weight: 700;
+							margin: 0 0 5px;
+						}
+
+						.ticketsPage .ticketsContainer .ticketLoop ul li .individualTicket .center .ticketSubject {
+							font-size: 14px;
+							line-height: 18px;
+							font-weight: 300;
+							margin: 0;
+							color: #8a8fa2;
+						}
+
+					.ticketsPage .ticketsContainer .ticketLoop ul li .individualTicket .right {
+						float: left;
+						width: 90px;
+						padding-top: 19px;
+					}	
+
+						.ticketsPage .ticketsContainer .ticketLoop ul li .individualTicket .right .date {
+							color: #8a8fa2;
+							font-size: 12px;
+							margin: 0;
+							padding: 0;
+							line-height: 14px;
+							text-align: right;
+							margin-bottom: 3px;
+							font-weight: 300;
+						}
+
+						.ticketsPage .ticketsContainer .ticketLoop ul li .individualTicket .right .ticketNumber {
+							color: #8a8fa2;
+							font-size: 12px;
+							margin: 0;
+							padding: 0;
+							line-height: 14px;
+							text-align: right;
+							font-weight: 300;
+						}
+
+
+
+	/* The Ticket */
+	.ticketsPage .theTicket {
+
+	}
+
+		.ticketsPage .theTicket .ticketHeader .left {
+			width: 70%;
+			float: left;
+		}
+
+			.ticketsPage .theTicket .ticketHeader .left .indivContainer {
+				float: left;
+			}
+
+				.ticketsPage .theTicket .ticketHeader .left .clientName {
+					display: inline-block;
+					margin: 0;
+					color: #000;
+					font-size: 14px;
+					font-weight: 300;
+					line-height: 17px;
+					margin-right: 25px;
+				}
+
+				.ticketsPage .theTicket .ticketHeader .left .ticketNumber {
+					display: inline-block;
+					margin: 0;
+					color: #8a8fa2;
+					font-size: 14px;
+					font-weight: 300;
+					line-height: 17px;
+					margin-right: 25px;
+				}
+
+				.ticketsPage .theTicket .ticketHeader .left .ticketSubject {
+					display: inline-block;
+					margin: 0;
+					color: #8a8fa2;
+					font-size: 14px;
+					font-weight: 300;
+					line-height: 17px;
+				}
+
+		.ticketsPage .theTicket .ticketHeader .right {
+			float: left;
+			width: 30%;
+		}
+
+		.ticketsPage .theTicket .ticketMessages {
+			position: relative;
+		}
+
+			.ticketsPage .theTicket .ticketMessages:after {
+				position: absolute;
+				width: 100%;
+				height: 85px;
+				content: " ";
+				display: block;
+				bottom: 0;
+				left: 0;
+				background: rgb(255,255,255);
+				background: linear-gradient(0deg, rgba(250, 250, 250, 1) 0%, rgba(255,255,255,0) 100%);
+			}
+
+			.ticketsPage .theTicket .ticketMessages ul {
+				list-style: none;
+				height: calc(100vh - 348px);
+				padding-right: 20px;
+				padding-bottom: 85px;
+				overflow-y: scroll;
+			}
+
+			.ticketsPage .theTicket .ticketMessages ul li {
+				margin-bottom: 20px;
+			}
+
+				.ticketsPage .theTicket .ticketMessages .indivMessage {	
+					background: #fff;
+					padding: 18px;
+					-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+					-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+					box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;
+					-o-transition: all 0.3s ease-out;
+					transition: all 0.3s ease-out;
+				}
+
+				.ticketsPage .theTicket .ticketMessages .image {
+					width: 70px;
+					height: 70px;
+					background-color: #f2f2f2;
+					border-radius: 45px;
+				}
+
+				.ticketsPage .theTicket .ticketMessages .span11 {
+					padding-left: 25px;
+				}
+
+				.ticketsPage .theTicket .ticketMessages .messageHeader {
+
+				}
+
+					.ticketsPage .theTicket .ticketMessages .messageHeader h2 {
+						font-size: 16px;
+						line-height: 18px;
+						margin: 10px 0;
+						font-weight: 500;
+					}
+
+						.ticketsPage .theTicket .ticketMessages .messageHeader h2 small {
+							font-size: 12px;
+							color: #8a8fa2;
+							display: inline-block;
+							padding-left: 15px;
+						}
+
+				.ticketsPage .theTicket .ticketMessages .messageBody {
+
+				}
+
+					.ticketsPage .theTicket .ticketMessages .messageBody p {
+						font-weight: 300;
+					}
+
+		.ticketsPage .theTicket .ticketMessageBox {
+			margin-top: 20px;
+			padding-right: 20px;
+			position: relative;
+		}
+
+			.ticketsPage .theTicket .ticketMessageBox input {
+				width: 100%;
+				background: #fff;
+				border: 0;
+				padding: 20px 20px;
+				font-size: 14px;
+				color: #000;
+				font-weight: 300;
+				outline: 0;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+
+				.ticketsPage .theTicket .ticketMessageBox ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+					color: inherit;
+				}
+				.ticketsPage .theTicket .ticketMessageBox ::-moz-placeholder { /* Firefox 19+ */
+					color: inherit;
+				}
+				.ticketsPage .theTicket .ticketMessageBox :-ms-input-placeholder { /* IE 10+ */
+					color: inherit;
+				}
+				.ticketsPage .theTicket .ticketMessageBox :-moz-placeholder { /* Firefox 18- */
+					color: inherit;
+				}
+
+			.ticketsPage .theTicket .ticketMessageBox:after {
+				position: absolute;
+				bottom: -25px;
+				right: 20px;
+				font-family: inherit;
+				font-weight: 300;
+				font-size: 12px;
+				color: #8a8fa2;
+				content: "* press enter to send";
+				display: block;
+			}
+
+
+/**
+ * Error 404
+ */
+.error404 {
+	height: calc(100vh - 230px);
+	padding-top: 100px;
+	padding-left: 100px;
+}
+
+	.error404 h1 {
+		color: #4b4b4b;
+		font-weight: 500;
+		font-size: 48px;
+	}
+
+	.error404 h2 {
+		font-weight: 300;
+		font-size: 30px;
+		color: #4b4b4b;
+	}
+
+	.error404 h3 {
+		font-size: 25px;
+	}
+
+	.error404 ul {
+		list-style: none;
+		margin: 25px 15px 45px;
+	}
+
+		.error404 ul li {
+			margin: 7.5px 0;
+		}
+
+		.error404 ul li span {
+			display: inline-block;
+			width: 150px;
+			font-size: 16px;
+			color: #4b4b4b;	
+		}
+
+			.error404 ul li span a {
+				color: #4b4b4b;	
+			}
+
+				.error404 ul li span a:hover {
+					color: #7057D2;
+				}
+
+	.error404 form {
+
+	}
+
+		.error404 form input {
+			width: 500px;
+			padding: 15px;
+		}
+
+
+
+/**
+ * Projects Page
+ */
+.projectPage {
+
+}
+
+	.projectPage .panel .panelHeader {
+		padding: 10px 15px;
+		border-bottom: 1px solid #eff0f3;
+	}
+
+		.projectPage .panel .panelHeader p {
+			margin: 0;
+			font-size: 12px;
+			padding-top: 2px;
+		}
+
+	/* Business Logo */
+	.projectPage .projectBusinessLogo {
+	
+	}
+
+		.projectPage .projectBusinessLogo .clientBusinessLogo {
+			padding: 15px 25px;		
+		}
+
+		.projectPage .projectBusinessLogo img {
+			width: 100%;
+		}
+
+
+	/* Client Information */
+	.projectPage .projectClientInformation {
+
+	}
+
+		.projectPage .projectClientInformation .panelContent {
+			padding: 20px 15px;
+		}
+
+			.projectPage .projectClientInformation ul {
+				list-style: none;
+			}
+
+				.projectPage .projectClientInformation ul li {
+					margin-bottom: 7px;
+				}
+
+					.projectPage .projectClientInformation ul li:last-child {
+						margin-bottom: 0;
+					}
+
+				.projectPage .projectClientInformation p {
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+					font-size: 14px;
+				}
+
+					.projectPage .projectClientInformation p .icon {
+						display: inline-block;
+						width: 25px;
+						padding-right: 10px;
+						text-align: right;
+						position: relative;
+						color: #acacac;
+					}
+
+						.projectPage .projectClientInformation p .icon svg {
+							/* width: 14px; */
+							height: 14px;
+							display: inline-block;
+							position: relative;
+							top: 4px;
+						}
+
+					.projectPage .projectClientInformation p .type {
+						display: inline-block;
+						width: 60px;
+						color: #000;
+					}
+
+	/* Quick Menu */
+	.projectPage .projectQuickMenu {
+
+	}
+
+		.projectPage .projectQuickMenu ul {
+			list-style: none;
+		}
+
+			.projectPage .projectQuickMenu ul li {
+				width: 50%;
+				float: left;
+				border-bottom: 1px solid #eff0f3;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+
+				.projectPage .projectQuickMenu ul li:nth-child(2n+1) {
+					border-right: 1px solid #eff0f3;
+				}
+
+				.projectPage .projectQuickMenu ul li:nth-last-child(-n+2) {
+					border-bottom: 0;
+				}
+
+				.projectPage .projectQuickMenu ul li:hover {
+					background-color: rgba(239, 240, 243, 0.3);
+				}
+
+			.projectPage .projectQuickMenu ul li a {
+				display: block;
+				font-size: 14px;
+				padding: 13px 0;
+				text-align: center;
+			}
+
+
+
+	/* Assigned Staff */
+	.projectPage .projectAssignedStaff {
+
+	}
+
+		.projectPage .projectAssignedStaff .existingStaffWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.projectPage .projectAssignedStaff .existingStaffWrapper .individualStaff {
+				margin-bottom: 15px;
+			}
+
+				.projectPage .projectAssignedStaff .existingStaffWrapper .individualStaff:last-child {
+					margin-bottom: 0;
+				}
+
+				.projectPage .projectAssignedStaff .existingStaffWrapper .individualStaff .staffName {
+					font-size: 14px;
+					line-height: 24px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.projectPage .projectAssignedStaff .existingStaffWrapper .individualStaff .staffAssigned {
+					text-align: right;
+					font-size: 12px;
+					line-height: 24px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.projectPage .projectAssignedStaff .existingStaffWrapper .individualStaff .staffDepartment {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.projectPage .projectAssignedStaff .existingStaffWrapper .individualStaff .staffActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.projectPage .projectAssignedStaff .existingStaffWrapper .individualStaff .staffActions a {
+
+					}
+
+
+
+	/* Proposal & Invoices */
+	.projectPage .projectProposalsInvoices {
+
+	}
+
+		.projectPage .projectProposalsInvoices .existingProposalWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.projectPage .projectProposalsInvoices .existingProposalWrapper .individualProposal {
+				margin-bottom: 15px;
+			}
+
+				.projectPage .projectProposalsInvoices .existingProposalWrapper .individualProposal:last-child {
+					margin-bottom: 0;
+				}
+
+				.projectPage .projectProposalsInvoices .existingProposalWrapper .individualProposal .proposalName {
+					font-size: 14px;
+					line-height: 20px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.projectPage .projectProposalsInvoices .existingProposalWrapper .individualProposal .proposalDate {
+					text-align: right;
+					font-size: 12px;
+					line-height: 24px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.projectPage .projectProposalsInvoices .existingProposalWrapper .individualProposal .proposalStatus {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.projectPage .projectProposalsInvoices .existingProposalWrapper .individualProposal .proposalActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.projectPage .projectProposalsInvoices .existingProposalWrapper .individualProposal .proposalActions a {
+
+					}
+
+
+
+	/* Project Timeline */
+	.projectPage .projectTimeline {
+
+	}
+
+		.projectPage .projectTimeline .panelContent {
+			padding: 25px 15px;
+			position: relative;
+			padding-top: 15px;
+		}
+
+			.projectPage .projectTimeline .line {
+				width: 1px;
+				height: calc(100% - 50px);
+				position: absolute;
+				top: 25px;
+				left: 15px;
+				background: rgba(138, 143, 161, 0.2);
+			}
+
+			.projectPage .projectTimeline .timelineContainer {
+				padding-left: 10px;
+			}
+
+				.projectPage .projectTimeline .timelineContainer ul {
+					list-style: none;
+				}
+
+				.projectPage .projectTimeline .timelineContainer ul li {
+					position: relative;
+					margin-bottom: 15px;
+				}
+
+					.projectPage .projectTimeline .timelineContainer ul li:last-child {
+						margin-bottom: 0;
+					}
+
+					.projectPage .projectTimeline .timelineContainer ul li:before {
+						display: block;
+						content: " ";
+						width: 5px;
+						height: 5px;
+						background: #8A8FA1;
+						border-radius: 50%;
+						position: absolute;
+						left: -12px;
+						top: 5px;
+					}
+
+					.projectPage .projectTimeline ul li .time p {
+						margin-bottom: 0;
+						color: #8A8FA1;
+						font-weight: 300;
+						font-size: 10px;
+					}
+
+					.projectPage .projectTimeline ul li .task p {
+						margin-bottom: 0;
+						color: #000;
+						font-size: 12px;
+						font-weight: 300
+					}
+
+
+
+	/* Project Information */
+	.projectPage .projectInformation {
+
+	}
+
+		.projectPage .projectInformation .panelHeader {
+			border-bottom: 0;
+		}
+
+		.projectPage .projectInformation .panelContent {
+		
+		}
+
+			.projectPage .projectInformation .panelContent .projectName {
+				font-size: 28px;
+				line-height: 44px;
+				margin: 0;
+				padding-left: 15px;
+			}
+
+			.projectPage .projectInformation .panelContent .projectClientCompany {
+				color: #8a8fa2;
+				margin-bottom: 25px;
+				font-size: 14px;
+				font-weight: 300;
+				padding-left: 15px;
+			}
+
+			.projectPage .projectInformation .panelContent ul {
+				list-style: none;
+				border-top: 1px solid #eff0f3;
+			}
+
+				.projectPage .projectInformation .panelContent ul li {
+					margin: 0;
+					width: 25%;
+					float: left;
+					padding-left: 15px;
+					border-right: 1px solid #eff0f3;
+				}
+
+					.projectPage .projectInformation .panelContent ul li:last-child {
+						border-right: 0;
+					}
+
+				.projectPage .projectInformation .panelContent ul li h2 {
+					font-size: 14px;
+					color: #626262;
+					margin: 0;
+				}
+
+				.projectPage .projectInformation .panelContent ul li p {
+					color: #000;
+					font-size: 14px;
+				}
+
+
+
+	/* Add a Task */
+	.projectPage .projectTaskAdd {
+
+	}
+	
+		.projectPage .projectTaskAdd {
+
+		}
+
+			.projectPage .projectTaskAdd .panelHeader {
+				padding: 0;
+				border-bottom: 0;
+			}
+
+				.projectPage .projectTaskAdd .panelHeader h1 {
+					margin-bottom: 5px;
+				}
+
+			.projectPage .projectTaskAdd .panelContent {
+				position: relative;
+			}
+
+				.projectPage .projectTaskAdd .panelContent input {
+					margin: 10px 0;
+					width: 100%;
+					border: 0;
+					padding: 0;
+					font-size: 16px;
+					color: #000;
+					box-shadow: none;
+					font-family: inherit;
+					font-weight: 300;
+					outline: 0;
+				}
+
+				.projectPage .projectTaskAdd .panelContent ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+					color: #000;
+				}
+				.projectPage .projectTaskAdd .panelContent ::-moz-placeholder { /* Firefox 19+ */
+					color: #000;
+				}
+				.projectPage .projectTaskAdd .panelContent :-ms-input-placeholder { /* IE 10+ */
+					color: #000;
+				}
+				.projectPage .projectTaskAdd .panelContent :-moz-placeholder { /* Firefox 18- */
+					color: #000;
+				}
+
+				.projectPage .projectTaskAdd .panelContent ul {
+					list-style: none;
+				}
+
+					.projectPage .projectTaskAdd .panelContent ul li {
+						float: left;
+					}
+
+					.projectPage .projectTaskAdd .panelContent ul li ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+						color: #7057D2;
+					}
+					.projectPage .projectTaskAdd .panelContent ul li ::-moz-placeholder { /* Firefox 19+ */
+						color: #7057D2;
+					}
+					.projectPage .projectTaskAdd .panelContent ul li :-ms-input-placeholder { /* IE 10+ */
+						color: #7057D2;
+					}
+					.projectPage .projectTaskAdd .panelContent ul li :-moz-placeholder { /* Firefox 18- */
+						color: #7057D2;
+					}
+
+				.projectPage .projectTaskAdd .panelContent ul li input {
+					font-size: 12px;
+					text-align: center;
+					cursor: pointer;
+					margin: 0;
+					color: #7057D2;
+				}
+
+				.projectPage .projectTaskAdd .panelContent ul li select {
+					border: 0;
+					cursor: pointer;
+					color: #7057D2;
+					font-size: 12px;
+					font-family: inherit;
+					font-weight: 300;
+					outline: 0;
+					text-align: center;
+					background: transparent;
+				}
+
+				.projectPage .projectTaskAdd .panelContent ul li button {
+					border: 0;
+					background: transparent;
+					color: #7057D2;
+					font-size: 12px;
+					font-weight: 300;
+					font-family: inherit;
+					outline: 0;
+					cursor: pointer;
+					position: absolute;
+					bottom: 5px;
+					right: 10px;
+					opacity: 0;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+					.projectPage .projectTaskAdd .panelContent:focus-within .addFocus {
+						opacity: 1;
+					} 
+
+					.projectPage .projectTaskAdd .panelContent ul li button:hover {
+						letter-spacing: 1px;
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;  
+						-o-transition: all 0.3s ease-out;  
+						transition: all 0.3s ease-out;
+					}
+
+
+	/* Tasks Container */
+	.projectPage .projectTasksContainer {
+
+	}
+
+		.projectPage .projectTasksContainer .list {
+			list-style: none;
+		}
+
+
+		/* Project Tasks */
+		.projectPage .projectTasksContainer .projectTask {
+
+		}
+
+			.projectPage .projectTasksContainer .projectTask .panelHeader {
+				padding: 0;
+				border-bottom: 0;
+			}
+
+				.projectPage .projectTasksContainer .projectTask .panelHeader h1 {
+					margin-bottom: 10px;
+				}
+
+			.projectPage .projectTasksContainer .projectTask .panelContent p {
+				color: #000;
+				font-size: 14px;
+				line-height: 24px;
+				font-weight:300;
+			}
+
+				.projectPage .projectTasksContainer .projectTask .panelContent ul {
+					list-style: none;
+				}
+
+					.projectPage .projectTasksContainer .projectTask .panelContent ul li {
+						float: left;
+					}
+
+					.projectPage .projectTasksContainer .projectTask .panelContent ul li ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+						color: #7057D2;
+					}
+					.projectPage .projectTasksContainer .projectTask .panelContent ul li ::-moz-placeholder { /* Firefox 19+ */
+						color: #7057D2;
+					}
+					.projectPage .projectTasksContainer .projectTask .panelContent ul li :-ms-input-placeholder { /* IE 10+ */
+						color: #7057D2;
+					}
+					.projectPage .projectTasksContainer .projectTask .panelContent ul li :-moz-placeholder { /* Firefox 18- */
+						color: #7057D2;
+					}
+
+				.projectPage .projectTasksContainer .projectTask .panelContent ul li input {
+					font-size: 12px;
+					text-align: center;
+					cursor: pointer;
+					margin: 0;
+					color: #7057D2;
+
+					width: 100%;
+					border: 0;
+					padding: 0;
+					font-family: inherit;
+					font-weight: 300;
+					outline: 0;
+				}
+
+				.projectPage .projectTasksContainer .projectTask .panelContent ul li select {
+					border: 0;
+					cursor: pointer;
+					color: #7057D2;
+					font-size: 12px;
+					font-family: inherit;
+					font-weight: 300;
+					background: transparent;
+					outline: 0;
+					text-align: center;
+				}
+
+
+
+	/* Milestones */
+	.projectPage .projectMilestones {
+
+	}
+
+		.projectPage .projectMilestones .panelContent {
+			padding: 25px 15px;
+			position: relative;
+			padding-top: 15px;
+		}
+
+			.projectPage .projectMilestones .line {
+				width: 1px;
+				height: calc(100% - 50px);
+				position: absolute;
+				top: 25px;
+				left: 15px;
+				background: rgba(138, 143, 161, 0.2);
+			}
+
+			.projectPage .projectMilestones .timelineContainer {
+				padding-left: 10px;
+			}
+
+				.projectPage .projectMilestones .timelineContainer ul {
+					list-style: none;
+				}
+
+				.projectPage .projectMilestones .timelineContainer ul li {
+					position: relative;
+					margin-bottom: 15px;
+				}
+
+					.projectPage .projectMilestones .timelineContainer ul li:last-child {
+						margin-bottom: 0;
+					}
+
+					.projectPage .projectMilestones .timelineContainer ul li:before {
+						display: block;
+						content: " ";
+						width: 5px;
+						height: 5px;
+						background: #8A8FA1;
+						border-radius: 50%;
+						position: absolute;
+						left: -12px;
+						top: 5px;
+					}
+
+					.projectPage .projectMilestones ul li .time p {
+						margin-bottom: 0;
+						color: #8A8FA1;
+						font-weight: 300;
+						font-size: 10px;
+					}
+
+					.projectPage .projectMilestones ul li .task p {
+						margin-bottom: 0;
+						color: #000;
+						font-size: 14px;
+						font-weight: 400
+					}
+
+					.projectPage .projectMilestones ul li .progress {
+						width: 100%;
+						height: 4px;
+						background: #eee;
+						margin-top: 32px;
+						position: relative;
+					}
+
+						.projectPage .projectMilestones ul li .progress:before {
+							min-width: 10%;
+							display: block;
+							position: absolute;
+							top: 0;
+							left: 0;
+							height: 4px;
+							background: #00afb2;
+							content: "";
+						}
+
+
+
+	/* Services */
+	.projectPage .projectServices {
+
+	}
+
+		.projectPage .projectServices .existingServicesWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.projectPage .projectServices .existingServicesWrapper .individualService {
+				margin-bottom: 15px;
+			}
+
+				.projectPage .projectServices .existingServicesWrapper .individualService:last-child {
+					margin-bottom: 0;
+				}
+
+				.projectPage .projectServices .existingServicesWrapper .individualService .serviceName {
+					font-size: 16px;
+					line-height: 24px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.projectPage .projectServices .existingServicesWrapper .individualService .servicePrice {
+					text-align: right;
+					font-size: 13px;
+					line-height: 20px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.projectPage .projectServices .existingServicesWrapper .individualService .serviceCategory {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.projectPage .projectServices .existingServicesWrapper .individualService .serviceActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.projectPage .projectServices .existingServicesWrapper .individualService .serviceActions a {
+
+					}
+
+
+
+	/* Expenses */
+	.projectPage .projectExpenses {
+
+	}
+
+		.projectPage .projectExpenses .existingExpensesWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.projectPage .projectExpenses .existingExpensesWrapper .individualExpense {
+				margin-bottom: 15px;
+			}
+
+				.projectPage .projectExpenses .existingExpensesWrapper .individualExpense:last-child {
+					margin-bottom: 0;
+				}
+
+				.projectPage .projectExpenses .existingExpensesWrapper .individualExpense .expenseName {
+					font-size: 16px;
+					line-height: 24px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.projectPage .projectExpenses .existingExpensesWrapper .individualExpense .expensePrice {
+					text-align: right;
+					font-size: 13px;
+					line-height: 20px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.projectPage .projectExpenses .existingExpensesWrapper .individualExpense .expenseCategory {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.projectPage .projectExpenses .existingExpensesWrapper .individualExpense .expenseActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.projectPage .projectExpenses .existingExpensesWrapper .individualExpense .expenseActions a {
+
+					}
+
+
+
+	/* Files */
+	.projectPage .projectFiles {
+
+	}
+
+		.projectPage .projectFiles .existingFilesWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.projectPage .projectFiles .existingFilesWrapper .individualFile {
+				margin-bottom: 15px;
+			}
+
+				.projectPage .projectFiles .existingFilesWrapper .individualFile:last-child {
+					margin-bottom: 0;
+				}
+
+				.projectPage .projectFiles .existingFilesWrapper .individualFile .fileName {
+					font-size: 16px;
+					line-height: 24px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.projectPage .projectFiles .existingFilesWrapper .individualFile .fileDate {
+					text-align: right;
+					font-size: 13px;
+					line-height: 20px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.projectPage .projectFiles .existingFilesWrapper .individualFile .fileTag {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.projectPage .projectFiles .existingFilesWrapper .individualFile .fileActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.projectPage .projectFiles .existingFilesWrapper .individualFile .fileActions a {
+
+					}
+
+
+/**
+ * CRM Settings / Admin Settings
+ */
+.adminSettings {
+	
+}
+
+	.adminSettings .pageTitle {
+		padding-bottom: 40px;
+	}
+
+		.adminSettings .pageTitle h1 {
+			font-size: 28px;
+			margin: 0;
+			font-weight: 400;
+		}
+
+		.adminSettings .pageTitle .updateSettings {
+			display: inline-block;
+			padding: 12px 20px;
+			font-size: 14px;
+			float: right;
+			text-align: center;
+			color: #4B4B4B;
+			background: #fff;
+			text-decoration: none;
+			-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;
+			-o-transition: all 0.3s ease-out;
+			transition: all 0.3s ease-out;
+			margin-top: 12px;
+		}
+
+			.adminSettings .pageTitle .updateSettings:hover {
+				background: rgba(255, 255, 255, 0.7);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+			.adminSettings .pageTitle .updateSettings:focus,
+			.adminSettings .pageTitle .updateSettings:active {
+				background: rgba(255, 255, 255, 0.4);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+
+
+	.adminSettings .settingSelector {
+		width: 90%;
+		position: relative;
+		padding-right: 45px;
+	}
+
+		.adminSettings .settingSelector:after {
+			content: " ";
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 200px;
+			width: 1px;
+			background: #8a8fa2;
+		}
+
+		.adminSettings .settingSelector ul {
+			list-style: none;
+		}
+
+			.adminSettings .settingSelector ul li {
+				text-align: right;
+				padding-bottom: 10px;
+			}
+
+			.adminSettings .settingSelector ul li a {
+				color: #4b4b4b;
+			}
+
+				.adminSettings .settingSelector ul li a.active,
+				.adminSettings .settingSelector ul li a:hover {
+					color: #7052d5;
+				}
+
+
+
+	
+
+	.adminSettings .settingsSection {
+		width: 100%;
+		/* height: 65vh; */
+		/* overflow-y: scroll;	 */
+		display: none;
+		margin-bottom: 10px;
+	}
+
+		.adminSettings .settingsSection.current {
+			display: block;
+		}
+
+
+	
+	.adminSettings form {
+		padding-top: 25px;
+	}
+
+		.adminSettings form label {
+			color: #000;
+			font-size: 14px;
+			display: block;
+			width: 100%;
+		}
+
+		.adminSettings form input {
+			font-size: 13px;
+			margin-top: 10px;
+			width: 100%;
+			border: 1px solid #ddd;
+			padding: 8px 15px;
+			color: #000;
+			font-family: inherit;
+			font-weight: 300;
+			outline: 0;
+			margin-bottom: 20px;
+			-webkit-box-shadow: none !important;
+			-moz-box-shadow: none !important;
+			box-shadow: none !important;
+		}
+
+			.adminSettings form input::placeholder {
+				color: #8A8FA1;
+			}
+
+			.adminSettings form input:focus {
+				border: 1px solid #000;
+			}
+
+			.adminSettings form h1 {
+				font-size: 16px;
+				line-height: 24px;
+				letter-spacing: 0.3px;
+				color: #666;
+				font-weight: 400;
+				margin: 0;
+				margin-bottom: 15px;
+			}
+
+
+	.adminSettings .panelCompanyLogo {
+		
+	}
+
+		.adminSettings .panelCompanyLogo .companyLogoContainer {
+
+		}
+
+			.adminSettings .panelCompanyLogo .companyLogoContainer img {
+				width: 90%;
+				margin: 0 auto;
+				display: block;
+			}
+
+		.adminSettings .panelCompanyLogo .companyLogoEdit {
+
+		}
+
+		.adminSettings .panelCompanyLogo a {
+			font-size: 14px;
+			margin-top: 25px;
+			display: inline-block;
+		}
+
+
+	.adminSettings .panelCompanyInformation {
+		
+	}
+
+
+	.adminSettings .panelCompanyAddress {
+		
+	}
+
+
+/**
+ * Invoices Page
+ */
+.invoicesPage {
+
+}
+
+	/* Invoices Overview */
+	.invoicesPage .invoicesOverview {
+		margin-bottom: 35px;
+	}
+
+		.invoicesPage .invoicesOverview .overviewBox {
+			float: left;
+			background: #fff;
+			position: relative;
+			width: 25%;
+		}
+
+			.invoicesPage .invoicesOverview .overviewBox:after {
+				width: 1px;
+				height: 50px;
+				right: 0;
+				top: 50%;
+				margin-top: -25px;
+				background: #ececec;
+				content: " ";
+				display: block;
+				position: absolute;
+			}
+
+				.invoicesPage .invoicesOverview .overviewBox:last-child:after {
+					display: none;
+				} 
+
+			.invoicesPage .invoicesOverview .overviewBox .inner {
+				padding: 15px;
+			}
+
+			.invoicesPage .invoicesOverview .overviewBox .left {
+				float: left;
+			}
+
+				.invoicesPage .invoicesOverview .overviewBox .left .image {
+					width: 80px;
+					height: 80px;
+					background-color: #f2f2f2;
+				}
+
+			.invoicesPage .invoicesOverview .overviewBox .right {
+				float: left;
+				padding-left: 15px;
+				padding-top: 15px;
+			}
+
+				.invoicesPage .invoicesOverview .overviewBox .right h2 {
+					font-size: 16px;
+					line-height: 22px;
+					font-weight: 500;
+					margin: 0;
+					color: #000;
+				}
+
+					.invoicesPage .invoicesOverview .overviewBox .right p {
+						font-size: 34px;
+						margin-bottom: 0;
+						margin-top: 14px;
+						text-align: left;
+						color: #7052d5;
+					}
+
+						.invoicesPage .invoicesOverview .overviewBox .right p span {
+							font-size: 9px;
+							position: relative;
+							top: -5px;
+							color: #8a8fa2;
+						}
+
+
+	/* Invoice Container */
+	.invoicesPage .invoicesContainer {
+
+	}
+
+		.invoicesPage .invoicesContainer .list {
+			list-style: none;
+		}
+
+			.invoicesPage .invoicesContainer .list .invoice {
+				background: #fff;
+				padding: 15px;
+				margin-bottom: 20px;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+				.invoicesPage .invoicesContainer .list .invoice:hover {
+					background: rgba(255, 255, 255, 0.008);
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+				.invoicesPage .invoicesContainer .list .invoice .invoiceProjectName {
+					float: left;
+					width: 23%;
+				}
+		
+					.invoicesPage .invoicesContainer .list .invoice .invoiceProjectName h2 {
+
+					}
+
+				.invoicesPage .invoicesContainer .list .invoice .invoiceNumber {
+					float: left;
+					width: 15%;
+				}
+			
+				.invoicesPage .invoicesContainer .list .invoice .invoiceDate {
+					float: left;
+					width: 15%;
+				}
+			
+				.invoicesPage .invoicesContainer .list .invoice .invoiceDueDate {
+					float: left;
+					width: 15%;
+				}
+			
+				.invoicesPage .invoicesContainer .list .invoice .invoiceTotalAmount {
+					float: left;
+					width: 12%;
+				}
+			
+				.invoicesPage .invoicesContainer .list .invoice .invoiceActions {
+					float: left;
+					width: 20%;
+				}
+
+					.invoicesPage .invoicesContainer .list .invoice h2 {
+						font-size: 14px;
+						line-height: 18px;
+						font-weight: 400;
+						margin: 0 0 5px;
+						color: #000;
+					}
+
+					.invoicesPage .invoicesContainer .list .invoice p {
+						font-size: 14px;
+						line-height: 18px;
+						margin: 0;
+						font-weight: 300;
+						color: #8a8fa2;
+					}
+
+					.invoicesPage .invoicesContainer .list .invoice .invoiceActions ul {
+						list-style: none;
+					}
+
+						.invoicesPage .invoicesContainer .list .invoice .invoiceActions ul li {
+							float: left;
+						}
+
+						.invoicesPage .invoicesContainer .list .invoice .invoiceActions ul li a {
+							font-size: 14px;
+							display: block;
+							padding: 10px;
+						}
+
+			.invoicesPage .invoicesContainer .paginationContainer {
+				margin-top: 15px;
+			}
+
+				.invoicesPage .invoicesContainer .paginationContainer ul {
+					list-style: none;
+				}
+
+				.invoicesPage .invoicesContainer .paginationContainer ul li {
+					display: inline-block;
+				}
+
+					.invoicesPage .invoicesContainer .paginationContainer ul li a {
+						padding: 10px;
+						background: #fff;
+						width: 40px;
+						display: block;
+						text-align: center;
+						font-size: 14px;
+						color: #484848;
+						line-height: 20px;
+						margin-right: 10px;
+						-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+						-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+						box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;  
+						-o-transition: all 0.3s ease-out;  
+						transition: all 0.3s ease-out;
+					}
+
+						.invoicesPage .invoicesContainer .paginationContainer ul li.active a {
+							color: #7052d5;
+						}
+
+						.invoicesPage .invoicesContainer .paginationContainer ul li a:hover {
+							color: #7052d5;
+							background: rgba(255, 255, 255, 0.008);
+							-webkit-transition: all 0.3s ease-out;
+							-moz-transition: all 0.3s ease-out;  
+							-o-transition: all 0.3s ease-out;  
+							transition: all 0.3s ease-out;
+						}
+
+	/* Proposals Sidebar */
+	.invoicesPage .colSidebar {
+
+	}
+
+		.invoicesPage .colSidebar .createInvoice {
+
+		}
+
+			.invoicesPage .colSidebar .createInvoice h1 {
+				font-size: 22px;
+				color: #4B4B4B;
+			}
+
+			.invoicesPage .colSidebar .createInvoice .panelContent {
+				padding-top: 15px;
+			}
+
+			.invoicesPage .colSidebar .createInvoice .half:nth-child(1) { padding-right: 7px; }
+			.invoicesPage .colSidebar .createInvoice .half:nth-child(2) { padding-left: 7px; }
+
+			.invoicesPage .colSidebar .createInvoice a {
+				width: 100%;
+				display: block;
+				background: #fff;
+				padding: 10px 0;
+				text-align: center;
+				font-size: 14px;
+				color: #4B4B4B;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+				.invoicesPage .colSidebar .createInvoice a:hover {
+					background: rgba(255, 255, 255, 0.7);
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+				.invoicesPage .colSidebar .createInvoice a:active {
+					background: rgba(255, 255, 255, 0.4);
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+
+	 	/* Project Timeline */
+	 	.invoicesPage .invoicesLogTimeline {
+
+	 	}
+
+	 		.invoicesPage .invoicesLogTimeline .inner {
+
+			}
+
+				.invoicesPage .invoicesLogTimeline .panelHeader {
+					padding: 15px;
+				}
+
+				.invoicesPage .invoicesLogTimeline .panelContent {
+					padding: 0 15px 15px;
+					position: relative;
+					padding-top: 15px;
+				}
+
+	 		.invoicesPage .invoicesLogTimeline .panelContent {
+	 			padding: 25px 15px;
+	 			position: relative;
+	 			padding-top: 15px;
+	 		}
+
+	 			.invoicesPage .invoicesLogTimeline .line {
+	 				width: 1px;
+	 				height: calc(100% - 50px);
+	 				position: absolute;
+	 				top: 25px;
+	 				left: 15px;
+	 				background: rgba(138, 143, 161, 0.2);
+	 			}
+
+	 			.invoicesPage .invoicesLogTimeline .timelineContainer {
+	 				padding-left: 10px;
+	 			}
+
+	 				.invoicesPage .invoicesLogTimeline .timelineContainer ul {
+	 					list-style: none;
+	 				}
+
+	 				.invoicesPage .invoicesLogTimeline .timelineContainer ul li {
+	 					position: relative;
+	 					margin-bottom: 15px;
+	 				}
+
+	 					.invoicesPage .invoicesLogTimeline .timelineContainer ul li:last-child {
+	 						margin-bottom: 0;
+	 					}
+
+	 					.invoicesPage .invoicesLogTimeline .timelineContainer ul li:before {
+	 						display: block;
+	 						content: " ";
+	 						width: 5px;
+	 						height: 5px;
+	 						background: #8A8FA1;
+	 						border-radius: 50%;
+	 						position: absolute;
+	 						left: -12px;
+	 						top: 5px;
+	 					}
+
+	 					.invoicesPage .invoicesLogTimeline ul li .time p {
+	 						margin-bottom: 0;
+	 						color: #8A8FA1;
+	 						font-weight: 300;
+	 						font-size: 10px;
+	 					}
+
+	 					.invoicesPage .invoicesLogTimeline ul li .task p {
+	 						margin-bottom: 0;
+	 						color: #000;
+	 						font-size: 12px;
+	 						font-weight: 300
+	 					}
+
+
+/**
+ * Print Invoice
+ */
+.printInvoicePage {
+
+}
+
+	.printInvoicePage .invoicePageHeader {
+		padding-bottom: 25px;
+
+	}
+
+		.printInvoicePage .invoicePageHeader h1 {
+			font-size: 28px;
+			font-weight: 600;
+			margin: 0;
+			line-height: 32px;
+		}
+
+		.printInvoicePage .invoicePageHeader h2 {
+			font-size: 18px;
+			line-height: 24px;
+			color: #8a8fa2;
+			padding-top: 8px;
+			margin: 0;
+		}
+
+		.printInvoicePage .invoicePageHeader nav {
+			text-align: right;
+		}
+
+		.printInvoicePage .invoicePageHeader nav ul {
+			list-style: none;
+			display: inline-block;
+		}
+
+			.printInvoicePage .invoicePageHeader nav ul li {
+				float: left;
+			}
+
+			.printInvoicePage .invoicePageHeader nav ul li a {
+				display: block;
+				font-size: 16px;
+				padding: 10px 0px 0 20px;
+			}
+
+
+	.printInvoicePage .theInvoice {
+		background-color: #fff;
+		padding: 100px 0;
+	}
+
+		.printInvoicePage .theInvoice .theInvoiceWrapper {
+			width: 80%;
+			margin: 0 auto;
+		}
+
+			.printInvoicePage .theInvoice .theInvoiceTop {
+				padding-bottom: 50px;
+			}
+
+				.printInvoicePage .theInvoice .theInvoiceTop .grid {
+					grid-template-columns: 40% 30% 30%;
+					grid-template-rows: 100%;
+					display: grid;
+				}
+
+				.printInvoicePage .theInvoice .theInvoiceTop .logo {
+					align-self: start;
+				}
+
+					.printInvoicePage .theInvoice .theInvoiceTop .logo img {
+						width: 300px;
+					}
+
+				.printInvoicePage .theInvoice .theInvoiceTop .title {
+					align-self: end;
+				}
+
+					.printInvoicePage .theInvoice .theInvoiceTop .title h1 {
+						font-weight: 500;
+						text-align: center;
+					}
+
+				.printInvoicePage .theInvoice .theInvoiceTop .address {
+					text-align: right;
+				}
+
+					.printInvoicePage .theInvoice .theInvoiceTop .address .companyName {
+						color: #8a8fa2;
+						font-size: 16px;
+						margin: 0;
+						font-weight: 300;
+						margin-bottom: 10px;
+					}
+
+					.printInvoicePage .theInvoice .theInvoiceTop .address .companyAddress {
+						color: #8a8fa2;
+						font-size: 16px;
+						margin: 0;
+						font-weight: 300;
+						margin-bottom: 10px;
+					}
+
+					.printInvoicePage .theInvoice .theInvoiceTop .address .companyWebsite {
+						color: #8a8fa2;
+						font-size: 16px;
+						margin: 0;
+						font-weight: 300;
+						margin-bottom: 10px;
+					}
+
+					.printInvoicePage .theInvoice .theInvoiceTop .address .companyEmail {
+						color: #8a8fa2;
+						font-size: 16px;
+						margin: 0;
+						font-weight: 300;
+						margin-bottom: 10px;
+					}
+
+			.printInvoicePage .theInvoice .theInvoiceHeader {
+				border-top: 1px solid #cacdd5;
+				padding-top: 50px;
+				padding-bottom: 50px;
+			}
+
+				.printInvoicePage .theInvoice .theInvoiceHeader .grid {
+					display: grid;
+					grid-template-columns: 50% 50%;
+					grid-template-rows: 100%;
+				}
+
+				.printInvoicePage .theInvoice .theInvoiceHeader .recipient {
+
+				}
+
+					.printInvoicePage .theInvoice .theInvoiceHeader .recipient p:nth-child(1) {
+						float: left;
+						font-weight: 500;
+						font-size: 24px;
+						color: #000000;
+						line-height: 28px;
+					}
+
+					.printInvoicePage .theInvoice .theInvoiceHeader .recipient p:nth-child(2) {
+						float: left;
+						padding-left: 15px;
+						font-weight: 300;
+						color: #84889b;
+						font-size: 16px;
+						line-height: 28px;
+					}
+
+					.printInvoicePage .theInvoice .theInvoiceHeader .recipient p span {
+						font-weight: 500;
+						font-size: 24px;
+						color: #00afb2;
+						display: block;
+						margin-bottom: 10px;
+					}
+
+				.printInvoicePage .theInvoice .theInvoiceHeader .dates {
+					
+				}
+
+					.printInvoicePage .theInvoice .theInvoiceHeader .dates p {
+						font-weight: 300;
+						color: #84889b;
+						font-size: 16px;
+						margin: 0 0 8px;
+					}
+
+					.printInvoicePage .theInvoice .theInvoiceHeader .dates p span {
+						display: inline-block;
+						width: 200px;
+						color: #000;
+						font-weight: 400;
+					}
+
+			.printInvoicePage .theInvoice .theInvoiceContent {
+
+			}
+
+				.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow {
+					padding: 30px 0 30px;
+					position: relative;
+				}
+
+					.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow:not(.invoiceHeader):after {
+						position: absolute;
+						display: block;
+						width: 60%;
+						height: 1px;
+						background:#cacdd5;
+						content: "";
+						bottom: 0;
+						left: 20%;
+					}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow.last:after {
+							display: none;
+						}
+
+					.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow.invoiceHeader {
+						border-bottom: 4px solid #00afb2;
+						padding: 0;
+					}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow.invoiceHeader .itemDescription {
+							background-color: #00afb2
+						}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow.invoiceHeader .itemDescription h1 {
+							color: #fff;
+							padding: 15px 25px 20px;
+						}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow.invoiceHeader .unitPrice,
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow.invoiceHeader .quantity,
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow.invoiceHeader .totalPrice {
+							padding-left: 5px;
+							padding-bottom: 5px;
+						}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow.invoiceHeader .unitPrice h1,
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow.invoiceHeader .quantity h1,
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow.invoiceHeader .totalPrice h1 {
+							background-color: #e2e2e2;
+						}
+
+					.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow .rowColumn {
+						float: left;
+					}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow .itemDescription {
+							width: 40%;
+						}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow .unitPrice {
+							width: 20%;
+						}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow .quantity {
+							width: 20%;
+						}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow .totalPrice {
+							width: 20%;							
+						}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow h1 {
+							width: 100%;
+							display: block;
+							color: #000;
+							font-size: 18px;
+							margin: 0;
+							line-height: 24px;
+							padding: 15px 25px;
+						}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .theInvoiceContentRow p {
+							width: 100%;
+							display: block;
+							color: #8a8fa2;
+							font-size: 14px;
+							margin: 0;
+							line-height: 24px;
+							padding: 0 25px;
+							font-weight: 300;
+						}
+
+			
+				.printInvoicePage .theInvoice .theInvoiceContent .invoiceTotals {
+					padding-top: 50px;
+				}
+
+					.printInvoicePage .theInvoice .theInvoiceContent .invoiceTotals p {
+						text-align: right;
+						width: 100%;
+						font-size: 16px;
+						line-height: 24px;
+						margin: 0 0 10px;
+					}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .invoiceTotals p span {
+							display: inline-block;
+							width: 49%;
+						}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .invoiceTotals p span:nth-child(1) {
+							text-align: right;
+							font-weight: 400;
+							color: #000;
+							padding-right: 25px;
+						}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .invoiceTotals p span:nth-child(2) {
+							text-align: left;
+							font-weight: 300;
+							color: #8a8fa2;
+							padding-left: 25px;
+						}
+
+						.printInvoicePage .theInvoice .theInvoiceContent .invoiceTotals p:last-child {
+							font-size: 20px;
+						}
+
+							.printInvoicePage .theInvoice .theInvoiceContent .invoiceTotals p:last-child span {
+								font-weight: 600 !important;
+							}
+
+
+			.printInvoicePage .theInvoice .theInvoiceFooter {
+				padding-top: 100px;
+			}
+
+				.printInvoicePage .theInvoice .theInvoiceFooter hr {
+					width: 250px;
+					border: 0;
+					height: 1px;
+					background: transparent;
+					border-bottom: 1px solid #d7dae0;
+				}
+
+				.printInvoicePage .theInvoice .theInvoiceFooter h1 {
+					margin-top: 35px;
+					margin-bottom: 0;
+					font-size: 30px;
+					color: #000;
+					font-weight: 400;
+					line-height: 38px;
+				}	
+
+
+/**
+ * Edit Invoice
+ */
+.editInvoicePage {
+
+}
+
+	.editInvoicePage .invoicePageHeader {
+		padding-bottom: 25px;
+
+	}
+
+		.editInvoicePage .invoicePageHeader h1 {
+			font-size: 28px;
+			font-weight: 600;
+			margin: 0;
+			line-height: 32px;
+		}
+
+		.editInvoicePage .invoicePageHeader h2 {
+			font-size: 18px;
+			line-height: 24px;
+			color: #8a8fa2;
+			padding-top: 8px;
+			margin: 0;
+		}
+
+		.editInvoicePage .invoicePageHeader nav {
+			text-align: right;
+		}
+
+		.editInvoicePage .invoicePageHeader nav ul {
+			list-style: none;
+			display: inline-block;
+		}
+
+			.editInvoicePage .invoicePageHeader nav ul li {
+				float: left;
+			}
+
+			.editInvoicePage .invoicePageHeader nav ul li a {
+				display: block;
+				font-size: 16px;
+				padding: 10px 0px 0 20px;
+			}
+
+
+	.editInvoicePage .theInvoice {
+		background-color: #fff;
+		padding: 100px 0;
+	}
+
+		.editInvoicePage .theInvoice .theInvoiceWrapper {
+			width: 80%;
+			margin: 0 auto;
+		}
+
+
+
+		.editInvoicePage {
+
+		}
+
+			.editInvoicePage .invoicePanels {
+				margin-bottom:75px;
+			}
+
+				.editInvoicePage .invoicePanels .invoicePanelHead {
+
+				}
+
+					.editInvoicePage .invoicePanels .invoicePanelHead .left {
+						float: left;
+					}
+
+					.editInvoicePage .invoicePanels .invoicePanelHead .right {
+						float: right;
+					}
+
+					.editInvoicePage .invoicePanels .invoicePanelHead h2 {
+						font-size: 18px;
+						font-weight: 600;
+						color: #000;
+						margin: 0;
+						line-height: 24px;
+					}
+
+					.editInvoicePage .invoicePanels .invoicePanelHead ul {
+						list-style: none;
+					}
+
+					.editInvoicePage .invoicePanels .invoicePanelHead ul li {
+						display: inline-block;
+					}
+
+					.editInvoicePage .invoicePanels .invoicePanelHead ul li a {
+						font-size: 14px;
+						font-weight: 400;
+						padding-left: 10px;
+					}
+
+				.editInvoicePage .invoicePanels .invoicePanelContent {
+					padding-top: 30px;
+				}
+
+				
+			/* invoiceLogo */
+			.editInvoicePage .theInvoiceHeader .invoiceLogo {
+				margin-bottom: 122px;
+				width: fit-content;
+			}
+
+				.editInvoicePage .theInvoiceHeader .invoiceLogo .logoContainer {
+					width: 350px;
+				}
+
+				.editInvoicePage .theInvoiceHeader .invoiceLogo .logoContainer img {
+					width: 350px;
+				}
+
+			/* invoiceRecipient */
+			.editInvoicePage .theInvoiceHeader .invoiceRecipient {
+				margin-bottom: 45px;
+			}
+
+				.editInvoicePage .theInvoiceHeader .invoiceRecipient .invoicePanelContent .left {
+					float: left;
+					margin-bottom: 25px;
+				}
+
+					.editInvoicePage .theInvoiceHeader .invoiceRecipient .left:nth-child(1) {
+						width: 100px;
+					}
+
+					.editInvoicePage .theInvoiceHeader .invoiceRecipient .left:nth-child(2) {
+						width: auto;
+					}
+
+					.editInvoicePage .theInvoiceHeader .invoiceRecipient .left:nth-child(1) p {
+						font-size: 16px;
+						font-weight: 400;
+						color: #000;
+					}
+
+					.editInvoicePage .theInvoiceHeader .invoiceRecipient .left:nth-child(2) p {
+						font-size: 14px;
+						font-weight: 300;
+						color: #8a8fa2;
+						margin-top: 10px;
+						padding-left: 9px;
+					}
+
+					.editInvoicePage .theInvoiceHeader .invoiceRecipient select {
+						width: 100%;
+						border: 0;
+						background: transparent;
+						font-family: inherit;
+						color: #7052d5;
+						font-size: 16px;
+						padding: 0;
+						outline: 0;
+					}
+
+					.editInvoicePage .theInvoiceHeader .invoiceRecipient textarea {
+						width: 630px;
+						font-size: 14px;
+						color: #8a8fa2;
+						line-height: 24px;
+						height: 85px;
+						font-family: inherit;
+						border: 0;
+						background: transparent;
+						font-weight: 300;
+						outline: 0;
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;  
+						-o-transition: all 0.3s ease-out;  
+						transition: all 0.3s ease-out;
+					}
+
+						.editInvoicePage .theInvoiceHeader .invoiceRecipient textarea:focus {
+							color: #00afb2;
+							-webkit-transition: all 0.3s ease-out;
+							-moz-transition: all 0.3s ease-out;  
+							-o-transition: all 0.3s ease-out;  
+							transition: all 0.3s ease-out;
+						}
+
+			/* invoiceColors */
+			.editInvoicePage .theInvoiceHeader .invoiceColors {
+
+			}
+
+				.editInvoicePage .theInvoiceHeader .invoiceColors .invoicePanelContent .left {
+					float: left;
+					margin-bottom: 15px;
+				}
+
+				.editInvoicePage .theInvoiceHeader .invoiceColors label {
+					width: 150px;
+					display: block;
+					font-size: 16px;
+					font-weight: 400;
+					color: #000;
+				}
+
+				.editInvoicePage .theInvoiceHeader .invoiceColors select {
+					width: 100px;
+					border: 0;
+					background: transparent;
+					font-family: inherit;
+					color: #7052d5;
+					font-size: 14px;
+					font-weight: 300;
+					padding: 0;
+					outline: 0;
+				}
+
+			/* invoiceCompanyAddress */
+			.editInvoicePage .theInvoiceHeader .invoiceCompanyAddress {
+
+			}
+
+				.editInvoicePage .theInvoiceHeader .invoiceCompanyAddress p {
+					color: #8a8fa2;
+					font-weight: 300;
+					margin-bottom: 5px;
+				}
+
+			/* invoiceInformation */
+			.editInvoicePage .theInvoiceHeader .invoiceInformation {
+
+			}
+
+				.editInvoicePage .theInvoiceHeader .invoiceInformation .invoicePanelContent .left {
+					float: left;
+					margin-bottom: 15px;
+				}
+
+				.editInvoicePage .theInvoiceHeader .invoiceInformation label {
+					width: 135px;
+					display: block;
+					font-size: 16px;
+					font-weight: 400;
+					color: #000;
+				}
+
+				.editInvoicePage .theInvoiceHeader .invoiceInformation select {
+					width: 150px;
+					border: 0;
+					background: transparent;
+					font-family: inherit;
+					color: #7052d5;
+					font-size: 14px;
+					font-weight: 300;
+					padding: 0;
+					outline: 0;
+					text-align: right;
+				}
+
+					.editInvoicePage .theInvoiceHeader .invoiceInformation select option {
+						text-align: right;
+					}
+
+				.editInvoicePage .theInvoiceHeader .invoiceInformation input {
+					width: 150px;
+					border: 0;
+					background: transparent;
+					font-family: inherit;
+					color: #7052d5;
+					font-size: 14px;
+					font-weight: 300;
+					padding: 0;
+					outline: 0;
+					padding-right: 25px;
+					text-align: right;
+				}
+
+			/* invoiceCustomizations */
+			.editInvoicePage .theInvoiceHeader .invoiceCustomizations {
+
+			}
+
+				.editInvoicePage .theInvoiceHeader .invoiceCustomizations .invoicePanelContent .left {
+					float: left;
+					margin-bottom: 15px;
+				}
+
+				.editInvoicePage .theInvoiceHeader .invoiceCustomizations label {
+					width: 135px;
+					display: block;
+					font-size: 16px;
+					font-weight: 400;
+					color: #000;
+				}
+
+				.editInvoicePage .theInvoiceHeader .invoiceCustomizations select {
+					width: 150px;
+					border: 0;
+					background: transparent;
+					font-family: inherit;
+					color: #7052d5;
+					font-size: 14px;
+					font-weight: 300;
+					padding: 0;
+					outline: 0;
+					text-align: right;
+				}
+
+					.editInvoicePage .theInvoiceHeader .invoiceCustomizations select option {
+						text-align: right;
+					}
+
+				.editInvoicePage .theInvoiceHeader .invoiceCustomizations input {
+					width: 150px;
+					border: 0;
+					background: transparent;
+					font-family: inherit;
+					color: #7052d5;
+					font-size: 14px;
+					font-weight: 300;
+					padding: 0;
+					outline: 0;
+					padding-right: 25px;
+					text-align: right;
+				}
+
+
+
+		.editInvoicePage .theInvoiceContent {
+
+		}
+
+			.editInvoicePage .theInvoiceContent .theInvoiceContentRow {
+				padding: 30px 0 30px;
+				position: relative;
+			}
+
+				.editInvoicePage .theInvoiceContent .theInvoiceContentRow:not(.invoiceHeader):after {
+					position: absolute;
+					display: block;
+					width: 60%;
+					height: 1px;
+					background:#cacdd5;
+					content: "";
+					bottom: 0;
+					left: 20%;
+				}
+
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow.last:after {
+						display: none;
+					}
+
+				.editInvoicePage .theInvoiceContent .theInvoiceContentRow.invoiceHeader {
+					border-bottom: 4px solid #00afb2;
+					padding: 0;
+				}
+
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow.invoiceHeader .itemDescription {
+						background-color: #00afb2
+					}
+
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow.invoiceHeader .itemDescription h1 {
+						color: #fff;
+						padding: 15px 25px 20px;
+					}
+
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow.invoiceHeader .unitPrice,
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow.invoiceHeader .quantity,
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow.invoiceHeader .totalPrice {
+						padding-left: 5px;
+						padding-bottom: 5px;
+					}
+
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow.invoiceHeader .unitPrice h1,
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow.invoiceHeader .quantity h1,
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow.invoiceHeader .totalPrice h1 {
+						background-color: #e2e2e2;
+					}
+
+				.editInvoicePage .theInvoiceContent .theInvoiceContentRow .rowColumn {
+					float: left;
+				}
+
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow .itemDescription {
+						width: 40%;
+					}
+
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow .unitPrice {
+						width: 20%;
+					}
+
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow .quantity {
+						width: 20%;
+					}
+
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow .totalPrice {
+						width: 20%;							
+					}
+
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow h1 {
+						width: 100%;
+						display: block;
+						color: #000;
+						font-size: 18px;
+						margin: 0;
+						line-height: 24px;
+						padding: 15px 25px;
+					}
+
+					.editInvoicePage .theInvoiceContent .theInvoiceContentRow p {
+						width: 100%;
+						display: block;
+						color: #8a8fa2;
+						font-size: 14px;
+						margin: 0;
+						line-height: 24px;
+						padding: 0 25px;
+						font-weight: 300;
+					}
+
+		
+			.editInvoicePage .theInvoiceContent .invoiceTotals {
+				padding-top: 50px;
+			}
+
+				.editInvoicePage .theInvoiceContent .invoiceTotals .totalRow {
+					text-align: right;
+					width: 100%;
+					font-size: 16px;
+					line-height: 24px;
+					margin: 0 0 20px;
+				}
+
+					.editInvoicePage .theInvoiceContent .invoiceTotals .totalRow .left {
+						float: left;
+						width: 33%;
+					}
+
+						.editInvoicePage .theInvoiceContent .invoiceTotals .totalRow .left .left {
+							width: auto;
+						}
+
+					.editInvoicePage .theInvoiceContent .invoiceTotals .totalRow > .left:nth-child(1) {
+						text-align: right;
+						font-weight: 400;
+						color: #000;
+						padding-right: 25px;
+					}
+
+					.editInvoicePage .theInvoiceContent .invoiceTotals .totalRow > .left:nth-child(2) {
+						
+					}
+
+					.editInvoicePage .theInvoiceContent .invoiceTotals .totalRow > .left:nth-child(3) {
+						text-align: left;
+						font-weight: 300;
+						color: #8a8fa2;
+						padding-left: 25px;
+					}
+
+					.editInvoicePage .theInvoiceContent .invoiceTotals .totalRow:last-child {
+						font-size: 20px;
+					}
+
+						.editInvoicePage .theInvoiceContent .invoiceTotals .totalRow:last-child .left {
+							font-weight: 600 !important;
+						}
+
+					.editInvoicePage .theInvoiceContent .invoiceTotals input {
+						width: 70px;
+						font-size: 16px;
+						color: #8a8fa2;
+						font-weight: 300;
+						font-family: inherit;
+						border: 0;
+						outline: 0;
+						text-align: left;
+					}
+
+					.editInvoicePage .theInvoiceContent .invoiceTotals select {
+						width: 40px;
+						border: 0;
+						background: transparent;
+						font-family: inherit;
+						color: #7052d5;
+						font-size: 14px;
+						font-weight: 300;
+						padding: 0;
+						outline: 0;
+					}
+
+
+	.editInvoicePage .theInvoiceFooter {
+		margin-top: 100px;
+	}
+
+		/* Invoice Footer Note */
+		.editInvoicePage .theInvoiceFooter .invoiceFooterNote {
+			width:fit-content;
+			margin-bottom: 0;
+		}
+
+			.editInvoicePage .theInvoiceFooter .invoiceFooterNote hr {
+				width: 230px;
+				border: 0;
+				background: transparent;
+				border-bottom: 1px solid #cacdd5;
+				margin-bottom: 25px;
+			}
+
+			.editInvoicePage .theInvoiceFooter .invoiceFooterNote textarea {
+				font-size: 28px;
+				font-weight: 400;
+				width: 400px;
+				line-height: 36px;
+				height: 50px;
+				font-family: inherit;
+				border: 0;
+				background: transparent;
+				outline: 0;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+				.editInvoicePage .theInvoiceFooter .invoiceFooterNote textarea:focus {
+					color: #00afb2;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+		/* /Invoice Footer Note */
+
+		/* Invoice TOC */
+		.editInvoicePage .theInvoiceFooter .invoiceTOC {
+			padding-left: 25px;
+			margin-bottom: 0;
+		}
+
+			.editInvoicePage .theInvoiceFooter .invoiceTOC textarea {
+				width: 100%;
+				font-size: 14px;
+				color: #8a8fa2;
+				line-height: 24px;
+				height: 85px;
+				font-family: inherit;
+				border: 0;
+				background: transparent;
+				font-weight: 300;
+				outline: 0;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+				.editInvoicePage .theInvoiceFooter .invoiceTOC textarea:focus {
+					color: #00afb2;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+		/* /Invoice TOC */
+
+
+
+/**
+ * Lead Page
+ */
+.leadPage {
+
+}
+
+	.leadPage .clientInformation {
+
+	}
+
+		.leadPage .clientInformation .clientName {
+			margin-bottom: 0;
+		}
+
+		.leadPage .clientInformation .clientCompany {
+			font-weight: 300;
+		}
+
+		.leadPage .clientInformation .clientInfoMisc {
+			padding-top: 15px;
+		}
+
+			.leadPage .clientInformation .clientInfoMisc p {
+				margin-bottom: 2px;
+				font-weight: 300;
+				font-size: 14px;
+			}
+
+				.leadPage .clientInformation .clientInfoMisc p span.span-left {
+					float: left;
+					width: 150px;
+					font-weight: 400;
+				}
+
+					.leadPage .clientInformation .clientInfoMisc p span.span-left span {
+						width: 20px;
+						display: inline-block;
+						text-align: right;
+						padding-right: 5px;
+					}
+
+				.leadPage .clientInformation .clientInfoMisc p span.span-right {
+					float: left;
+					width: 350px;
+				}
+
+	/* Assigned Staff */
+	.leadPage .leadAssignedStaff {
+
+	}
+		.leadPage .leadAssignedStaff .panelHeader {
+			padding: 10px 15px;
+			border-bottom: 1px solid #ebebeb
+		}
+
+		.leadPage .leadAssignedStaff .existingStaffWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.leadPage .leadAssignedStaff .existingStaffWrapper .individualStaff {
+				margin-bottom: 15px;
+			}
+
+				.leadPage .leadAssignedStaff .existingStaffWrapper .individualStaff:last-child {
+					margin-bottom: 0;
+				}
+
+				.leadPage .leadAssignedStaff .existingStaffWrapper .individualStaff .staffName {
+					font-size: 14px;
+					line-height: 24px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.leadPage .leadAssignedStaff .existingStaffWrapper .individualStaff .staffAssigned {
+					text-align: right;
+					font-size: 12px;
+					line-height: 24px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.leadPage .leadAssignedStaff .existingStaffWrapper .individualStaff .staffDepartment {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.leadPage .leadAssignedStaff .existingStaffWrapper .individualStaff .staffActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.leadPage .leadAssignedStaff .existingStaffWrapper .individualStaff .staffActions a {
+
+					}
+
+
+
+	.leadPage .leadTimeline {
+		
+	}
+
+		.leadPage .leadTimeline .panelHeader {
+			padding: 10px 15px;
+			border-bottom: 1px solid #ebebeb
+		}
+
+		.leadPage .leadTimeline .panelContent {
+			padding: 25px 15px;
+			position: relative;
+			padding-top: 15px;
+		}
+
+			.leadPage .leadTimeline .line {
+				width: 1px;
+				height: calc(100% - 50px);
+				position: absolute;
+				top: 25px;
+				left: 15px;
+				background: rgba(138, 143, 161, 0.2);
+			}
+
+			.leadPage .leadTimeline .timelineContainer {
+				padding-left: 10px;
+			}
+
+				.leadPage .leadTimeline .timelineContainer ul {
+					list-style: none;
+				}
+
+				.leadPage .leadTimeline .timelineContainer ul li {
+					position: relative;
+					margin-bottom: 15px;
+				}
+
+					.leadPage .leadTimeline .timelineContainer ul li:last-child {
+						margin-bottom: 0;
+					}
+
+					.leadPage .leadTimeline .timelineContainer ul li:before {
+						display: block;
+						content: " ";
+						width: 5px;
+						height: 5px;
+						background: #8A8FA1;
+						border-radius: 50%;
+						position: absolute;
+						left: -12px;
+						top: 5px;
+					}
+
+					.leadPage .leadTimeline ul li .time p {
+						margin-bottom: 0;
+						color: #8A8FA1;
+						font-weight: 300;
+						font-size: 10px;
+					}
+
+					.leadPage .leadTimeline ul li .task p {
+						margin-bottom: 0;
+						color: #000;
+						font-size: 12px;
+						font-weight: 300
+					}
+
+
+	.leadPage .clientTaskAdd {
+
+	}
+
+		.leadPage .clientTaskAdd .panelHeader {
+
+		}
+
+			.leadPage .clientTaskAdd .panelHeader h1 {
+				margin-bottom: 5px;
+			}
+
+		.leadPage .clientTaskAdd .panelContent {
+			position: relative;
+		}
+
+			.leadPage .clientTaskAdd .panelContent input {
+				margin: 10px 0;
+				width: 100%;
+				border: 0;
+				padding: 0;
+				font-size: 16px;
+				color: #000;
+				box-shadow: none;
+				font-family: inherit;
+				font-weight: 300;
+				outline: 0;
+			}
+
+			.leadPage .clientTaskAdd .panelContent ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+				color: #000;
+			}
+			.leadPage .clientTaskAdd .panelContent ::-moz-placeholder { /* Firefox 19+ */
+				color: #000;
+			}
+			.leadPage .clientTaskAdd .panelContent :-ms-input-placeholder { /* IE 10+ */
+				color: #000;
+			}
+			.leadPage .clientTaskAdd .panelContent :-moz-placeholder { /* Firefox 18- */
+				color: #000;
+			}
+
+			.leadPage .clientTaskAdd .panelContent ul {
+				list-style: none;
+			}
+
+				.leadPage .clientTaskAdd .panelContent ul li {
+					float: left;
+				}
+
+				.leadPage .clientTaskAdd .panelContent ul li ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+					color: #7057D2;
+				}
+				.leadPage .clientTaskAdd .panelContent ul li ::-moz-placeholder { /* Firefox 19+ */
+					color: #7057D2;
+				}
+				.leadPage .clientTaskAdd .panelContent ul li :-ms-input-placeholder { /* IE 10+ */
+					color: #7057D2;
+				}
+				.leadPage .clientTaskAdd .panelContent ul li :-moz-placeholder { /* Firefox 18- */
+					color: #7057D2;
+				}
+
+			.leadPage .clientTaskAdd .panelContent ul li input {
+				font-size: 12px;
+				text-align: center;
+				cursor: pointer;
+				margin: 0;
+				color: #7057D2;
+			}
+
+			.leadPage .clientTaskAdd .panelContent ul li select {
+				border: 0;
+				cursor: pointer;
+				color: #7057D2;
+				font-size: 12px;
+				font-family: inherit;
+				font-weight: 300;
+				outline: 0;
+				text-align: center;
+				background: transparent;
+			}
+
+			.leadPage .clientTaskAdd .panelContent ul li button {
+				border: 0;
+				background: transparent;
+				color: #7057D2;
+				font-size: 12px;
+				font-weight: 300;
+				font-family: inherit;
+				outline: 0;
+				cursor: pointer;
+				position: absolute;
+				bottom: 5px;
+				right: 10px;
+				opacity: 0;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+				.leadPage .clientTaskAdd .panelContent:focus-within .addFocus {
+					opacity: 1;
+				} 
+
+				.leadPage .clientTaskAdd .panelContent ul li button:hover {
+					letter-spacing: 1px;
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+
+	.leadPage .clientTasksContainer ul {
+		list-style: none;
+	}
+
+	.leadPage .clientTask {
+
+	}
+
+		.leadPage .clientTask .panelHeader h1 {
+			margin-bottom: 10px;
+		}
+
+		.leadPage .clientTask .panelContent p {
+			color: #000;
+			font-size: 14px;
+			line-height: 24px;
+			font-weight:300;
+		}
+
+			.leadPage .clientTask .panelContent ul {
+				list-style: none;
+			}
+
+				.leadPage .clientTask .panelContent ul li {
+					float: left;
+				}
+
+				.leadPage .clientTask .panelContent ul li ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+					color: #7057D2;
+				}
+				.leadPage .clientTask .panelContent ul li ::-moz-placeholder { /* Firefox 19+ */
+					color: #7057D2;
+				}
+				.leadPage .clientTask .panelContent ul li :-ms-input-placeholder { /* IE 10+ */
+					color: #7057D2;
+				}
+				.leadPage .clientTask .panelContent ul li :-moz-placeholder { /* Firefox 18- */
+					color: #7057D2;
+				}
+
+			.leadPage .clientTask .panelContent ul li input {
+				font-size: 12px;
+				text-align: center;
+				cursor: pointer;
+				margin: 0;
+				color: #7057D2;
+
+				width: 100%;
+				border: 0;
+				padding: 0;
+				font-family: inherit;
+				font-weight: 300;
+				outline: 0;
+			}
+
+			.leadPage .clientTask .panelContent ul li select {
+				border: 0;
+				cursor: pointer;
+				color: #7057D2;
+				font-size: 12px;
+				font-family: inherit;
+				font-weight: 300;
+				background: transparent;
+				outline: 0;
+				text-align: center;
+			}
+
+
+
+	.leadPage .leadProposals {
+
+	}
+
+		.leadPage .leadProposals .panelHeader {
+			padding: 10px 15px;
+			border-bottom: 1px solid #ebebeb;
+		}
+
+		.leadPage .leadProposals .noProposalsWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.leadPage .leadProposals .noProposalsWrapper p {
+				font-weight: 400;
+				color: #9b9b9b;
+				margin-bottom: 0;
+			}
+
+		.leadPage .leadProposals .existingProposalsWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.leadPage .leadProposals .existingProposalsWrapper .individualProposal {
+				margin-bottom: 15px;
+			}
+
+				.leadPage .leadProposals .existingProposalsWrapper .individualProposal .half:nth-child(1) { width: 66%; }
+				.leadPage .leadProposals .existingProposalsWrapper .individualProposal .half:nth-child(2) { width: 33%; }
+
+				.leadPage .leadProposals .existingProposalsWrapper .individualProposal:last-child {
+					margin-bottom: 0;
+				}
+
+				.leadPage .leadProposals .existingProposalsWrapper .individualProposal .proposalName {
+					font-size: 16px;
+					line-height: 24px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.leadPage .leadProposals .existingProposalsWrapper .individualProposal .proposalValue {
+					text-align: right;
+					font-size: 13px;
+					line-height: 20px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.leadPage .leadProposals .existingProposalsWrapper .individualProposal .proposalDescription {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.leadPage .leadProposals .existingProposalsWrapper .individualProposal .proposalActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.leadPage .leadProposals .existingProposalsWrapper .individualProposal .proposalActions a {
+
+					}
+
+	.leadPage .clientInvoices {
+
+	}
+
+		.leadPage .clientInvoices .panelHeader {
+			padding: 10px 15px;
+			border-bottom: 1px solid #ebebeb;
+		}
+
+		.leadPage .clientInvoices .noInvoicesWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.leadPage .clientInvoices .noInvoicesWrapper p {
+				font-weight: 400;
+				color: #9b9b9b;
+				margin-bottom: 0;
+			}
+
+		.leadPage .clientInvoices .existingInvoicesWrapper {
+			width: 100%;
+			padding: 15px;
+		}
+
+			.leadPage .clientInvoices .existingInvoicesWrapper .individualInvoice {
+				margin-bottom: 15px;
+			}
+
+				.leadPage .clientInvoices .existingInvoicesWrapper .individualInvoice .half:nth-child(1) { width: 66%; }
+				.leadPage .clientInvoices .existingInvoicesWrapper .individualInvoice .half:nth-child(2) { width: 33%; }
+
+				.leadPage .clientInvoices .existingInvoicesWrapper .individualInvoice:last-child {
+					margin-bottom: 0;
+				}
+
+				.leadPage .clientInvoices .existingInvoicesWrapper .individualInvoice .invoiceName {
+					font-size: 16px;
+					line-height: 24px;
+					color: #000;
+					margin: 0;
+					font-weight: 400;
+				}
+
+				.leadPage .clientInvoices .existingInvoicesWrapper .individualInvoice .invoiceDue {
+					text-align: right;
+					font-size: 13px;
+					line-height: 20px;
+					color: #8a8fa2;
+					margin: 0;
+					font-weight: 300;
+				}
+
+				.leadPage .clientInvoices .existingInvoicesWrapper .individualInvoice .invoiceStatus {
+					font-size: 12px;
+					margin: 0;
+					line-height: 18px;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+
+				.leadPage .clientInvoices .existingInvoicesWrapper .individualInvoice .invoiceActions {
+					text-align: right;
+					font-size: 12px;
+					line-height: 18px;
+					margin: 0;
+					color: #8a8fa2;
+					font-weight: 300;
+				}
+					
+					.leadPage .clientInvoices .existingInvoicesWrapper .individualInvoice .invoiceActions a {
+
+					}
+
+	.leadPage .leadProfilePicture {
+		width: 100%;
+		height: 300px;
+		background-color: #eee;
+		background-size: cover;
+		background-position: center;
+	}
+
+	
+	.leadPage .leadControls {
+
+	}
+
+		.leadPage .leadControls ul {
+			list-style: none;
+		}
+
+			.leadPage .leadControls ul li {
+				width: 50%;
+				float: left;
+				border-bottom: 1px solid #eff0f3;
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;
+				-o-transition: all 0.3s ease-out;
+				transition: all 0.3s ease-out;
+			}
+
+				.leadPage .leadControls ul li:nth-child(2n+1) {
+					border-right: 1px solid #eff0f3;
+				}
+
+				.leadPage .leadControls ul li:nth-last-child(-n+2) {
+					border-bottom: 0;
+				}
+
+				.leadPage .leadControls ul li:hover {
+					background-color: rgba(239, 240, 243, 0.3);
+				}
+
+			.leadPage .leadControls ul li a {
+				display: block;
+				font-size: 14px;
+				padding: 13px 0;
+				text-align: center;
+			}
+
+
+
+
+
+/**
+ * Invoices Page
+ */
+.expensesPage {
+
+}
+
+	/* Invoices Overview */
+	.expensesPage .expensesOverview {
+		margin-bottom: 35px;
+	}
+
+		.expensesPage .expensesOverview .overviewBox {
+			float: left;
+			background: #fff;
+			position: relative;
+			width: 25%;
+		}
+
+			.expensesPage .expensesOverview .overviewBox:after {
+				width: 1px;
+				height: 50px;
+				right: 0;
+				top: 50%;
+				margin-top: -25px;
+				background: #ececec;
+				content: " ";
+				display: block;
+				position: absolute;
+			}
+
+				.expensesPage .expensesOverview .overviewBox:last-child:after {
+					display: none;
+				} 
+
+			.expensesPage .expensesOverview .overviewBox .inner {
+				padding: 15px;
+			}
+
+			.expensesPage .expensesOverview .overviewBox .left {
+				float: left;
+			}
+
+				.expensesPage .expensesOverview .overviewBox .left .image {
+					width: 80px;
+					height: 80px;
+					background-color: #f2f2f2;
+				}
+
+			.expensesPage .expensesOverview .overviewBox .right {
+				float: left;
+				padding-left: 15px;
+				padding-top: 15px;
+			}
+
+				.expensesPage .expensesOverview .overviewBox .right h2 {
+					font-size: 16px;
+					line-height: 22px;
+					font-weight: 500;
+					margin: 0;
+					color: #000;
+				}
+
+					.expensesPage .expensesOverview .overviewBox .right p {
+						font-size: 34px;
+						margin-bottom: 0;
+						margin-top: 14px;
+						text-align: left;
+						color: #7052d5;
+					}
+
+						.expensesPage .expensesOverview .overviewBox .right p span {
+							font-size: 9px;
+							position: relative;
+							top: -5px;
+							color: #8a8fa2;
+						}
+
+
+	/* Invoice Container */
+	.expensesPage .expensesContainer {
+
+	}
+
+		.expensesPage .expensesContainer .list {
+			list-style: none;
+		}
+
+			.expensesPage .expensesContainer .list .expense {
+				background: #fff;
+				padding: 15px;
+				margin-bottom: 20px;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+				.expensesPage .expensesContainer .list .expense:hover {
+					background: rgba(255, 255, 255, 0.008);
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+				.expensesPage .expensesContainer .list .expense .expenseProjectName {
+					float: left;
+					width: 26%;
+				}
+		
+					.expensesPage .expensesContainer .list .expense .expenseProjectName h2 {
+
+					}
+
+				.expensesPage .expensesContainer .list .expense .expenseNumber {
+					float: left;
+					width: 15%;
+				}
+			
+				.expensesPage .expensesContainer .list .expense .expenseDate {
+					float: left;
+					width: 16%;
+				}
+			
+				.expensesPage .expensesContainer .list .expense .expenseDueDate {
+					float: left;
+					width: 15%;
+				}
+			
+				.expensesPage .expensesContainer .list .expense .expenseTotalAmount {
+					float: left;
+					width: 13%;
+				}
+			
+				.expensesPage .expensesContainer .list .expense .expenseActions {
+					float: left;
+					width: 15%;
+				}
+
+					.expensesPage .expensesContainer .list .expense h2 {
+						font-size: 14px;
+						line-height: 18px;
+						font-weight: 400;
+						margin: 0 0 5px;
+						color: #000;
+					}
+
+					.expensesPage .expensesContainer .list .expense p {
+						font-size: 14px;
+						line-height: 18px;
+						margin: 0;
+						font-weight: 300;
+						color: #8a8fa2;
+					}
+
+					.expensesPage .expensesContainer .list .expense .expenseActions ul {
+						list-style: none;
+					}
+
+						.expensesPage .expensesContainer .list .expense .expenseActions ul li {
+							float: left;
+						}
+
+						.expensesPage .expensesContainer .list .expense .expenseActions ul li a {
+							font-size: 14px;
+							display: block;
+							padding: 10px;
+						}
+
+			.expensesPage .expensesContainer .paginationContainer {
+				margin-top: 15px;
+			}
+
+				.expensesPage .expensesContainer .paginationContainer ul {
+					list-style: none;
+				}
+
+				.expensesPage .expensesContainer .paginationContainer ul li {
+					display: inline-block;
+				}
+
+					.expensesPage .expensesContainer .paginationContainer ul li a {
+						padding: 10px;
+						background: #fff;
+						width: 40px;
+						display: block;
+						text-align: center;
+						font-size: 14px;
+						color: #484848;
+						line-height: 20px;
+						margin-right: 10px;
+						-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+						-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+						box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;  
+						-o-transition: all 0.3s ease-out;  
+						transition: all 0.3s ease-out;
+					}
+
+						.expensesPage .expensesContainer .paginationContainer ul li.active a {
+							color: #7052d5;
+						}
+
+						.expensesPage .expensesContainer .paginationContainer ul li a:hover {
+							color: #7052d5;
+							background: rgba(255, 255, 255, 0.008);
+							-webkit-transition: all 0.3s ease-out;
+							-moz-transition: all 0.3s ease-out;  
+							-o-transition: all 0.3s ease-out;  
+							transition: all 0.3s ease-out;
+						}
+
+		.expensesPage .panel.expenseAccounts {
+			background-color: transparent;
+		}
+
+			.expensesPage .panel.expenseAccounts .panelHeader {
+				background-color: #fff;
+				padding: 10px 15px;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			}
+
+				.expensesPage .panel.expenseAccounts .panelHeader h1 {
+					color: #000;
+				}
+
+			.expensesPage .panel.expenseAccounts ul {
+				list-style: none;
+			}
+
+				.expensesPage .panel.expenseAccounts ul li.theExpenseAccount {
+					background-color: #fff;
+					padding: 15px;
+					margin-top: 15px;
+					-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+					-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+					box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;
+					-o-transition: all 0.3s ease-out;
+					transition: all 0.3s ease-out;
+				}
+
+					.expensesPage .panel.expenseAccounts ul li.theExpenseAccount .expenseAccountName {
+						font-size: 14px;
+						line-height: 18px;
+						margin: 0;
+						font-weight: 400;
+					}
+
+					.expensesPage .panel.expenseAccounts ul li.theExpenseAccount .expenseAccountSpending {
+						font-size: 14px;
+						margin: 0;
+						font-weight: 500;
+						line-height: 18px;
+						text-align: right;
+						color: #7052d5;
+					}
+
+					.expensesPage .panel.expenseAccounts ul li.theExpenseAccount .expenseBudgeting {
+						width: 100%;
+						margin-top: 10px;
+						height: 4px;
+						background: #eff0f3;
+					}
+
+						.expensesPage .panel.expenseAccounts ul li.theExpenseAccount .expenseBudgeting .line {
+							height: 4px;
+							width: 100%;
+							background: #00afb2;
+						}
+
+
+			.expensesPage .panel.expenseAccounts .addNewExpenseAccount {
+				margin-top: 15px;
+			}
+
+				.expensesPage .panel.expenseAccounts .addNewExpenseAccount .inline {
+					float: left;
+				}
+
+				.expensesPage .panel.expenseAccounts .addNewExpenseAccount a {
+					width: 40px;
+				    height: 40px;
+				    display: block;
+				    background: #fff;
+				    line-height: 40px;
+				    text-align: center;
+				    font-size: 20px;
+				    color: #4b4b4b;
+				    margin-right: 15px;
+				}
+
+				.expensesPage .panel.expenseAccounts .addNewExpenseAccount input {
+					width: 292px;
+					height: 40px;
+					padding: 15px;
+					background: #fff;
+					font-size: 14px;
+					letter-spacing: 0.3px;
+					color: #4B4B4B;
+					font-weight: 400;
+					font-family: inherit;
+				}
+
+
+/* -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+	-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+	box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out; */
+
+
+/**
+ * Invoices Page
+ */
+.proposalsPage {
+
+}
+
+	/* Invoices Overview */
+	.proposalsPage .proposalOverview {
+		margin-bottom: 35px;
+	}
+
+		.proposalsPage .proposalOverview .overviewBox {
+			float: left;
+			background: #fff;
+			position: relative;
+			width: 25%;
+		}
+
+			.proposalsPage .proposalOverview .overviewBox:after {
+				width: 1px;
+				height: 50px;
+				right: 0;
+				top: 50%;
+				margin-top: -25px;
+				background: #ececec;
+				content: " ";
+				display: block;
+				position: absolute;
+			}
+
+				.proposalsPage .proposalOverview .overviewBox:last-child:after {
+					display: none;
+				} 
+
+			.proposalsPage .proposalOverview .overviewBox .inner {
+				padding: 15px;
+			}
+
+			.proposalsPage .proposalOverview .overviewBox .left {
+				float: left;
+			}
+
+				.proposalsPage .proposalOverview .overviewBox .left .image {
+					width: 70px;
+					height: 80px;
+					background-color: #f2f2f2;
+				}
+
+			.proposalsPage .proposalOverview .overviewBox .right {
+				float: left;
+				padding-left: 15px;
+				padding-top: 15px;
+			}
+
+				.proposalsPage .proposalOverview .overviewBox .right h2 {
+					font-size: 16px;
+					line-height: 22px;
+					font-weight: 500;
+					margin: 0;
+					color: #000;
+				}
+
+					.proposalsPage .proposalOverview .overviewBox .right p {
+						font-size: 34px;
+						margin-bottom: 0;
+						margin-top: 14px;
+						text-align: left;
+						color: #7052d5;
+					}
+
+						.proposalsPage .proposalOverview .overviewBox .right p span {
+							font-size: 9px;
+							position: relative;
+							top: -5px;
+							color: #8a8fa2;
+						}
+
+
+	/* Invoice Container */
+	.proposalsPage .proposalContainer {
+
+	}
+
+		.proposalsPage .proposalContainer .list {
+			list-style: none;
+		}
+
+			.proposalsPage .proposalContainer .list .proposal {
+				background: #fff;
+				padding: 15px;
+				margin-bottom: 20px;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+				.proposalsPage .proposalContainer .list .proposal:hover {
+					background: rgba(255, 255, 255, 0.008);
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+				.proposalsPage .proposalContainer .list .proposal .proposalProjectName {
+					float: left;
+					width: 35%;
+				}
+		
+					.proposalsPage .proposalContainer .list .proposal .proposalProjectName h2 {
+
+					}
+
+				.proposalsPage .proposalContainer .list .proposal .proposalNumber {
+					float: left;
+					width: 14%;
+				}
+			
+				.proposalsPage .proposalContainer .list .proposal .proposalDate {
+					float: left;
+					width: 14%;
+				}
+			
+				.proposalsPage .proposalContainer .list .proposal .proposalDueDate {
+					float: left;
+					width: 14%;
+				}
+			
+				.proposalsPage .proposalContainer .list .proposal .proposalTotalAmount {
+					float: left;
+					width: 12%;
+				}
+			
+				.proposalsPage .proposalContainer .list .proposal .proposalActions {
+					float: left;
+					width: 11%;
+				}
+
+					.proposalsPage .proposalContainer .list .proposal h2 {
+						font-size: 14px;
+						line-height: 18px;
+						font-weight: 400;
+						margin: 0 0 5px;
+						color: #000;
+					}
+
+					.proposalsPage .proposalContainer .list .proposal p {
+						font-size: 14px;
+						line-height: 18px;
+						margin: 0;
+						font-weight: 300;
+						color: #8a8fa2;
+					}
+
+					.proposalsPage .proposalContainer .list .proposal .proposalActions ul {
+						list-style: none;
+					}
+
+						.proposalsPage .proposalContainer .list .proposal .proposalActions ul li {
+							float: left;
+						}
+
+						.proposalsPage .proposalContainer .list .proposal .proposalActions ul li a {
+							font-size: 14px;
+							display: block;
+							padding: 10px;
+						}
+
+			.proposalsPage .proposalContainer .paginationContainer {
+				margin-top: 15px;
+			}
+
+				.proposalsPage .proposalContainer .paginationContainer ul {
+					list-style: none;
+				}
+
+				.proposalsPage .proposalContainer .paginationContainer ul li {
+					display: inline-block;
+				}
+
+					.proposalsPage .proposalContainer .paginationContainer ul li a {
+						padding: 10px;
+						background: #fff;
+						width: 40px;
+						display: block;
+						text-align: center;
+						font-size: 14px;
+						color: #484848;
+						line-height: 20px;
+						margin-right: 10px;
+						-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+						-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+						box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+						-webkit-transition: all 0.3s ease-out;
+						-moz-transition: all 0.3s ease-out;  
+						-o-transition: all 0.3s ease-out;  
+						transition: all 0.3s ease-out;
+					}
+
+						.proposalsPage .proposalContainer .paginationContainer ul li.active a {
+							color: #7052d5;
+						}
+
+						.proposalsPage .proposalContainer .paginationContainer ul li a:hover {
+							color: #7052d5;
+							background: rgba(255, 255, 255, 0.008);
+							-webkit-transition: all 0.3s ease-out;
+							-moz-transition: all 0.3s ease-out;  
+							-o-transition: all 0.3s ease-out;  
+							transition: all 0.3s ease-out;
+						}
+
+	/* Proposals Sidebar */
+	.proposalsPage .colSidebar {
+
+	}
+
+		.proposalsPage .colSidebar .createProposal {
+
+		}
+
+			.proposalsPage .colSidebar .createProposal h1 {
+				font-size: 22px;
+				color: #4B4B4B;
+			}
+
+			.proposalsPage .colSidebar .createProposal .panelContent {
+				padding-top: 15px;
+			}
+
+			.proposalsPage .colSidebar .createProposal .half:nth-child(1) { padding-right: 7px; }
+			.proposalsPage .colSidebar .createProposal .half:nth-child(2) { padding-left: 7px; }
+
+			.proposalsPage .colSidebar .createProposal a {
+				width: 100%;
+				display: block;
+				background: #fff;
+				padding: 10px 0;
+				text-align: center;
+				font-size: 14px;
+				color: #4B4B4B;
+				-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+				.proposalsPage .colSidebar .createProposal a:hover {
+					background: rgba(255, 255, 255, 0.7);
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+				.proposalsPage .colSidebar .createProposal a:active {
+					background: rgba(255, 255, 255, 0.4);
+					-webkit-transition: all 0.3s ease-out;
+					-moz-transition: all 0.3s ease-out;  
+					-o-transition: all 0.3s ease-out;  
+					transition: all 0.3s ease-out;
+				}
+
+
+	 	/* Project Timeline */
+	 	.proposalsPage .proposalsLogTimeline {
+
+	 	}
+
+	 		.proposalsPage .proposalsLogTimeline .inner {
+
+			}
+
+				.proposalsPage .proposalsLogTimeline .panelHeader {
+					padding: 10px 15px;
+				}
+
+				.proposalsPage .proposalsLogTimeline .panelContent {
+					padding: 0 15px 15px;
+					position: relative;
+					padding-top: 15px;
+				}
+
+	 		.proposalsPage .proposalsLogTimeline .panelContent {
+	 			padding: 25px 15px;
+	 			position: relative;
+	 			padding-top: 15px;
+	 		}
+
+	 			.proposalsPage .proposalsLogTimeline .line {
+	 				width: 1px;
+	 				height: calc(100% - 50px);
+	 				position: absolute;
+	 				top: 25px;
+	 				left: 15px;
+	 				background: rgba(138, 143, 161, 0.2);
+	 			}
+
+	 			.proposalsPage .proposalsLogTimeline .timelineContainer {
+	 				padding-left: 10px;
+	 			}
+
+	 				.proposalsPage .proposalsLogTimeline .timelineContainer ul {
+	 					list-style: none;
+	 				}
+
+	 				.proposalsPage .proposalsLogTimeline .timelineContainer ul li {
+	 					position: relative;
+	 					margin-bottom: 15px;
+	 				}
+
+	 					.proposalsPage .proposalsLogTimeline .timelineContainer ul li:last-child {
+	 						margin-bottom: 0;
+	 					}
+
+	 					.proposalsPage .proposalsLogTimeline .timelineContainer ul li:before {
+	 						display: block;
+	 						content: " ";
+	 						width: 5px;
+	 						height: 5px;
+	 						background: #8A8FA1;
+	 						border-radius: 50%;
+	 						position: absolute;
+	 						left: -12px;
+	 						top: 5px;
+	 					}
+
+	 					.proposalsPage .proposalsLogTimeline ul li .time p {
+	 						margin-bottom: 0;
+	 						color: #8A8FA1;
+	 						font-weight: 300;
+	 						font-size: 10px;
+	 					}
+
+	 					.proposalsPage .proposalsLogTimeline ul li .task p {
+	 						margin-bottom: 0;
+	 						color: #000;
+	 						font-size: 12px;
+	 						font-weight: 300
+	 					}
+		
+
+.editProposalPage {
+
+}
+
+	.editProposalPage .proposalEditor {
+		background: #fff;
+		padding: 15px;
+	}
+
+
+.calendarPage {
+	
+}
+
+
+.expensePage {
+	
+}
+
+	.expensePage .pageHeader {
+		padding: 25px 0;
+	}
+
+		.expensePage .pageHeader h1 {
+			font-size: 24px;
+			line-height: 30px;
+			margin: 0;	
+		}
+
+		.expensePage .pageHeader p {
+			margin: 0;
+			font-size: 14px;
+			line-height: 18px;
+			padding-top: 8px;
+			font-weight: 300;
+			color: #8a8fa2;
+		}
+
+	.expensePage .panel {
+
+	}
+
+		.expensePage .panel .panelHeader {
+			padding: 10px 15px;
+			border-bottom: 1px solid #eff0f3;
+		}
+
+		.expensePage .panel .panelContent {
+			padding: 15px;
+		}
+
+	.expensePage .staffInformation {
+
+	}
+
+		.expensePage .staffInformation p {
+			margin-bottom: 2px;
+			font-weight: 300;
+			font-size: 14px;
+		}
+
+			.expensePage .staffInformation p span {
+				display: inline-block;
+				width: 150px;
+				font-weight: 400;
+			}
+
+				.expensePage .staffInformation p span span {
+					width: 20px;
+					display: inline-block;
+					text-align: right;
+					padding-right: 5px;
+				}
+
+	.expensePage .expenseInformation {
+
+	}
+
+		.expensePage .expenseInformation p {
+			margin-bottom: 2px;
+			font-weight: 300;
+			font-size: 14px;
+		}
+
+			.expensePage .expenseInformation p span {
+				display: inline-block;
+				width: 150px;
+				font-weight: 400;
+			}
+
+				.expensePage .expenseInformation p span span {
+					width: 20px;
+					display: inline-block;
+					text-align: right;
+					padding-right: 5px;
+				}
+
+	.expensePage .purchaseBreakdown {
+
+	}
+
+		.expensePage .purchaseBreakdown .breakdownWrapper .breakdownItem {
+			margin-bottom: 15px;
+		}
+
+			.expensePage .purchaseBreakdown .breakdownWrapper .breakdownItem:last-child {
+				margin-bottom: 0;
+			}
+
+			.expensePage .purchaseBreakdown .breakdownWrapper .breakdownItem .expenseName {
+				font-size: 16px;
+				line-height: 24px;
+				color: #000;
+				margin: 0;
+				font-weight: 400;
+			}
+
+			.expensePage .purchaseBreakdown .breakdownWrapper .breakdownItem .expensePrice {
+				text-align: right;
+				font-size: 13px;
+				line-height: 20px;
+				color: #8a8fa2;
+				margin: 0;
+				font-weight: 300;
+			}
+
+			.expensePage .purchaseBreakdown .breakdownWrapper .breakdownItem .expenseDesc {
+				font-size: 12px;
+				margin: 0;
+				line-height: 18px;
+				color: #8a8fa2;
+				font-weight: 300;
+			}
+
+			.expensePage .purchaseBreakdown .breakdownWrapper .breakdownItem .expenseActions {
+				text-align: right;
+				font-size: 12px;
+				line-height: 18px;
+				margin: 0;
+				color: #8a8fa2;
+				font-weight: 300;
+			}
+				
+				.expensePage .purchaseBreakdown .breakdownWrapper .breakdownItem .expenseActions a {
+
+				}
+
+	.expensePage .receiptPanel {
+
+	}
+
+		.expensePage .receiptPanel .receiptContainer{
+			height: calc(100vh - 400px);
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

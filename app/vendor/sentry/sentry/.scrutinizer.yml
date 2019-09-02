@@ -1,0 +1,21 @@
+tools:
+    external_code_coverage:
+        runs: 1
+
+build:
+    nodes:
+        analysis:
+            tests:
+                override:
+                    - php-scrutinizer-run
+
+filter:
+    paths:
+        - src/
+        - tests/
+
+coding_style:
+    php:
+        spaces:
+            around_operators:
+                concatenation: true

@@ -1,0 +1,231 @@
+/* Body */
+body {
+	color: #fff;
+	background: #2f3347;
+}
+
+.debugInformation {
+	color: #fff;
+	background-color: rgb(58, 61, 79);
+}
+
+/* Typography */
+h1, h2, h3, 
+h4, h5, h6 {
+	color: #fff;
+}
+
+p {
+	color: #fff;
+}
+
+a {
+	color: #B9D257;
+}
+
+a:focus,
+a:hover,
+a:active {
+	color: #7E9816;
+}
+
+/* Sidebar */
+.sidebar {
+	background: #3a3d4f;
+	border-right: 1px solid #3a3d4f;
+}
+
+.sidebar .logo {
+	color: #9d9ea7;
+}
+
+.sidebar .menu ul li:after {
+	background: #000;
+	color: #fff;
+}
+
+.sidebar .menu ul li:before {
+	border-right:7px solid #000;
+}
+
+.sidebar .menu ul li a {
+	color: #9d9ea7;
+}
+
+.sidebar .menu ul li:hover a {
+	background: #2d3145;
+}
+
+
+/* Header */
+.header {
+	background: #2f3347;
+	border-bottom: 1px solid #424557;
+}
+
+.header .leftContainer .menu ul li a {
+	color: #777b8f;
+}
+
+.header .leftContainer .menu ul li:hover a {
+	color: #fff;
+}
+
+.header .search {
+	border-left: 1px solid #424557;
+}
+
+.header .search .searchBox input {
+	color:#424557;
+}
+
+.header .search .searchBox input::-webkit-input-placeholder,
+.header .search .searchBox input::-moz-placeholder,
+.header .search .searchBox input:-ms-input-placeholder,
+.header .search .searchBox input:-moz-placeholder {
+	color: #424557;
+}
+
+.header .search .results {
+	background: #fff;
+}
+
+.header .settings {
+	border-left: 1px solid #424557;
+}
+
+.header .settings a {
+	color: #424557;
+}
+
+.header .add {
+	border-left: 1px solid #424557;
+}
+
+.header .add:hover {
+	background: #f5f5f5;
+}
+
+.header .add svg {
+	color: #424557;
+}
+
+.header .add .addContainer {
+	background: #fff;
+}
+
+.header .add .addContainer ul li a {
+	color: #000;
+}
+
+.header .add .addContainer ul li:hover {
+	background: #f5f5f5;
+}
+
+.header .userProfile {
+	border-left: 1px solid #424557;	
+}
+
+.header .userProfile .userImage {
+	border: 1px solid #9b9b9b;
+}
+
+.header .userProfile .userImage .inner {
+	background-color: #000;
+}
+
+.header .userProfile ul ul {
+	background: #3a3d4f;
+}
+
+.header .userProfile ul ul li a {
+	color: #8A8FA1;
+}
+
+.header .userProfile ul ul li a:hover {
+	background: rgba(0, 0, 0, 0.01);
+	color: #B9D257;
+}
+
+.header .userProfile ul ul li:hover a:active {
+	background: rgba(0, 0, 0, 0.03);
+	color: #B9D257;
+}
+
+/* Content */
+.content .panel {
+	background: #3a3d4f;
+}
+
+.content .panel .panelHeader h1 {
+	color: #9c9da6;
+}
+
+/* Dashboard */
+.dashboard .dashContainer .headerContainer .title h1 {
+	color: #fff;
+}
+
+.dashboard .overview .overviewBox {
+	background: #3a3d4f;
+}
+
+.dashboard .overview .overviewBox:after {
+	background: #343748;	
+}
+
+.dashboard .overview .overviewBox .left .image {
+	background-color: #343748;	
+}
+
+.dashboard .overview .overviewBox .right h2 {
+	color: #fff;
+}
+
+.dashboard .overview .overviewBox .right p {
+	color: #b9d44d;
+}
+
+.dashboard .overview .overviewBox .right p span {
+	color: #8a8fa2;	
+}
+
+.dashboard .upcomingMeetings .meetingBox {
+	background: #393c4e;	
+}
+
+.dashboard .upcomingMeetings .meetingBox .about .left .image {
+	background-color: #393c4e;	
+}
+
+.dashboard .upcomingMeetings .meetingBox .about .right .meetingName {
+	color: #fff;	
+}
+
+.dashboard .upcomingMeetings .meetingBox .about .right p {
+	color: #fff;	
+}
+
+.dashboard .upcomingMeetings .meetingBox .about .whenAndWhere  p {
+	color: #fff;	
+}
+
+.dashboard .upcomingMeetings .meetingBox .about .whenAndWhere p span {
+	color: rgba(255, 255, 255, 0.45);	
+}
+
+.dashboard .upcomingMeetings .meetingBox .about .whenAndWhere p a {
+	color: #b9d44d;	
+}
+
+.dashboard .upcomingMeetings .meetingBox .actions {
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.dashboard .upcomingMeetings .meetingBox .actions a {
+	color: #b9d44d;	
+}
+
+.dashboard .upcomingMeetings .meetingBox .actions .action:first-child {
+	border-right: 1px solid rgba(0, 0, 0, 0.08);
+}

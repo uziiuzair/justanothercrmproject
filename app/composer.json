@@ -1,0 +1,25 @@
+{
+  "name": "uziiuzair/crm",
+  "description": "CRM",
+  "license": "GNU GPL v3",
+  "authors": [
+    {
+      "name": "Uzair Hayat"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "uziiuzair\\crm\\": "src/"
+    }
+  },
+  "require": {
+    "sendgrid/sendgrid": "~6.0",
+    "setasign/fpdf": "1.8.1",
+    "paypal/rest-api-sdk-php": "*",
+    "zendesk/zendesk_api_client_php": "^2.2",
+    "sentry/sentry": "2.0.0-beta1",
+    "facebook/graph-sdk": "^5.6",
+    "php-http/curl-client": "^1.7",
+    "guzzlehttp/psr7": "^1.5"
+  }
+}
