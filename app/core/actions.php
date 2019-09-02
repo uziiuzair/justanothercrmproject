@@ -66,7 +66,7 @@ switch ($page) {
 			/**
 			 *	FINAL STEP: Attempt Login
 			 */
-			if (crm\Users::login($user, $pass)) {
+			if (crm\Users::login($user, $pass)) { 
 
 
 
