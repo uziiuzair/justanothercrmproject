@@ -35,6 +35,21 @@ class Meetings
 		
 	}	
 
+
+	public static function allForStaff() {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		$staff_id = Sessions::get('studioUserLogin')->id;
+
+		$query = Config::$db->query("SELECT * FROM meetings WHERE `staff_id` = $staff_id");
+
+		return $query->fetch_all(MYSQLI_ASSOC);
+		
+	}	
+
 	public static function delete($meeting_id) {
 		
 	}	

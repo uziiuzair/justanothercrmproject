@@ -312,11 +312,7 @@ class Functions
 		} else {
 
 			# You seriously messed up.
-			if (Config::SystemDebug == true) {
-				return 'execute() failed: ' . htmlspecialchars($stmt->error);	 
-			} else {
-				return false;
-			}
+			return false;
 
 		}
 

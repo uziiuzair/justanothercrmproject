@@ -90,14 +90,17 @@ class Proposals
 		# Query
 		$stmt = Config::$db->prepare($theFinalQuery);
 
+		# Run Query
 		if ($stmt->execute()) {
+
+			# You're good! This was fun.
 			return true;
+
 		} else {
-			if (Config::SystemDebug == true) {
-				return 'execute() failed: ' . htmlspecialchars($stmt->error);	 
-			} else {
-				return false;
-			}
+
+			# You seriously messed up.
+			return false;
+
 		}
 
 		$stmt->close();

@@ -2075,6 +2075,22 @@ form {
 				border-color: #FF7B7B;
 			}
 
+			.modal .modalContent input.datepicker {
+				border: 0;
+				color: #7052d5;
+				padding: 5px 0;
+				cursor: pointer;
+			}	
+
+				.modal .modalContent input.datepicker:hover {
+					opacity: 0.8;
+				}
+
+				.modal .modalContent input.datepicker:active,
+				.modal .modalContent input.datepicker:focus {
+					border: 0 !important;
+				}
+
 		.modal .modalContent textarea {
 			font-size: 14px;
 			width: 100%;
@@ -3386,7 +3402,7 @@ form {
 			}
 
 				.dashboard .upcomingMeetings .meetingBox .about .left {
-					float: left;
+					float: left;`
 					width: 35%;
 				}
 
@@ -3394,6 +3410,7 @@ form {
 						width: 90px;
 						height: 90px;
 						border-radius: 45px;
+						background-size: cover;
 						/* background-color: #f3f3f3; */
 						-webkit-transition: all 0.3s ease-out;
 						-moz-transition: all 0.3s ease-out;
@@ -3405,6 +3422,7 @@ form {
 					float: left;
 					width: 65%;
 					padding-top: 12px;
+					padding-left: 15px;
 				}
 
 					.dashboard .upcomingMeetings .meetingBox .about .right .meetingName {
@@ -4831,6 +4849,7 @@ form {
 
 				.projectPage .projectTasksContainer .projectTask .panelHeader h1 {
 					margin-bottom: 10px;
+					color: #8A8FA1;
 				}
 
 			.projectPage .projectTasksContainer .projectTask .panelContent p {

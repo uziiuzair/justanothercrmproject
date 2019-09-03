@@ -169,6 +169,90 @@ class Projects
 
 
 	/**
+	 * Create Milestone
+	 * @param  array $details 	[description]
+	 * @return bool     		[description]
+	 */
+	public static function createMilestone(array $attributes) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		# Values we can accept
+		$acceptableValues = array(
+			'staff_id',
+			'project_id',
+			'name',
+			'start',
+			'end',
+			'progress',
+			'completed'
+		);
+
+		$queryColumns 	= '';
+		$queryValues 	= '';
+
+		$attribCount 	= count($attributes);
+		$keepCount 		= 0;
+
+		foreach ($attributes as $attribute => $value) {
+			
+			if (in_array($attribute, $acceptableValues)) {
+
+				$attribute 	= stripslashes($attribute);
+				$value 		= stripslashes($value);
+				$attribute 	= Config::$db->escape_string($attribute);
+				$value 		= Config::$db->escape_string($value);
+
+				if(++$keepCount === $attribCount) {
+					$queryColumns .= '`'. $attribute .'`'; 
+					$queryValues .= "'" . $value . "'"; 
+				} else {
+					$queryColumns .= '`'. $attribute .'`, '; 
+					$queryValues .= "'" . $value ."', "; 
+				}
+
+			}
+
+		}
+
+		# Defaults
+		$created = time();
+		$updated = time();
+
+		# Append Defaults
+		$appendedDefaults 	= "'" . $created . "', '"  . $updated . "'";
+
+		# Build Query
+		$theFinalQuery 		= 'INSERT INTO `milestones` (' . $queryColumns . ', `created`, `updated`) VALUES (' . $queryValues . ', '. $appendedDefaults .')';
+
+		# Query
+		$stmt = Config::$db->prepare($theFinalQuery);
+
+		# Run Query
+		if ($stmt->execute()) {
+
+			# You're good! This was fun.
+			return true;
+
+		} else {
+
+			# You seriously messed up.
+			return false;
+
+		}
+
+		$stmt->close();
+
+		
+	}
+
+
+
+
+
+	/**
 	 * Gets all Proposals with the Project ID
 	 * @param  int $id 	 Project ID
 	 * @return array    

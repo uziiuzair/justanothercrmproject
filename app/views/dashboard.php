@@ -9,13 +9,13 @@
 
 use uziiuzair\crm; 
 
-$meetings = crm\Services\Meetings::all(); 	# Upcoming Meetings
+$meetings = crm\Services\Meetings::allForStaff(); 	# Upcoming Meetings
 
 ?>
 <div class="container dashboard">
 	
 	<div class="wrapper">
-		
+
 		<div class="row clearfix">
 			
 			<!-- Overview -->
@@ -133,6 +133,7 @@ $meetings = crm\Services\Meetings::all(); 	# Upcoming Meetings
 			</div>
 			<!-- /Overview -->
 
+			<?php if (!empty($meetings)): ?>
 			<!-- Upcoming -->
 			<div class="row dashContainer upcomingMeetings">
 				
@@ -155,12 +156,12 @@ $meetings = crm\Services\Meetings::all(); 	# Upcoming Meetings
 							<div class="about">
 								<div class="row clearfix">
 									<div class="left">
-										<div class="image"></div>
+										<div class="image" style="background-image: url(<?php echo crm\Services\Clients::getBusinessLogo($meeting['recipientEmail']) ?>)"></div>
 									</div>
 									<div class="right">
-										<h2 class="meetingName"><?php echo $meeting['name']; ?></h2>
-										<p class="meetingCompanyName"><?php echo $meeting['companyName']; ?></p>
-										<p class="meetingPhoneNumber"><?php echo $meeting['phoneNumber']; ?></p>
+										<h2 class="meetingName"><?php echo $meeting['recipientName']; ?></h2>
+										<p class="meetingCompanyName"><?php echo $meeting['recipientCompany']; ?></p>
+										<p class="meetingPhoneNumber"><?php echo $meeting['recipientPhone']; ?></p>
 									</div>
 								</div>
 
@@ -201,6 +202,7 @@ $meetings = crm\Services\Meetings::all(); 	# Upcoming Meetings
 
 			</div>
 			<!-- / Upcoming -->
+			<?php endif ?>
 
 			<!-- Today -->
 			<div class="row dashContainer today">

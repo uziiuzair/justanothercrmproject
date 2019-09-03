@@ -192,70 +192,67 @@ $statusTranslation = array('1' => 'Not Started', '2' => 'Pending', '3' => 'Start
 						</div>
 					</div>
 				</div>
-
-				<!-- Proposal & Invoices -->
-				<div class="panel no-padding projectProposalsInvoices">
+				
+				<!-- Move from -->
+				<!-- Project Files -->
+				<div class="panel no-padding projectFiles">
+					
 					<div class="inner">
 						<div class="panelHeader">
 							<div class="row clearfix">
 								<div class="half">
-									<h1>Proposals & Invoices</h1>
+									<h1>Files</h1>
 								</div>
 								<div class="half">
 									<p align="right">
-										<a data-modal="addInvoice" class="ismodal" href="#addInvoice">Add Invoice</a> . 
-										<a data-modal="addProposal" class="ismodal" href="#addProposal">Add Proposal</a>
+										<a data-modal="addInvoice" class="ismodal" href="#addInvoice">Add Files</a>
 									</p>
 								</div>
 							</div>
 						</div>
 						<div class="panelContent">
-							<div class="existingProposalWrapper">
-								
-								<!-- Proposal -->
-								<div class="individualProposal" data-proposal-id="">
-									<div class="row clearfix">
-										<dv class="half">
-											<h2 class="proposalName">Proposal #0001</h2>
-										</dv>
-										<dv class="half">
-											<p class="proposalDate">Accepted on May 3, 2019</p>
-										</dv>
-									</div>
-									<div class="row clearfix">
-										<div class="half">
-											<p class="proposalStatus">Accepted</p>
-										</div>
-										<div class="half">
-											<p class="proposalActions"><a href="">View</a> . <a href="">Edit</a> . <a href="">Delete</a></p>
-										</div>
-									</div>
-								</div>
+							<div class="existingFilesWrapper">
 
-								<!-- Invoice -->
-								<div class="individualProposal" data-proposal-id="">
-									<div class="row clearfix">
-										<dv class="half">
-											<h2 class="proposalName">Invoice #0001</h2>
-										</dv>
-										<dv class="half">
-											<p class="proposalDate">Due on May 23, 2019</p>
-										</dv>
+								<?php if (empty($files)): ?>
+									<div class="noMeetingsWrapper">
+										<p>No Files Found. <a class="ismodal" data-modal="uploadFile" href="#">Add One?</a></p>
 									</div>
-									<div class="row clearfix">
-										<div class="half">
-											<p class="proposalStatus">Unpaid</p>
+								<?php else: ?>
+									<?php foreach ($files as $file): ?>
+										
+										<!-- File -->
+										<div class="individualFile" data-file-id="<?php echo $file['id'] ?>">
+											
+											<div class="row clearfix">
+												<div class="half">
+													<h2 class="fileName"><?php echo $file['name'] ?></h2>
+												</div>
+												<div class="half">
+													<p class="fileDate"><?php echo $file['created'] ?></p>
+												</div>
+											</div>
+											<div class="row clearfix">
+												<div class="half">
+													<p class="fileTag">
+														<?php echo $file['tags'] ?>
+													</p>
+												</div>
+												<div class="half">
+													<p class="fileActions"><a href="">View</a> . <a href="#!" class="isModal" data-modal="deleteFile">Delete</a></p>
+												</div>
+											</div>
+
 										</div>
-										<div class="half">
-											<p class="proposalActions"><a href="">View</a> . <a href="">Edit</a> . <a href="">Delete</a></p>
-										</div>
-									</div>
-								</div>
+
+									<?php endforeach ?>
+								<?php endif ?>
 
 							</div>
 						</div>
 					</div>
+
 				</div>
+				
 
 				<!-- Project Timeline -->
 				<div class="panel no-padding projectTimeline">
@@ -332,7 +329,7 @@ $statusTranslation = array('1' => 'Not Started', '2' => 'Pending', '3' => 'Start
 									<!-- Deadline to complete the project -->
 									<li>
 										<h2>Deadline</h2>
-										<p><?php echo date('d M Y', $projectsArray->end); ?></p>
+										<p><?php echo date('d M, Y', $projectsArray->end); ?></p>
 									</li>
 									
 									<!-- Project Status-->
@@ -349,7 +346,7 @@ $statusTranslation = array('1' => 'Not Started', '2' => 'Pending', '3' => 'Start
 								
 									<!-- Has this project been billed or not? -->
 									<li>
-										<h2>Billed</h2>
+										<h2>Billed to Client</h2>
 										<p><?php echo $projectsArray->billed = ($projectsArray->billed != 0) ? 'Yes' : 'No' ; ?></p>
 									</li>
 									
@@ -385,7 +382,7 @@ $statusTranslation = array('1' => 'Not Started', '2' => 'Pending', '3' => 'Start
 									<input type="hidden" name="project_id" value="<?php echo $projectsArray->id; ?>">
 									<input type="hidden" name="staff_id" value="<?php echo crm\Sessions::get('studioUserLogin')->id; ?>">
 
-									<input type="text" name="newTask" class="addFocus" placeholder="Type something here…" required>
+									<input type="text" name="newTask" class="addFocus" placeholder="Type something here…" required autocomplete="off">
 
 									<div class="row">
 										<ul class="clearfix">
@@ -483,27 +480,31 @@ $statusTranslation = array('1' => 'Not Started', '2' => 'Pending', '3' => 'Start
 							</div>
 						</div>
 						<div class="panelContent">
-							<div class="line"></div>
-							<div class="timelineContainer">
+							<?php if (empty($milestones)): ?>
+								<p style="margin-bottom: 0;">No Milestones Found. <a class="ismodal" data-modal="addMilestone" href="#">Create One?</a></p>
+							<?php else: ?>
+								<div class="line"></div>
+								<div class="timelineContainer">
 								<ul>
-									<?php foreach ($milestones as $milestone): ?>
-										<li class="milestone" id="milestone-<?php echo $milestone['id'] ?>" data-milestone-id="<?php echo $milestone['id'] ?>" data-milestone-due="<?php echo $milestone['end'] ?>"> 
-											<div class="row clearfix">
-												<div class="half">
-													<div class="time"><p><?php echo date('d M, Y H:i:s', $milestone['end']) ?></p></div>
-													<div class="task"><p><?php echo $milestone['name'] ?></p></div>
-												</div>
-												<div class="half">
-													<style>
-														#milestone-<?php echo $milestone['id'] ?> .progress:before { width: <?php echo $milestone['progress'] ?>%; }
-													</style>
-													<div class="progress" data-progress="<?php echo $milestone['progress'] ?>"></div>
-												</div>
+								<?php foreach ($milestones as $milestone): ?>
+									<li class="milestone" id="milestone-<?php echo $milestone['id'] ?>" data-milestone-id="<?php echo $milestone['id'] ?>" data-milestone-due="<?php echo $milestone['end'] ?>"> 
+										<div class="row clearfix">
+											<div class="half">
+												<div class="time"><p><?php echo date('d M, Y H:i:s', $milestone['end']) ?></p></div>
+												<div class="task"><p><?php echo $milestone['name'] ?></p></div>
 											</div>
-										</li>
-									<?php endforeach ?>
+											<div class="half">
+												<style>
+													#milestone-<?php echo $milestone['id'] ?> .progress:before { width: <?php echo $milestone['progress'] ?>%; }
+												</style>
+												<div class="progress" data-progress="<?php echo $milestone['progress'] ?>"></div>
+											</div>
+										</div>
+									</li>
+								<?php endforeach ?>
 								</ul>
-							</div>
+								</div>
+							<?php endif ?>
 						</div>
 					</div>
 				</div>
@@ -641,65 +642,72 @@ $statusTranslation = array('1' => 'Not Started', '2' => 'Pending', '3' => 'Start
 
 				</div>
 
-				<!-- Project Files -->
-				<div class="panel no-padding projectFiles">
-					
+
+				<!-- Move to -->
+				<!-- Proposal & Invoices -->
+				<div class="panel no-padding projectProposalsInvoices">
 					<div class="inner">
 						<div class="panelHeader">
 							<div class="row clearfix">
 								<div class="half">
-									<h1>Files</h1>
+									<h1>Proposals & Invoices</h1>
 								</div>
 								<div class="half">
 									<p align="right">
-										<a data-modal="addInvoice" class="ismodal" href="#addInvoice">Add Files</a>
+										<a data-modal="addInvoice" class="ismodal" href="#addInvoice">Add Invoice</a> . 
+										<a data-modal="addProposal" class="ismodal" href="#addProposal">Add Proposal</a>
 									</p>
 								</div>
 							</div>
 						</div>
 						<div class="panelContent">
-							<div class="existingFilesWrapper">
-
-								<?php if (empty($files)): ?>
-									<div class="noMeetingsWrapper">
-										<p>No Files Found. <a class="ismodal" data-modal="uploadFile" href="#">Add One?</a></p>
+							<div class="existingProposalWrapper">
+								
+								<!-- Proposal -->
+								<div class="individualProposal" data-proposal-id="">
+									<div class="row clearfix">
+										<dv class="half">
+											<h2 class="proposalName">Proposal #0001</h2>
+										</dv>
+										<dv class="half">
+											<p class="proposalDate">Accepted on May 3, 2019</p>
+										</dv>
 									</div>
-								<?php else: ?>
-									<?php foreach ($files as $file): ?>
-										
-										<!-- File -->
-										<div class="individualFile" data-file-id="<?php echo $file['id'] ?>">
-											
-											<div class="row clearfix">
-												<div class="half">
-													<h2 class="fileName"><?php echo $file['name'] ?></h2>
-												</div>
-												<div class="half">
-													<p class="fileDate"><?php echo $file['created'] ?></p>
-												</div>
-											</div>
-											<div class="row clearfix">
-												<div class="half">
-													<p class="fileTag">
-														<?php echo $file['tags'] ?>
-													</p>
-												</div>
-												<div class="half">
-													<p class="fileActions"><a href="">View</a> . <a href="#!" class="isModal" data-modal="deleteFile">Delete</a></p>
-												</div>
-											</div>
-
+									<div class="row clearfix">
+										<div class="half">
+											<p class="proposalStatus">Accepted</p>
 										</div>
+										<div class="half">
+											<p class="proposalActions"><a href="">View</a> . <a href="">Edit</a> . <a href="">Delete</a></p>
+										</div>
+									</div>
+								</div>
 
-									<?php endforeach ?>
-								<?php endif ?>
+								<!-- Invoice -->
+								<div class="individualProposal" data-proposal-id="">
+									<div class="row clearfix">
+										<dv class="half">
+											<h2 class="proposalName">Invoice #0001</h2>
+										</dv>
+										<dv class="half">
+											<p class="proposalDate">Due on May 23, 2019</p>
+										</dv>
+									</div>
+									<div class="row clearfix">
+										<div class="half">
+											<p class="proposalStatus">Unpaid</p>
+										</div>
+										<div class="half">
+											<p class="proposalActions"><a href="">View</a> . <a href="">Edit</a> . <a href="">Delete</a></p>
+										</div>
+									</div>
+								</div>
 
 							</div>
 						</div>
 					</div>
-
 				</div>
-
+				
 
 			</div>
 
@@ -741,10 +749,10 @@ $statusTranslation = array('1' => 'Not Started', '2' => 'Pending', '3' => 'Start
 
 					<div class="row clearfix">
 						<div class="half">
-							<label for="projectStart">Project Start</label><input id="projectStart" class="datepicker" type="text" name="projectStart" value="<?php echo $projectsArray->start; ?>">
+							<label for="projectStart">Project Start</label><input id="projectStart" class="datepicker" type="text" name="projectStart" value="<?php echo date('d F, Y', $projectsArray->start); ?>">
 						</div>
 						<div class="half">
-							<label for="projectEnd">Project End</label><input id="projectEnd" class="datepicker"type="text" name="projectEnd" value="<?php echo $projectsArray->end; ?>">
+							<label for="projectEnd">Project End</label><input id="projectEnd" class="datepicker"type="text" name="projectEnd" value="<?php echo date('d F, Y', $projectsArray->end); ?>">
 						</div>
 					</div>
 					
@@ -808,21 +816,18 @@ $statusTranslation = array('1' => 'Not Started', '2' => 'Pending', '3' => 'Start
 
 				<form action="#" id="form-addMilestone" data-projectID="<?php echo $projectsArray->id; ?>">
 
+					<input type="hidden" name="project_id" value="<?php echo $projectsArray->id; ?>">
+
 					<div class="row clearfix">
 						<label for="projectMilestoneName">Milestone Name</label><input id="projectMilestoneName" type="text" name="projectMilestoneName" placeholder="">
 					</div>
 
 					<div class="row clearfix">
-						<label for="projectMilestoneDescription">Milestone Description</label>
-						<textarea id="projectMilestoneDescription" type="text" name="projectMilestoneDescription" placeholder=""></textarea>
-					</div>
-
-					<div class="row clearfix">
-						<div class="half">
-							<label for="projectMilestoneStart">Start Date</label><input id="projectMilestoneStart" class="datepicker" type="text" name="projectMilestoneStart" placeholder="">
+						<div class="third">
+							<label for="projectMilestoneStart">Start Date</label><input id="projectMilestoneStart" class="datepicker" type="text" name="projectMilestoneStart" placeholder="Start Date">
 						</div>
-						<div class="half">
-							<label for="projectMilestoneEnd">End End</label><input id="projectMilestoneEnd" class="datepicker" type="text" name="projectMilestoneEnd" placeholder="">
+						<div class="third">
+							<label for="projectMilestoneEnd">End End</label><input id="projectMilestoneEnd" class="datepicker" type="text" name="projectMilestoneEnd" placeholder="End Date">
 						</div>
 					</div>
 
@@ -852,7 +857,7 @@ $statusTranslation = array('1' => 'Not Started', '2' => 'Pending', '3' => 'Start
 			</div>
 
 			<div class="modalHeader">
-				<h1>Add Milestone</h1>
+				<h1>Assign Staff</h1>
 			</div>
 
 			<div class="modalContent">
@@ -894,7 +899,7 @@ $statusTranslation = array('1' => 'Not Started', '2' => 'Pending', '3' => 'Start
 			</div>
 
 			<div class="modalHeader">
-				<h1>Add Milestone</h1>
+				<h1>Add Service</h1>
 			</div>
 
 			<div class="modalContent">
