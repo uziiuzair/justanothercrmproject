@@ -417,6 +417,76 @@ switch ($page) {
 
 
 
+	/**
+	 * Get All Meetings for current client
+	 */
+	case 'meetings/all': 
+
+		# Get all meetings for current user
+		$meetings 	= crm\Services\Meetings::allForStaff();
+
+		$count = 0;
+
+		foreach ($meetings as $meeting) {
+
+			$response[$count]['id'] 		= $meeting['id'];
+			$response[$count]['title'] 		= $meeting['purpose'];
+			$response[$count]['start'] 		= date('c', $meeting['timeStart']);
+			$response[$count]['end'] 		= date('c', $meeting['timeEnd']);
+			
+			$count++;
+
+		}
+
+		unset($response['success']);
+		
+		// $response[0]['allDay'] 	= '1';
+
+		// $response[1]['id'] 		= '1';
+		// $response[1]['title'] 	= 'Meeting 2';
+		// $response[1]['start'] 	= date('c', '1568380023');
+		// $response[1]['end'] 	= date('c', '1568416023');
+		// $response[1]['allDay'] 	= '1';
+
+	break;
+
+
+
+	/**
+	 * Get All Meetings for current client
+	 */
+	case 'meetings/get': 
+
+	break;
+
+
+
+	/**
+	 * Get All Meetings for current client
+	 */
+	case 'meetings/new': 
+
+	break;
+
+
+
+	/**
+	 * Get All Meetings for current client
+	 */
+	case 'meetings/update': 
+
+	break;
+
+
+
+	/**
+	 * Get All Meetings for current client
+	 */
+	case 'meetings/delete': 
+
+	break;
+
+
 
 
 	

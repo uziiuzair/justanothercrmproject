@@ -135,6 +135,22 @@ $(document).ready(function() {
 		options: ChartOptions
 	});
 
+
+
+	/**
+	 * DASHBOARD: View Address on Map (.viewAddressOnMap)
+	 */
+	$('.viewAddressOnMap').click(function(event) {
+		
+		var mapAddress 		= $(this).data('map-address'),
+			mapLat 			= $(this).data('map-lat'),
+			mapLong 		= $(this).data('map-long'),
+			gmapsEmbedLink 	= 'https://maps.google.com/maps?q=' + mapLat + ',' + mapLong + '&hl=es;z=20&amp;output=embed';
+
+		$('.googleMapsContainer').html('<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="'+gmapsEmbedLink+'"></iframe>');
+
+	});
+
 	
 		
 });

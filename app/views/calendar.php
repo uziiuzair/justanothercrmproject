@@ -7,7 +7,9 @@
  * @since 		v1.0
  */
 
-use uziiuzair\crm; ?>
+use uziiuzair\crm;
+
+?>
 <!-- Bleh -->
 <link rel="stylesheet" href="/app/includes/js/fullcalendar/core/main.min.css">
 <link rel="stylesheet" href="/app/includes/js/fullcalendar/daygrid/main.min.css">
@@ -19,7 +21,8 @@ use uziiuzair\crm; ?>
 		var calendarEl = document.getElementById('calendar');
 
 		var calendar = new FullCalendar.Calendar(calendarEl, {
-			plugins: [ 'dayGrid' ]
+			plugins: [ 'dayGrid' ],
+			events: '/action/meetings/all'
 		});
 
 		calendar.render();
