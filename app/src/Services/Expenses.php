@@ -185,6 +185,40 @@ class Expenses
 
 
 
+	public static function fileReimbursement($expense_id, $staff_id) {
+
+		# Reimbusement Status
+		# 1	- Filed (Not Reimbursed)
+		# 2 - Processing
+		# 3 - On Hold
+		# 4 - Reimbursed
+		# 5 - Cancelled
+		# 6 - Archived
+
+	}
+
+
+
+	public static function getReimbursement($reimbursement_id) {
+
+	}
+
+
+
+	public static function reimbursementsForStaff($staff_id) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		$query = Config::$db->query("SELECT * FROM reimbursements WHERE `staff_id` = $staff_id");
+
+		return $query->fetch_all(MYSQLI_ASSOC);
+
+	}
+
+
+
 
 
 

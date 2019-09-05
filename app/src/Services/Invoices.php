@@ -163,6 +163,29 @@ class Invoices
 
 
 
+
+
+	/**
+	 * Gets all Invoices with the Project ID
+	 * @param  int $id 	 Project ID
+	 * @return array    
+	 */
+	public static function forProject($id) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		$query = Config::$db->query("SELECT * FROM invoices WHERE `project_id` = $id");
+
+		return $query->fetch_all(MYSQLI_ASSOC);
+
+	}
+
+
+
+
+
 	/**
 	 * Update Invoice
 	 * @param  [type] $id      [description]

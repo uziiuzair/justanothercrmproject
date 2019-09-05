@@ -251,57 +251,12 @@ class Projects
 
 
 
-
-	/**
-	 * Gets all Proposals with the Project ID
-	 * @param  int $id 	 Project ID
-	 * @return array    
-	 */
-	public static function proposals($id) {
-
-		if (!Config::$db) {
-			Config::db();
-		}
-
-		$query = Config::$db->query("SELECT * FROM proposals WHERE `project_id` = $id");
-
-		return $query->fetch_all(MYSQLI_ASSOC);
-
-	}
-
-
-
-
-
-
-	/**
-	 * Gets all Invoices with the Project ID
-	 * @param  int $id 	 Project ID
-	 * @return array    
-	 */
-	public static function invoices($id) {
-
-		if (!Config::$db) {
-			Config::db();
-		}
-
-		$query = Config::$db->query("SELECT * FROM invoices WHERE `project_id` = $id");
-
-		return $query->fetch_all(MYSQLI_ASSOC);
-
-	}
-
-
-
-
-
-
 	/**
 	 * Get all Projects for specified Staff
 	 * @param  int $client_id [description]
 	 * @return array            [description]
 	 */
-	public static function staff($staff_id) {
+	public static function forStaff($staff_id) {
 
 		if (!Config::$db) {
 			Config::db();

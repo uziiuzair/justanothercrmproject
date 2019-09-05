@@ -26,7 +26,7 @@ $milestones 		= crm\Services\Projects::milestones($projectsArray->id); 	# Get Al
 $servicesPurchased 	= crm\Services\Services::getForProject($projectsArray->id);		# Get All Services Purchased by this Project
 $servicesArray 		= crm\Services\Services::all(); 								# All Services
 $proposals 			= crm\Services\Projects::proposals($projectsArray->id); 		# All proposals for this Project
-$invoices 			= crm\Services\Projects::invoices($projectsArray->id); 			# All invoices for this Project
+$invoices 			= crm\Services\Invoices::forProject($projectsArray->id); 			# All invoices for this Project
 $files 				= crm\Media::getAllForProject($projectsArray->id); 				# All files for this Project
 
 # The following will be moved to the Translation File

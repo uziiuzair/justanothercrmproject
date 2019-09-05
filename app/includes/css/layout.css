@@ -3160,6 +3160,11 @@ form {
 			border-bottom: 1px solid #ebebeb;
 		}
 
+		.staffMemberPage .staffProjects .panelContent {
+			max-height: 220px;
+			overflow-y: scroll;
+		}
+
 		.staffMemberPage .staffProjects .noProjectsWrapper {
 			width: 100%;
 			padding: 15px;
@@ -3266,15 +3271,19 @@ form {
 		margin-bottom: 50px;
 	}
 
+		.dashboard .overview .overviewContainer {
+
+		}
+
 		.dashboard .overview .overviewBox {
 			padding: 20px;
 			width: 20%;
 			float: left;
 			/* background: #fff; */
 			position: relative;
-			/* -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.05);
-			-moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.05);
-			box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.05); */
+			-webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.02);
+			-moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.02);
+			box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.02);
 			-webkit-transition: all 0.3s ease-out;
 			-moz-transition: all 0.3s ease-out;
 			-o-transition: all 0.3s ease-out;
@@ -3382,6 +3391,9 @@ form {
 			float: left;
 			margin-right: 35px;
 			/* background: #fff; */
+			-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
 			-webkit-transition: all 0.3s ease-out;
 			-moz-transition: all 0.3s ease-out;
 			-o-transition: all 0.3s ease-out;
@@ -3540,6 +3552,9 @@ form {
 
 		.projects .projectsContainer .project {
 			background: #fff;
+			-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
 		}	
 
 			.projects .projectsContainer .project:nth-child(3n+3) {
@@ -3630,7 +3645,9 @@ form {
 
 
 	.projects .productivityTracker {
-
+		-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
 	}
 
 		.projects .productivityTracker .inner {
@@ -3727,7 +3744,9 @@ form {
  
  	/* Project Timeline */
  	.projects .projectsLogTimeline {
-
+ 		-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+ 		-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+ 		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
  	}
 
  		.projects .projectsLogTimeline .inner {
@@ -5365,6 +5384,9 @@ form {
 	/* Invoices Overview */
 	.invoicesPage .invoicesOverview {
 		margin-bottom: 35px;
+		-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
 	}
 
 		.invoicesPage .invoicesOverview .overviewBox {
@@ -5629,7 +5651,9 @@ form {
 
 	 	/* Project Timeline */
 	 	.invoicesPage .invoicesLogTimeline {
-
+			-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
 	 	}
 
 	 		.invoicesPage .invoicesLogTimeline .inner {
@@ -7179,6 +7203,9 @@ form {
 	/* Invoices Overview */
 	.expensesPage .expensesOverview {
 		margin-bottom: 35px;
+		-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
 	}
 
 		.expensesPage .expensesOverview .overviewBox {
@@ -7501,6 +7528,9 @@ form {
 	/* Invoices Overview */
 	.proposalsPage .proposalOverview {
 		margin-bottom: 35px;
+		-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
 	}
 
 		.proposalsPage .proposalOverview .overviewBox {
@@ -7765,7 +7795,9 @@ form {
 
 	 	/* Project Timeline */
 	 	.proposalsPage .proposalsLogTimeline {
-
+		 	-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		 	-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		 	box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
 	 	}
 
 	 		.proposalsPage .proposalsLogTimeline .inner {

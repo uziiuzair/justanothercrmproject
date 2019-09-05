@@ -281,8 +281,8 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 								<div class="row">
 									<ul class="clearfix">
 										<li>
-											<select name="newTaskPriority" id="">
-												<option value="-1">Set Priority</option>
+											<select name="newTaskPriority" id="" required>
+												<option value="0">Set Priority</option>
 												<option value="1">Low</option>
 												<option value="2">Medium</option>
 												<option value="3">High</option>
@@ -290,7 +290,7 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 											</select>
 										</li>
 										<li>
-											<input class="datepicker" name="newTaskDeadline" placeholder="Set Deadline">
+											<input class="datepicker" name="newTaskDeadline" placeholder="Set Deadline" required>
 										</li>
 										<li>
 											<select name="newTaskProhect" id="">
@@ -336,8 +336,10 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 											<ul class="clearfix">
 												<li>
 													<select name="newTaskPriority" id="">
-														<option selected value="<?php echo $task['priority'] ?>"><?php echo crm\Services\Tasks::translatePriority($task['priority']); ?></option>
-														<option value="2">Set Priority</option>
+														<?php if ($task['priority'] != 0): ?>
+															<option selected value="<?php echo $task['priority'] ?>"><?php echo crm\Services\Tasks::translatePriority($task['priority']); ?></option>
+														<?php endif ?>
+														<option value="0">Set Priority</option>
 														<option value="1">Low</option>
 														<option value="2">Medium</option>
 														<option value="3">High</option>
@@ -442,13 +444,13 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 							<?php else: ?>
 								<div class="existingInvoicesWrapper">
 									
-									<?php //foreach ($invoices as $invoice): ?>
+									<?php foreach ($invoices as $invoice): ?>
 										
-									<div class="individualInvoice" data-invoice-id="">
+									<div class="individualInvoice" data-invoice-id="<?php echo $invoice['id'] ?>">
 										
 										<div class="row clearfix">
 											<div class="half">
-												<h2 class="invoiceName">Invoice #001</h2>
+												<h2 class="invoiceName">Invoice #<?php echo $invoice['id'] ?></h2>
 											</div>
 											<div class="half">
 												<p class="invoiceDue">Due on May 23, 2019</p>
@@ -459,13 +461,16 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 												<p class="invoiceStatus">Unpaid</p>
 											</div>
 											<div class="half">
-												<p class="invoiceActions"><a href="">View</a> . <a href="#!" class="isModal" data-modal="deleteInvoice">Delete</a></p>
+												<p class="invoiceActions">
+													<a href="<?php echo crm\Config::SystemPublicURL; ?>invoice/id/<?php echo $invoice['id'] ?>"">View</a> . 
+													<a href="#!" class="isModal" data-modal="deleteInvoice">Delete</a>
+												</p>
 											</div>
 										</div>
 
 									</div>
 
-									<?php //endforeach ?>
+									<?php endforeach ?>
 								</div>
 							<?php endif ?>
 

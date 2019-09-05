@@ -136,6 +136,7 @@ class Tasks
 		$priority 	= stripslashes($priority);
 
 		$PriorityArray = array(
+			0 => 'Set Priorty',
 			1 => 'Low',
 			2 => 'Medium',
 			3 => 'High',

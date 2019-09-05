@@ -17,10 +17,10 @@ $departmentArray	= crm\Users::departments();							# 	Get Array of All Departmen
 
 $gravatar 	= crm\Users::getGravatar($staffArray->email);				#	Get Photo of Staff Member not based on Staff ID
 $logs 	  	= crm\Functions::getlogs('staff_log', $staffArray->id);		#	Get Logs based on Staff ID... sorta
-$proposals 	= crm\Services\Proposals::staff($staffArray->id);			#	Get Proposals based on Staff ID
-$projects 	= crm\Services\Projects::staff($staffArray->id);			#	Get Projects based on Staff ID
-$clients 	= '';														#	Get Clients based on... you guessed it... Staff ID!!
-$reimbursements = '';													#	Get Staff reimbursement requests
+$proposals 	= crm\Services\Proposals::forStaff($staffArray->id);		#	Get Proposals based on Staff ID
+$projects 	= crm\Services\Projects::forStaff($staffArray->id);			#	Get Projects based on Staff ID
+$clients 	= crm\Services\Clients::forStaff($staffArray->id);			#	Get Clients based on... you guessed it... Staff ID!!
+$reimbursements = crm\Services\Expenses::reimbursementsForStaff($staffArray->id);	#	Get Staff reimbursement requests
 
 
 ?>
@@ -31,7 +31,7 @@ $reimbursements = '';													#	Get Staff reimbursement requests
 		<div class="row debugInformation">
 			<span>Debug Information</span>
 			<?php print_r($staffArray) ?>
-			<span>Gravatar</span>
+			<!-- <span>Gravatar</span>
 			<?php print_r($gravatar) ?>
 			<span>logs</span>
 			<?php print_r($logs) ?>
@@ -40,7 +40,9 @@ $reimbursements = '';													#	Get Staff reimbursement requests
 			<span>projects</span>
 			<?php print_r($projects) ?>
 			<span>clients</span>
-			<?php print_r($clients) ?>
+			<?php print_r($clients) ?> -->
+			<span>Reimbursements</span>
+			<?php print_r($reimbursements) ?>
 		</div>
 
 		<div class="row clearfix">
@@ -58,10 +60,10 @@ $reimbursements = '';													#	Get Staff reimbursement requests
 							<div class="staffControls">
 								<ul class="clearfix">
 									<li><a data-modal="editStaffProfile" class="ismodal" href="#editProfile">Edit Profile</a></li>
-									<li><a data-modal="markAsResigned" 	class="ismodal" href="#markAsResigned">Mark as Resigned</a></li>
+									<li><a data-modal="markAsResigned" 	class="isajax" href="#markAsResigned">Mark as Resigned</a></li>
 									<li><a data-modal="uploadPhoto" 	class="ismodal" href="#uploadPhoto">Upload Photo</a></li>
-									<li><a data-modal="markAsAway" 		class="ismodal" href="#markAsAway">Mark as Away</a></li>
-									<li><a data-modal="makeAdmin" 		class="ismodal" href="#makeAdmin">Make Admin</a></li>
+									<li><a data-modal="markAsAway" 		class="isajax" href="#markAsAway">Mark as Away</a></li>
+									<li><a data-modal="makeAdmin" 		class="isajax" href="#makeAdmin">Make Admin</a></li>
 									<li><a data-modal="deleteStaff" 	class="ismodal" href="#deleteStaff">Delete Staff</a></li>
 								</ul>
 							</div>
@@ -171,7 +173,7 @@ $reimbursements = '';													#	Get Staff reimbursement requests
 						<div class="inner">
 							<div class="row clearfix">
 								<h2>Assigned Tasks</h2>
-								<p><?php echo crm\Functions::countRows('tasks', $staffArray->id) ?> <span>Tasks</span></p>
+								<p><?php echo crm\Functions::countRows('tasks', $staffArray->id, "NOT `status` = '6'") # Get all Tasks that are not complete ?> <span>Tasks</span></p>
 							</div>
 						</div>
 					</div>
@@ -373,25 +375,25 @@ $reimbursements = '';													#	Get Staff reimbursement requests
 								<div class="existingProposalsWrapper">
 								<?php foreach ($proposals as $proposal): ?>
 									
-									<div class="individualProposal" data-project-id="<?php //echo $project['id'] ?>">
+									<div class="individualProposal" data-proposal-id="<?php echo $proposal['id'] ?>">
 										
 										<div class="row clearfix">
 											<div class="half">
-												<h2 class="proposalName"><?php //echo Functions::generateString($proposal['name'], 35) ?></h2>
+												<h2 class="proposalName"><?php echo crm\Functions::generateString($proposal['title'], 35) ?></h2>
 											</div>
 											<div class="half">
-												<p class="proposalValue"><?php //echo Functions::getCurrency($proposal['currency_id'], 'prefix') . number_format($proposal['value'],2) ?></p>
+												<p class="proposalValue"><?php echo crm\Functions::getCurrency(2, 'prefix') . number_format($proposal['total'],2) ?></p>
 											</div>
 										</div>
 										<div class="row clearfix">
 											<div class="half">
-												<p class="proposalDescription"><?php //echo $proposal['description'] ?></p>
+												<p class="proposalDescription"><?php echo $proposal['proposalNumber'] ?></p>
 											</div>
 											<div class="half">
 												<p class="proposalActions">
-													<a href="<?php //echo crm\Config::SystemPublicURL; ?>proposal/id/<?php //echo $proposal['id'] ?>">View</a> . 
-													<a href="#!" class="isModal" data-modal="editProposal">Edit</a> . 
-													<a href="#!" class="isModal" data-modal="deleteProposal">Delete</a>
+													<a href="<?php echo crm\Config::SystemPublicURL; ?>proposal/print/<?php echo $proposal['id'] ?>">View</a> . 
+													<a href="<?php echo crm\Config::SystemPublicURL; ?>proposal/id/<?php echo $proposal['id'] ?>">Edit</a> . 
+													<a href="#!" class="isModal" data-proposal-id="<?php echo $proposal['id'] ?>" data-modal="deleteProposal">Delete</a>
 												</p>
 											</div>
 										</div>

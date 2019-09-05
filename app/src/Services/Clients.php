@@ -260,6 +260,50 @@ class Clients
 
 	}
 
+
+
+	/**
+	 * Gets all Invoices with the Client ID
+	 * @param  int $id 	 Client ID
+	 * @return array    
+	 */
+	public static function invoices($id) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		$query = Config::$db->query("SELECT * FROM invoices WHERE `client_id` = $id");
+
+		return $query->fetch_all(MYSQLI_ASSOC);
+
+	}
+
+
+
+
+
+
+	/**
+	 * Gets all Invoices with the Client ID
+	 * @param  int $id 	 Client ID
+	 * @return array    
+	 */
+	public static function forStaff($id) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		$query = Config::$db->query("SELECT * FROM clients WHERE `staff_id` = $id");
+
+		return $query->fetch_all(MYSQLI_ASSOC);
+
+	}
+
+
+
+
 }
 
 

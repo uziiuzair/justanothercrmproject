@@ -186,28 +186,56 @@ class Proposals
 
 
 	/**
-	 * Get all Proposals for specified Client
+	 * Get all Proposals for specified Staff
 	 * @param  int $client_id [description]
 	 * @return array            [description]
 	 */
-	public static function client($client_id) {
-
-	}
-
-
-
-	/**
-	 * Get all Proposals for specified Client
-	 * @param  int $client_id [description]
-	 * @return array            [description]
-	 */
-	public static function staff($staff_id) {
+	public static function forStaff($staff_id) {
 
 		if (!Config::$db) {
 			Config::db();
 		}
 
 		$query = Config::$db->query("SELECT * FROM proposals WHERE `staff_id` = $staff_id");
+
+		return $query->fetch_all(MYSQLI_ASSOC);
+
+	}
+
+
+	/**
+	 * Gets all Proposals with the Project ID
+	 * @param  int $id 	 Project ID
+	 * @return array    
+	 */
+	public static function forProject($id) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		$query = Config::$db->query("SELECT * FROM proposals WHERE `project_id` = $id");
+
+		return $query->fetch_all(MYSQLI_ASSOC);
+
+	}
+
+
+
+
+
+	/**
+	 * Gets all Proposals with the Client ID
+	 * @param  int $id 	 Client ID
+	 * @return array    
+	 */
+	public static function forClient($id) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		$query = Config::$db->query("SELECT * FROM proposals WHERE `client_id` = $id");
 
 		return $query->fetch_all(MYSQLI_ASSOC);
 
