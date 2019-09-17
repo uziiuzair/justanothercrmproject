@@ -105,11 +105,71 @@ $.notify.addStyle('crmLight', {
 	}
 });
 
+$.notify.addStyle('crmDark', {
+	html: 
+		"<div>"+
+			"<div class='crmNotificationsWrapper'>"+
+				"<hr>" +
+				"<div class='crmNotificationsInner'>"+
+					"<span data-notify-text/>" +
+				"</div>"+
+			"</div>"+
+		"</div>",
+	classes: {
+		base: {
+			width: '250px',
+			background: '#3a3d4f',
+			color: '#fff',
+			padding: '15px',
+			'box-shadow': '0px 0px 8px rgba(138, 143, 162, 0.15)',
+			'font-size': '14px'
+		},
+		success: {
+			color: '#b9d44d'
+		},
+		error: {
+			color: '#f58989'
+		}
+	}
+});
+
 
 
 
 /**
- * Dark Mode
+ * Dark Mode Old
+ */
+// $(document).ready(function($) {
+	
+// 	$("#doDarkMode").click(function(event) {
+
+// 		event.preventDefault();
+
+// 		var colordata = $('.changeStyle').attr('data-color');
+
+// 		if ('light' === colordata) {
+
+
+// 			$("#doDarkMode").html('Enable Light Side');
+// 			$('.changeStyle').attr('href', '/app/includes/css/dark.css');
+// 			$('.changeStyle').attr('data-color', 'dark');
+
+// 			$.notify('Theme changed!', { position: 'right bottom', className: 'success', style: 'crmDark' });
+// 		} else {
+// 			$("#doDarkMode").html('Enable Dark Side');
+// 			$('.changeStyle').attr('href', '/app/includes/css/light.css');
+// 			$('.changeStyle').attr('data-color', 'light');
+
+// 			$.notify('Theme changed!', { position: 'right bottom', className: 'success', style: 'crmLight' });
+// 		}
+
+// 	});
+
+// });
+
+
+/**
+ * Dark Mode New
  */
 $(document).ready(function($) {
 	
@@ -120,17 +180,96 @@ $(document).ready(function($) {
 		var colordata = $('.changeStyle').attr('data-color');
 
 		if ('light' === colordata) {
-			$("#doDarkMode").html('Enable Light Side');
-			$('.changeStyle').attr('href', '/app/includes/css/dark.css');
-			$('.changeStyle').attr('data-color', 'dark');
+
+			$.ajax({
+				type: 'post',
+				url: '/action/theme/dark',
+				data: '',
+				dataType: 'json',
+				 beforeSend: function() {
+
+				 	// Change the theme before changing the theme in DB
+				 	$("#doDarkMode").html('Enable Light Side');
+				 	$('.changeStyle').attr('href', '/app/includes/css/dark.css');
+				 	$('.changeStyle').attr('data-color', 'dark');
+					
+				 },
+				 success: function(data){
+					
+					console.log(data);
+
+					// Confirm Theme Update
+					$.notify('Theme changed!', { position: 'right bottom', className: 'success', style: 'crmDark' });
+					
+				 },
+				 error: function(XMLHttpRequest, textStatus, errorThrown){
+
+					// Log Errors
+					console.log(XMLHttpRequest);
+					console.log(textStatus);
+					console.log(errorThrown);
+
+					// Seriously. Log an error in DB!
+
+					// Change the theme back to light
+					$("#doDarkMode").html('Enable Dark Side');
+					$('.changeStyle').attr('href', '/app/includes/css/light.css');
+					$('.changeStyle').attr('data-color', 'light');
+
+					// Show Errors
+					$.notify('Unexpected Error Occured.', { position: 'right bottom', className: 'error', style: 'crmLight' });
+					
+					
+				 }
+			});
+			
 		} else {
-			$("#doDarkMode").html('Enable Dark Side');
-			$('.changeStyle').attr('href', '/app/includes/css/light.css');
-			$('.changeStyle').attr('data-color', 'light');
+
+			$.ajax({
+				type: 'post',
+				url: '/action/theme/light',
+				data: '',
+				dataType: 'json',
+				 beforeSend: function() {
+
+				 	// Change the theme before changing the theme in DB
+				 	$("#doDarkMode").html('Enable Dark Side');
+					$('.changeStyle').attr('href', '/app/includes/css/light.css');
+					$('.changeStyle').attr('data-color', 'light');
+
+					
+				 },
+				 success: function(data){
+					
+					console.log(data);
+
+					// Confirm Theme Update
+					$.notify('Theme changed!', { position: 'right bottom', className: 'success', style: 'crmLight' });
+					
+				 },
+				 error: function(XMLHttpRequest, textStatus, errorThrown){
+
+					// Log Errors
+					console.log(XMLHttpRequest);
+					console.log(textStatus);
+					console.log(errorThrown);
+
+					// Seriously. Log an error in DB!
+
+					// Change the theme back to light
+				 	$("#doDarkMode").html('Enable Light Side');
+				 	$('.changeStyle').attr('href', '/app/includes/css/dark.css');
+				 	$('.changeStyle').attr('data-color', 'dark');
+
+					// Show Errors
+					$.notify('Unexpected Error Occured.', { position: 'right bottom', className: 'error', style: 'crmDark' });
+					
+					
+				 }
+			});
+
 		}
 
 	});
 
 });
-
-

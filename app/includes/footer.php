@@ -11,8 +11,9 @@
 
 use uziiuzair\crm; 
 
-$staff 		= crm\Users::getAll();
-$countries 	= crm\Functions::getCountries();
+$currentUser 	= crm\Sessions::get('studioUserLogin');						# Current User Details
+$staff 			= crm\Users::getAll();
+$countries 		= crm\Functions::countries();
 
 ?>
 					<div class="footer">
@@ -43,24 +44,26 @@ $countries 	= crm\Functions::getCountries();
 					<div class="modalContent">
 
 						<form action="" id="form-clientCreate">
+
+							<input type="hidden" name="staff_id" value="<?php echo $currentUser->id ?>">
 							
 							<div class="row clearfix">
-								<div class="half"><label for="firstName">First Name</label><input id="firstName" type="text" name="firstName"></div>
-								<div class="half"><label for="lastName">Last Name</label><input id="lastName" type="text" name="lastName"></div>
+								<div class="half"><label for="clientFirstName">First Name</label><input id="clientFirstName" type="text" name="clientFirstName"></div>
+								<div class="half"><label for="clientLastName">Last Name</label><input id="clientLastName" type="text" name="clientLastName"></div>
 							</div> 
 
 							<div class="row clearfix">
 								<div class="third">
-									<label for="companyName">Company Name</label>
-									<input type="text" name="companyName" id="companyName">
+									<label for="clientCompanyName">Company Name</label>
+									<input type="text" name="clientCompanyName" id="clientCompanyName">
 								</div>
 								<div class="third">
-									<label for="clientEmail">Email Address</label>
-									<input type="text" name="clientEmailAddress" id="clientEmail">
+									<label for="clientEmailAddress">Email Address</label>
+									<input type="text" name="clientEmailAddress" id="clientEmailAddress">
 								</div>
 								<div class="third">
-									<label for="clientPhoen">Phone</label>
-									<input type="text" name="clientPhoenNumber" id="clientPhone">
+									<label for="clientPhoneNumber">Phone</label>
+									<input type="text" name="clientPhoneNumber" id="clientPhoneNumber">
 								</div>
 							</div>
 
@@ -70,24 +73,24 @@ $countries 	= crm\Functions::getCountries();
 									<input type="text" name="clientAddress" id="clientAddress">
 								</div>
 								<div class="third nopadding-right">
-									<label for="">City</label>
-									<input type="text" name="">
+									<label for="clientCity">City</label>
+									<input type="text" name="clientCity" id="clientCity">
 								</div>
 							</div>
 
 							<div class="row clearfix">
 								<div class="third">
-									<label for="">Postal Code</label>
-									<input type="text" name="">
+									<label for="clientZip">Postal Code</label>
+									<input type="text" name="clientZip" id="clientZip">
 								</div>
 								<div class="third">
-									<label for="">State</label>
-									<input type="text" name="">
+									<label for="clientState">State</label>
+									<input type="text" name="clientState" id="clientState">
 								</div>
 								<div class="third">
 									<label for="clientCountry">Country</label>
 									<select name="clientCountry" class="selectbox" style="width:100%;">
-										<?php $countries = crm\Functions::getCountries(); ?>
+										<?php $countries = crm\Functions::countries(); ?>
 										<?php foreach ($countries as $country): ?>
 											<option value="<?php echo $country['id'] ?>"><?php echo $country['name'] ?></option>
 										<?php endforeach ?>

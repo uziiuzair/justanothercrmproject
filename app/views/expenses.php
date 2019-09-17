@@ -85,6 +85,15 @@ $expenseAccounts = crm\Services\Expenses::accounts();
 
 				<!-- Invoices -->
 				<div class="row expensesContainer" id="expensesList">
+
+					<div class="row clearfix">
+						<div class="inline-float">
+							<label class="search-label" for="search-expenses">Search Expense:</label>
+						</div>
+						<div class="inline-float">
+							<input class="search" id="search-expenses" placeholder="Search Expense">
+						</div>
+					</div>
 					
 					<ul class="list">
 
@@ -162,6 +171,12 @@ $expenseAccounts = crm\Services\Expenses::accounts();
 
 									<?php foreach ($expenseAccounts as $account): ?>
 
+										<?php 
+											$totalSpend = crm\Services\Expenses::expensesIncurred($account['id']);
+											$totalBudget = $account['budget'];
+
+											$spendingPercentage = ($totalSpend/$totalBudget) * 100;
+										?>
 										<li class="theExpenseAccount">
 											
 											<a href="#!">
@@ -171,12 +186,15 @@ $expenseAccounts = crm\Services\Expenses::accounts();
 															<h1 class="expenseAccountName"><?php echo $account['name'] ?></h1>
 														</div>
 														<div class="half">
-															<p class="expenseAccountSpending">$50.00 / <?php echo number_format($account['budget'], 2) ?></p>
+															<p class="expenseAccountSpending">$<?php echo number_format($totalSpend, 2) ?> / <?php echo number_format($totalBudget, 2) ?></p>
 														</div>
 													</div>
+
+													
+
 													<div class="row clearfix">
 														<div class="expenseBudgeting">
-															<div class="line" style="width:25%;"></div>
+															<div class="line" style="width:<?php echo $spendingPercentage; ?>%;"></div>
 														</div>
 													</div>
 												</div>
@@ -220,7 +238,7 @@ $expenseAccounts = crm\Services\Expenses::accounts();
 <!-- Scripts -->
 <script>
 	var options = {
-		valueNames: [ 'invName', 'invNumber', 'invDate', 'invDue', 'invTotal' ],
+		valueNames: [ 'expenseProjectName', 'expenseNumber', 'expenseDate' ],
 		page:6,
 		pagination: true
 	};

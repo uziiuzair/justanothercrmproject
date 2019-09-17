@@ -148,6 +148,8 @@ body.modal-active {
 .twothird { width: 66.66%; float: left; }
 
 .inline-float { float: left; width: auto; }
+.float-left { float: left; }
+.float-right { float: right; }
 
 /**
  * Margins and Paddings
@@ -482,6 +484,54 @@ form {
 	}
 
 
+
+/**
+ * Search for Lists
+ */
+.content .search-label {
+	font-size: 14px;
+	color: #000;
+	font-weight: 500;
+	margin: 9px 0;
+	display: block;
+}
+
+.content .search {
+	width: 250px;
+	padding: 10px 0;
+	background: transparent;
+	border: 0;
+	font-size: 14px;
+	font-family: inherit;
+	color: #7052d5;
+	margin: 0 20px 20px;
+	outline: 0;
+}
+
+ 	.content .search::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+ 		color: #8a8fa2;
+ 		font-weight: 300;
+ 		font-family: inherit;
+ 	}
+ 	.content .search::-moz-placeholder { /* Firefox 19+ */
+ 		color: #8a8fa2;
+ 		font-weight: 300;
+ 		font-family: inherit;
+ 	}
+ 	.content .search:-ms-input-placeholder { /* IE 10+ */
+ 		color: #8a8fa2;
+ 		font-weight: 300;
+ 		font-family: inherit;
+ 	}
+ 	.content .search:-moz-placeholder { /* Firefox 18- */
+ 		color: #8a8fa2;
+ 		font-weight: 300;
+ 		font-family: inherit;
+ 	}
+
+
+
+
 /**
  * Page Contents
  */
@@ -807,8 +857,7 @@ form {
 
 				.header .settings a {
 					display: block;
-					padding:13px 19.5px 5px;
-					/* color: #9b9b9b; */
+					padding: 14px 22.5px 7px;
 					-webkit-transition: all 0.3s ease-out;
 					-moz-transition: all 0.3s ease-out;  
 					-o-transition: all 0.3s ease-out;  
@@ -1220,6 +1269,39 @@ form {
 .customerPage {
 
 }
+
+	.customerPage .pageHeader .search {
+		width: 250px;
+		padding: 11px 10px 6px;
+		background: transparent;
+		border: 0;
+		font-size: 14px;
+		font-family: inherit;
+		color: #7052d5;
+		margin: 19px 30px;
+		outline: 0;
+	}
+
+		.customerPage .pageHeader .search::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			color: #8a8fa2;
+			font-weight: 300;
+			font-family: inherit;
+		}
+		.customerPage .pageHeader .search::-moz-placeholder { /* Firefox 19+ */
+			color: #8a8fa2;
+			font-weight: 300;
+			font-family: inherit;
+		}
+		.customerPage .pageHeader .search:-ms-input-placeholder { /* IE 10+ */
+			color: #8a8fa2;
+			font-weight: 300;
+			font-family: inherit;
+		}
+		.customerPage .pageHeader .search:-moz-placeholder { /* Firefox 18- */
+			color: #8a8fa2;
+			font-weight: 300;
+			font-family: inherit;
+		}
 
 	.customerPage .pageContent {
 
@@ -2522,6 +2604,122 @@ form {
 
 
 
+
+
+	/**
+	 * Modal: uploadClientPhoto
+	 */
+	.modal.this-uploadClientPhoto {
+
+	}
+
+		.modal.this-uploadClientPhoto ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			height: 50px;
+		}
+
+		.modal.this-uploadClientPhoto ul li {
+			color: #8a8fa2;
+			display: inline-block;
+			position: relative;
+			float: left;
+			width: 49%;
+			height: 35px;
+		}
+
+		.modal.this-uploadClientPhoto ul li input[type=radio]{
+			position: absolute;
+			visibility: hidden;
+		}
+
+		.modal.this-uploadClientPhoto ul li label{
+			display: block;
+		    position: relative;
+		    font-weight: 300;
+		    font-size: 14px;
+		    padding: 16px 0 0 35px;
+		    z-index: 9;
+		    cursor: pointer;
+		    color: #8a8fa2;
+			-webkit-transition: all 0.25s linear;
+		}
+
+		.modal.this-uploadClientPhoto ul li:hover label{
+			color: #212121;
+		}
+
+		.modal.this-uploadClientPhoto ul li .check{
+			display: block;
+			position: absolute;
+			border: 2px solid #8a8fa2;
+			border-radius: 0;
+			height: 15px;
+			width: 15px;
+			top: 20px;
+			left: 0;
+			z-index: 5;
+			transition: border .25s linear;
+			-webkit-transition: border .25s linear;
+		}
+
+		.modal.this-uploadClientPhoto ul li:hover .check {
+			border: 2px solid #212121;
+		}
+
+		.modal.this-uploadClientPhoto ul li .check::before {
+			display: block;
+		    position: absolute;
+		    content: '';
+		    border-radius: 0;
+		    height: 15px;
+		    width: 15px;
+		    top: -2px;
+		    left: -2px;
+		    margin: auto;
+		    transition: background 0.25s linear;
+		    -webkit-transition: background 0.25s linear;
+		}
+
+		.modal.this-uploadClientPhoto input[type=radio]:checked ~ .check {
+			border: 2px solid #7052d5;
+		}
+
+		.modal.this-uploadClientPhoto input[type=radio]:checked ~ .check::before{
+			background: #7052d5;
+		}
+
+		.modal.this-uploadClientPhoto input[type=radio]:checked ~ label{
+			color: #7052d5;
+		}
+
+		.modal.this-uploadClientPhoto button {
+			width: 120px;
+		    padding: 8px 10px;
+		}
+
+		/* .modal.this-uploadClientPhoto form {
+			height: 200px;
+			background: #EFEFEF;
+			position: relative;
+			cursor: pointer;
+		}
+
+			.modal.this-uploadClientPhoto form:after {
+			    position: absolute;
+			    width: 100%;
+			    line-height: 200px;
+			    display: block;
+			    content: "drop photo here";
+			    text-align: center;
+			    font-size: 10px;
+			    font-family: inherit;
+			    font-weight: 300;
+			    color: #9B9B9B;
+			}
+ */
+
 /**
  * Staff Page
  */
@@ -3536,6 +3734,80 @@ form {
 
 }
 
+	/* Invoices Overview */
+	.projects .projectsOverview {
+		margin-bottom: 25px;
+		-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+	}
+
+		.projects .projectsOverview .overviewBox {
+			float: left;
+			background: #fff;
+			position: relative;
+			width: 25%;
+		}
+
+			.projects .projectsOverview .overviewBox:after {
+				width: 1px;
+				height: 50px;
+				right: 0;
+				top: 50%;
+				margin-top: -25px;
+				background: #ececec;
+				content: " ";
+				display: block;
+				position: absolute;
+			}
+
+				.projects .projectsOverview .overviewBox:last-child:after {
+					display: none;
+				} 
+
+			.projects .projectsOverview .overviewBox .inner {
+				padding: 15px;
+			}
+
+			.projects .projectsOverview .overviewBox .left {
+				float: left;
+			}
+
+				.projects .projectsOverview .overviewBox .left .image {
+					width: 80px;
+					height: 80px;
+					background-color: #f2f2f2;
+				}
+
+			.projects .projectsOverview .overviewBox .right {
+				float: left;
+				padding-left: 15px;
+				padding-top: 15px;
+			}
+
+				.projects .projectsOverview .overviewBox .right h2 {
+					font-size: 16px;
+					line-height: 22px;
+					font-weight: 500;
+					margin: 0;
+					color: #000;
+				}
+
+					.projects .projectsOverview .overviewBox .right p {
+						font-size: 34px;
+						margin-bottom: 0;
+						margin-top: 14px;
+						text-align: left;
+						color: #7052d5;
+					}
+
+						.projects .projectsOverview .overviewBox .right p span {
+							font-size: 9px;
+							position: relative;
+							top: -5px;
+							color: #8a8fa2;
+						}
+
 	.projects .projectsContainer {
 
 	}
@@ -3546,9 +3818,15 @@ form {
 
 			.projects .projectsContainer ul li {
 				float: left;
-				width: 33.3%;
-				padding: 0 15px 30px;
+			    width: 31.75%;
+			    padding: 0;
+			    margin-right: 25px;
+			    margin-bottom: 25px;
 			}
+
+				.projects .projectsContainer ul li:nth-child(3n+3) {
+					margin-right: 0;
+				}
 
 		.projects .projectsContainer .project {
 			background: #fff;
@@ -3614,6 +3892,9 @@ form {
 					.projects .projectsContainer .project .projectDetails .actions ul li {
 						display: inline-block;
 						padding: 0;
+						margin-right: 0;
+						margin-bottom: 0;
+						width: 33.33%;
 					}
 
 						.projects .projectsContainer .project .projectDetails .actions ul li a {
@@ -3644,50 +3925,100 @@ form {
 				}
 
 
-	.projects .productivityTracker {
+	.projects .colSidebar .createProjects {
+
+	}
+
+		.projects .colSidebar .createProjects h1 {
+			font-size: 22px;
+			color: #4B4B4B;
+		}
+
+		.projects .colSidebar .createProjects .panelContent {
+			padding-top: 15px;
+		}
+
+		.projects .colSidebar .createProjects .half:nth-child(1) { padding-right: 7px; }
+		.projects .colSidebar .createProjects .half:nth-child(2) { padding-left: 7px; }
+
+		.projects .colSidebar .createProjects a {
+			width: 100%;
+			display: block;
+			background: #fff;
+			padding: 10px 0;
+			text-align: center;
+			font-size: 14px;
+			color: #4B4B4B;
+			-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;  
+			-o-transition: all 0.3s ease-out;  
+			transition: all 0.3s ease-out;
+		}
+
+			.projects .colSidebar .createProjects a:hover {
+				background: rgba(255, 255, 255, 0.7);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+			.projects .colSidebar .createProjects a:active {
+				background: rgba(255, 255, 255, 0.4);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+
+	.projects .colSidebar .productivityTracker {
 		-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
 		-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
 		box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
 	}
 
-		.projects .productivityTracker .inner {
+		.projects .colSidebar .productivityTracker .inner {
 
 		}
 
-			.projects .productivityTracker .panelHeader {
+			.projects .colSidebar .productivityTracker .panelHeader {
 				padding: 15px;
 			}
 
-			.projects .productivityTracker .panelContent {
+			.projects .colSidebar .productivityTracker .panelContent {
 				padding: 0 15px 15px;
 				position: relative;
 				padding-top: 15px;
 			}
 
-		.projects .productivityTracker .productivityTrackerWrapper {
+		.projects .colSidebar .productivityTracker .productivityTrackerWrapper {
 
 		}
 
-			.projects .productivityTracker .productivityTrackerWrapper ul {
+			.projects .colSidebar .productivityTracker .productivityTrackerWrapper ul {
 				list-style: none;
 			}
 
-			.projects .productivityTracker .productivityTrackerWrapper ul li {
+			.projects .colSidebar .productivityTracker .productivityTrackerWrapper ul li {
 				display: inline-block;
 				padding-right: 13px;
 			}
 
-				.projects .productivityTracker .productivityTrackerWrapper ul li:last-child {
+				.projects .colSidebar .productivityTracker .productivityTrackerWrapper ul li:last-child {
 					padding-right: 0;
 				}
 
-			.projects .productivityTracker .productivityTrackerWrapper .bar {
+			.projects .colSidebar .productivityTracker .productivityTrackerWrapper .bar {
 				height: 175px;
 				position: relative;
 				width: 30px;
 			}
 
-				.projects .productivityTracker .productivityTrackerWrapper .bar .done {
+				.projects .colSidebar .productivityTracker .productivityTrackerWrapper .bar .done {
 					position: absolute;
 					bottom: 0;
 					width: 100%;
@@ -3695,7 +4026,7 @@ form {
 					background: #a7abc2;
 				}
 
-				.projects .productivityTracker .productivityTrackerWrapper .bar .undone {
+				.projects .colSidebar .productivityTracker .productivityTrackerWrapper .bar .undone {
 					position: absolute;
 					bottom: 0;
 					width: 100%;
@@ -3706,7 +4037,6 @@ form {
 	.projects .paginationContainer {
 		width: 100%;
 		margin-top: 25px;
-		padding-left: 15px;
 	}
 
 		.projects .paginationContainer  ul {
@@ -3829,6 +4159,39 @@ form {
 .leadsPage {
 
 }
+
+	.leadsPage .pageHeader .search {
+		width: 250px;
+		padding: 11px 10px 6px;
+		background: transparent;
+		border: 0;
+		font-size: 14px;
+		font-family: inherit;
+		color: #7052d5;
+		margin: 19px 30px;
+		outline: 0;
+	}
+
+		.leadsPage .pageHeader .search::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			color: #8a8fa2;
+			font-weight: 300;
+			font-family: inherit;
+		}
+		.leadsPage .pageHeader .search::-moz-placeholder { /* Firefox 19+ */
+			color: #8a8fa2;
+			font-weight: 300;
+			font-family: inherit;
+		}
+		.leadsPage .pageHeader .search:-ms-input-placeholder { /* IE 10+ */
+			color: #8a8fa2;
+			font-weight: 300;
+			font-family: inherit;
+		}
+		.leadsPage .pageHeader .search:-moz-placeholder { /* Firefox 18- */
+			color: #8a8fa2;
+			font-weight: 300;
+			font-family: inherit;
+		}
 
 	.leadsPage .pageContent {
 
@@ -7472,6 +7835,7 @@ form {
 						.expensesPage .panel.expenseAccounts ul li.theExpenseAccount .expenseBudgeting .line {
 							height: 4px;
 							width: 100%;
+							max-width: 100%;
 							background: #00afb2;
 						}
 
@@ -7910,6 +8274,39 @@ form {
 			font-weight: 300;
 			color: #8a8fa2;
 		}
+
+		.expensePage .pageHeader a {
+			width: 185px;
+			display: block;
+			background: #fff;
+			padding: 10px 0;
+			text-align: center;
+			font-size: 14px;
+			color: #4B4B4B;
+			-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.02);
+			-webkit-transition: all 0.3s ease-out;
+			-moz-transition: all 0.3s ease-out;  
+			-o-transition: all 0.3s ease-out;  
+			transition: all 0.3s ease-out;
+		}
+
+			.expensePage .pageHeader a:hover {
+				background: rgba(255, 255, 255, 0.7);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
+
+			.expensePage .pageHeader a:active {
+				background: rgba(255, 255, 255, 0.4);
+				-webkit-transition: all 0.3s ease-out;
+				-moz-transition: all 0.3s ease-out;  
+				-o-transition: all 0.3s ease-out;  
+				transition: all 0.3s ease-out;
+			}
 
 	.expensePage .panel {
 

@@ -3,7 +3,7 @@
 /**
  * Getting the server request
  */
-$page = crm\Routes::getServerRequest('');
+$page = crm\Routes::getServerRequest();
 
 if (!crm\Sessions::get('studioUserLogin')) {
 	$page = 'login';

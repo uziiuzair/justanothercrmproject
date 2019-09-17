@@ -23,10 +23,82 @@ $logs 		= crm\Functions::getlogs('project_log');
 		</div> -->
 	
 		<div class="row clearfix">
-			
+
 			<!-- Projects List -->
 			<div class="span9 column">
+
+				<!-- Invoice Overview -->
+				<div class="row projectsOverview clearfix">
+					
+					<div class="overviewBox">
+						<div class="inner">
+							<div class="row clearfix">
+								<div class="left">
+									<canvas style="width:80px; height:80px;" id="totalInvoices"></canvas>
+								</div>
+								<div class="right">
+									<h2>Total Invoices</h2>
+									<p><?php echo crm\Functions::countRows('invoices') ?></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="overviewBox">
+						<div class="inner">
+							<div class="row clearfix">
+								<div class="left">
+									<canvas style="width:80px; height:80px;" id="unpaidInvoices"></canvas>
+								</div>
+								<div class="right">
+									<h2>Unpaid Invoices</h2>
+									<p><?php echo crm\Functions::countRows('invoices', '0', '`status` = 1') ?></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="overviewBox">
+						<div class="inner">
+							<div class="row clearfix">
+								<div class="left">
+									<canvas style="width:80px; height:80px;" id="paidInvoices"></canvas>
+								</div>
+								<div class="right">
+									<h2>Paid Invoices</h2>
+									<p><?php echo crm\Functions::countRows('invoices', '0', '`status` = 2') ?></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="overviewBox">
+						<div class="inner">
+							<div class="row clearfix">
+								<div class="left">
+									<canvas style="width:80px; height:80px;" id="overdueInvoices"></canvas>
+								</div>
+								<div class="right">
+									<h2>Overdue Invoices</h2>
+									<p><?php echo crm\Functions::countRows('invoices', '0', '`status` = 4') ?></p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- / Invoice Overview -->
+
 				<div class="projectsContainer"  id="projectsList">
+
+					<div class="row clearfix">
+						<div class="inline-float">
+							<label class="search-label" for="search-projects">Search Project:</label>
+						</div>
+						<div class="inline-float">
+							<input class="search" id="search-projects" placeholder="Search Projects">
+						</div>
+					</div>
 
 					<ul class="list clearfix">
 
@@ -112,7 +184,32 @@ $logs 		= crm\Functions::getlogs('project_log');
 			</div>
 
 			<!-- Projects Misc -->
-			<div class="span3 column">
+			<div class="span3 column colSidebar">
+
+				<!-- Create new Proposal -->
+				<div class="panel transparent no-padding createProjects">
+					<div class="inner">			
+						<div class="panelContent">
+							
+							<div class="panelHeader">
+								<h1>Create Project</h1>
+							</div>
+
+							<div class="panelContent">
+								
+								<div class="row clearfix">
+
+									<div class="half">
+										<a href="#addNewProject" data-modal="addNewProject" class="ismodal">New Project</a>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>			
+					</div>
+				</div>
 				
 				<div class="panel productivityTracker no-padding">
 					<div class="inner">

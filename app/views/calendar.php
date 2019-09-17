@@ -15,19 +15,9 @@ use uziiuzair\crm;
 <link rel="stylesheet" href="/app/includes/js/fullcalendar/daygrid/main.min.css">
 <script src="/app/includes/js/fullcalendar/core/main.min.js"></script>
 <script src="/app/includes/js/fullcalendar/daygrid/main.min.js"></script>
+<script src="/app/includes/js/fullcalendar/interactions/main.min.js"></script>
+<script src="/app/includes/js/page.calendar.js"></script>
 
-<script>
-	document.addEventListener('DOMContentLoaded', function() {
-		var calendarEl = document.getElementById('calendar');
-
-		var calendar = new FullCalendar.Calendar(calendarEl, {
-			plugins: [ 'dayGrid' ],
-			events: '/action/meetings/all'
-		});
-
-		calendar.render();
-	});
-</script>
 
 <div class="container calendarPage">
 

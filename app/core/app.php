@@ -2,53 +2,59 @@
 use uziiuzair\crm;
 use Sentry\State\Scope;
 
-/** 
- * Initialize Sentry.io
- */
-\Sentry\init([
-	'dsn' => crm\Config::SentryDSN,
-	'release' => crm\Config::SentryReleaseVersion,
-	'environment' => crm\Config::SystemEnvironment
-]);
+# Initialize Sentry.io
+if (crm\Config::SentryEnable) {
+
+	\Sentry\init([
+		'dsn' 			=> crm\Config::SentryDSN,
+		'release' 		=> crm\Config::SentryReleaseVersion,
+		'environment' 	=> crm\Config::SystemEnvironment
+	]);
+
+}
 
 
+# System Prechecks
+# 1. File Upload Settings
+# - PHP.INI - Max Post, Max Upload
+# 2. 
+# 
 
-/**
- * System Development
- */
+
+# System Defaults
+define('SystemWorkingDirectory', dirname(__DIR__, 2));			# System Current Working Directory
+define('SystemRequestStartTime', time());			# System Request Start Time
+
+
+# System Development
 if (crm\Config::SystemEnvironment == 'development') {
 	ini_set('display_errors', 1); 
 }
 
 
 
-/**
- * If Session Exists
- */
+# If Session Exists
 if (crm\Sessions::get('studioUserLogin')) {
 
 
-	/**
-	 * Current User Variable
-	 */
+	# Current User Variable
 	$currentUser = crm\Sessions::get('studioUserLogin');
 
-	/**
-	 * Sentry Capture User
-	 */
-	\Sentry\configureScope(function (\Sentry\State\Scope $scope): void {
-		$scope->setUser([
-			'id' => crm\Sessions::get('studioUserLogin')->id,
-			'username' => crm\Sessions::get('studioUserLogin')->username,
-			'email' => crm\Sessions::get('studioUserLogin')->email
-		]);	
-	});
+	# Sentry Capture User
+	if (crm\Config::SentryEnable) {
+		
+		\Sentry\configureScope(function (\Sentry\State\Scope $scope): void {
+			$scope->setUser([
+				'id' 		=> crm\Sessions::get('studioUserLogin')->id,
+				'username' 	=> crm\Sessions::get('studioUserLogin')->username,
+				'email' 	=> crm\Sessions::get('studioUserLogin')->email
+			]);	
+		});
+	
+	}
 
-
-	/**
-	 * Update User Activity
-	 */
-	crm\Users::updateActivity(time());
+	# Update User Activity
+	crm\Users::updateActivity(SystemRequestStartTime);
 
 }
 
@@ -57,3 +63,9 @@ if (crm\Sessions::get('studioUserLogin')) {
  * of the page.
  */
 crm\Routes::get();
+
+
+
+
+
+

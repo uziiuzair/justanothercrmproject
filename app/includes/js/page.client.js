@@ -100,22 +100,71 @@ $(document).ready(function() {
 	});
 
 
+	
 
+	$('.whatLogo').click(function(event) {
 
+		if ($(this).attr('value') === 'upload') {
+			$('#uploadTheLogo').slideDown();
+		} else {
+			$('#uploadTheLogo').slideUp();
+		}
 
-
-	/**
-	 * Dropzone for Logo Upload
-	 */
-	$("#form-clientLogo").dropzone({ 
-		url: "/" 
 	});
 
 
 
 
-	
+	/**
+	 * Upload Logo
+	 */
+	// $('#form-clientLogo').validate({
+	// 	// Override to submit the form via ajax
+	// 	errorPlacement: function(){
+ //            return false;  // suppresses error message text
+ //        },
+ //        submitHandler: function(form) {
+	// 		$.ajax({
+	// 			 type: 'post',
+	// 			 url: '/upload/client/logo',
+	// 			 data: $(form).serialize(),
+	// 			 dataType: 'json',
+	// 			 beforeSend: function() {
+	// 				$('.submitting > .showProgress').fadeIn();
+	// 				$('.errorContainer').html('');
+	// 			 },
+	// 			 success: function(data){
+	// 				console.log(data);
 
+	// 				// Show Success
+	// 				$('.errorContainer').fadeIn();
+	// 				$('.errorContainer').html(data.request.message);
+
+	// 				if (data.success === true) {
+	// 					window.location.reload();
+	// 				}
+	// 			 },
+	// 			 error: function(XMLHttpRequest, textStatus, errorThrown){
+
+	// 			 	// Log Errors
+	// 			 	console.log(XMLHttpRequest);
+	// 				console.log(textStatus);
+	// 				console.log(errorThrown);
+
+	// 				// Seriously. Log an error in DB!
+
+	// 				// Show Errors
+	// 				$('.errorContainer').fadeIn();
+	// 				$('.errorContainer').html('Uh oh! Something does not seem right. Request aborted!');
+					
+	// 			 },
+	// 			 complete: function() {
+	// 			 	$('.submitting > .showProgress').fadeOut();
+	// 			 }
+	// 		});
+	// 		return false; // required to block normal submit since you used ajax
+	// 	}
+	// });
 	
 
 

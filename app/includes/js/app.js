@@ -141,6 +141,62 @@ $(document).ready(function() {
 
 
 
+
+
+		/**
+		 * Create new Client
+		 */
+		$('#form-clientCreate').validate({
+			// Override to submit the form via ajax
+			errorPlacement: function(){
+	            return false;  // suppresses error message text
+	        },
+	        submitHandler: function(form) {
+				$.ajax({
+					 type: 'post',
+					 url: '/action/client/create',
+					 data: $(form).serialize(),
+					 dataType: 'json',
+					 beforeSend: function() {
+						$('.submitting > .showProgress').fadeIn();
+						$('.errorContainer').html('');
+					 },
+					 success: function(data){
+						console.log(data);
+
+						// Show Success
+						$('.errorContainer').fadeIn();
+						$('.errorContainer').html(data.request.message);
+
+						if (data.success === true) {
+							window.location.reload();
+						}
+					 },
+					 error: function(XMLHttpRequest, textStatus, errorThrown){
+
+					 	// Log Errors
+					 	console.log(XMLHttpRequest);
+						console.log(textStatus);
+						console.log(errorThrown);
+
+						// Seriously. Log an error in DB!
+
+						// Show Errors
+						$('.errorContainer').fadeIn();
+						$('.errorContainer').html('Uh oh! Something does not seem right. Request aborted!');
+						
+					 },
+					 complete: function() {
+					 	$('.submitting > .showProgress').fadeOut();
+					 	// $('.submitting > .initial').fadeIn();
+					 }
+				});
+				return false; // required to block normal submit since you used ajax
+			}
+		});
+
+
+
 		
 
 

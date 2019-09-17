@@ -85,5 +85,12 @@ class Templates
 
 
 
+	public static function getSystemWorkingDirectory() {
+		return SystemWorkingDirectory;
+	}
+
+
+
+
 
 }

@@ -24,11 +24,84 @@ class Clients
 	 * Create Client
 	 * @return [type] [description]
 	 */
-	public static function create() {
+	public static function create(array $attributes) {
 
 		# Client Statuses
 		# 1 - Active
 		# 2 - Inactive
+		
+		# Acceptable Values
+		$acceptableValues = array(
+			'staff_id', 'firstname', 'lastname', 'email', 
+			'phone', 'company', 'address', 'city', 'state', 
+			'zip', 'country_id'
+		);
+
+
+		$queryColumns 	= '';
+		$queryValues 	= '';
+
+		$attribCount 	= count($attributes);
+		$keepCount 		= 0;
+
+		foreach ($attributes as $attribute => $value) {
+			
+			if (in_array($attribute, $acceptableValues)) {
+
+				$attribute 	= stripslashes($attribute);
+				$value 		= stripslashes($value);
+				$attribute 	= Config::$db->escape_string($attribute);
+				$value 		= Config::$db->escape_string($value);
+
+				if(++$keepCount === $attribCount) {
+					$queryColumns .= '`'. $attribute .'`'; 
+					$queryValues .= "'" . $value . "'"; 
+				} else {
+					$queryColumns .= '`'. $attribute .'`, '; 
+					$queryValues .= "'" . $value ."', "; 
+				}
+
+			}
+
+		}
+
+		# Defaults
+		$clientCreated 	= time();		# Created
+		$clientUpdated	= time();		# Updated
+		$clientMedia	= '0';			# No Media
+		$clientStatus	= '1';			# 1 = Active | 2 = Inactive
+		$clientRisk 	= '0';			# Risk?! What?
+		$clientType		= '1'; 			# I don't quite recall what I created this for
+		$clientWeb		= '0'; 			# Website
+
+		# Append Defaults
+		$appendedDefaults 	= "'" . $clientCreated . "', '" . $clientUpdated . "', '" . $clientMedia . "', '" . $clientStatus . "', '" . $clientRisk . "', '" . $clientType . "', '" . $clientWeb . "'";
+
+		# Build Query
+		$theFinalQuery 		= 'INSERT INTO `clients` (' . $queryColumns . ', `created`, `updated`, `media_id`, `status`, `risk`, `type`, `web`) VALUES (' . $queryValues . ', '. $appendedDefaults .')';
+
+
+		# Query
+		$stmt = Config::$db->prepare($theFinalQuery);
+
+		# Run Query
+		if ($stmt->execute()) {
+
+			# You're good! This was fun.
+			return true;
+
+		} else {
+
+			# You seriously messed up.
+			return false;
+
+		}
+
+		$stmt->close();
+
+
+		// return $theFinalQuery;
+
 
 	}
 
@@ -40,7 +113,7 @@ class Clients
 	 * Archive Client
 	 * @return [type] [description]
 	 */
-	public static function archive() {
+	public static function archive($client_id) {
 
 	}
 
@@ -52,7 +125,7 @@ class Clients
 	 * Delete Client
 	 * @return [type] [description]
 	 */
-	public static function delete() {
+	public static function delete($client_id) {
 
 	}
 
@@ -78,26 +151,6 @@ class Clients
 
 
 
-
-	/**
-	 * Get Client Meta
-	 * @return [type] [description]
-	 */
-	public static function meta() {
-
-	}
-
-
-
-
-
-	/**
-	 * Complete Profile
-	 * @return [type] [description]
-	 */
-	public static function complete() {
-
-	}
 
 
 
@@ -129,8 +182,7 @@ class Clients
 			$profile->email,
 			$profile->phone,
 			$profile->company,
-			$profile->addressone,
-			$profile->addresstwo,
+			$profile->address,
 			$profile->city,
 			$profile->state,
 			$profile->zip,
@@ -235,16 +287,12 @@ class Clients
 		$stmt->bind_param('i', $id);
 
 		if ($stmt->execute()) {
-			$stmt->close();
 			return true;
 		} else {
-			$stmt->close();
-			if (Constants::DEBUG == true) {
-				return 'execute() failed: ' . htmlspecialchars($stmt->error);	 
-			} else {
-				return false;
-			}	
+			return false;
 		}
+
+		$stmt->close();
 
 	}
 
@@ -262,31 +310,12 @@ class Clients
 
 
 
-	/**
-	 * Gets all Invoices with the Client ID
-	 * @param  int $id 	 Client ID
-	 * @return array    
-	 */
-	public static function invoices($id) {
-
-		if (!Config::$db) {
-			Config::db();
-		}
-
-		$query = Config::$db->query("SELECT * FROM invoices WHERE `client_id` = $id");
-
-		return $query->fetch_all(MYSQLI_ASSOC);
-
-	}
-
-
-
 
 
 
 	/**
-	 * Gets all Invoices with the Client ID
-	 * @param  int $id 	 Client ID
+	 * Gets all Clients assigned to a Staff Member
+	 * @param  int $id 	 Staff ID
 	 * @return array    
 	 */
 	public static function forStaff($id) {

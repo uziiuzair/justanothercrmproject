@@ -1,1 +1,0 @@
-<title><?php echo $word; ?> - Definitions and more ...</title>

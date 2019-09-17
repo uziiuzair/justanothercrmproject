@@ -16,13 +16,20 @@ use uziiuzair\crm;
 	
 	<div class="wrapper">
 		
-		<div class="microWrapper">
+		<div class="microWrapper"  id="clientList">
 
 			<div class="pageHeader">
 				<div class="row clearfix">
 					
 					<div class="span6">
-						<h1>Customers</h1>
+						<div class="row clearfix">
+							<div class="inline-float">
+								<h1>Customers</h1>
+							</div>
+							<div class="inline-float">
+								<input class="search" placeholder="Search...">
+							</div>
+						</div>
 					</div>
 					
 					<div class="span6">
@@ -34,7 +41,7 @@ use uziiuzair\crm;
 
 			<div class="pageContent">
 				
-				<div class="customersContainer" id="clientList">
+				<div class="customersContainer">
 					
 					<ul class="list">
 						<?php $clients = crm\Services\Clients::getAll(); ?>

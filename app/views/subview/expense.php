@@ -13,8 +13,8 @@ $expense_id = crm\Routes::getServerRequest('expense/id/');				#	Get the Expense 
 $expense_id = stripcslashes($expense_id);								#	Sanitize the Expense ID
 
 $expenseArray 	= crm\Services\Expenses::get($expense_id);				#	Get Expense Information based on Expense ID
-$staffArray 	= crm\Users::get($expenseArray->staff_id); 				# 	Get Staff Information based on Staff ID
 $itemArray 		= crm\Services\Expenses::items($expenseArray->id);		#	Get Expense Items
+$staffArray 	= crm\Users::get($expenseArray->staff_id); 				# 	Get Staff Information based on Staff ID
 
 
 ?>
@@ -38,6 +38,9 @@ $itemArray 		= crm\Services\Expenses::items($expenseArray->id);		#	Get Expense I
 			</div>
 			<div class="inline-float p-r-50">
 				<p><?php echo $expenseArray->description ?></p>
+			</div>
+			<div class="float-right">
+				<a href="#fileReimbursement" data-ajax="fileReimbursement" data-staff-id="<?php echo $expenseArray->staff_id; ?>" class="isajax">File for Reimbursement</a>
 			</div>
 		</div>
 
@@ -89,14 +92,6 @@ $itemArray 		= crm\Services\Expenses::items($expenseArray->id);		#	Get Expense I
 											</span> 
 											<?php echo $expenseArray->receiptNumber; ?>
 										</p>
-										<p>
-											<span>
-												<span class="svgContainer">
-													<i class="fal fa-mobile"></i>
-												</span> Total Spent:
-											</span> 
-											<?php echo $expenseArray->currency . ' '. $expenseArray->amount; ?>
-										</p>
 									</div>
 
 								</div>
@@ -143,17 +138,17 @@ $itemArray 		= crm\Services\Expenses::items($expenseArray->id);		#	Get Expense I
 											<span>
 												<span class="svgContainer">
 													<i class="fal fa-mobile"></i>
-												</span> Category:
+												</span> Account:
 											</span> 
-											<?php echo $expenseArray->receiptNumber; ?>
+											<?php echo $expenseArray->account_id; ?>
 										</p>
 										<p>
 											<span>
 												<span class="svgContainer">
 													<i class="fal fa-mobile"></i>
-												</span> Account:
+												</span> Total Amount:
 											</span> 
-											<?php echo $expenseArray->currency . ' '. $expenseArray->amount; ?>
+											<?php echo crm\Functions::getCurrency($expenseArray->currency, 'prefix'). $expenseArray->amount; ?>
 										</p>
 									</div>
 
@@ -186,7 +181,7 @@ $itemArray 		= crm\Services\Expenses::items($expenseArray->id);		#	Get Expense I
 														<h2 class="expenseName"><?php echo $item['name']; ?></h2>
 													</dv>
 													<dv class="half">
-														<p class="expensePrice"><?php echo $item['currencyPrefix'] . $item['total']; ?></p>
+														<p class="expensePrice"><?php echo crm\Functions::getCurrency($item['currencyPrefix'], 'prefix') . $item['total']; ?></p>
 													</dv>
 												</div>
 												<div class="row clearfix">
@@ -194,7 +189,7 @@ $itemArray 		= crm\Services\Expenses::items($expenseArray->id);		#	Get Expense I
 														<p class="expenseDesc"><?php echo $item['description']; ?></p>
 													</div>
 													<div class="half">
-														<p class="expenseActions"><a href="">View</a> . <a href="">Edit</a> . <a href="">Delete</a></p>
+														<p class="expenseActions"><a href="">Edit</a> . <a href="">Delete</a></p>
 													</div>
 												</div>
 											</div>
@@ -220,7 +215,14 @@ $itemArray 		= crm\Services\Expenses::items($expenseArray->id);		#	Get Expense I
 				<div class="panel no-padding receiptPanel">
 					<div class="inner">			
 						<div class="panelHeader">
-							<h1>Receipt</h1>
+							<div class="row clearfix">
+								<div class="left">
+									<h1>Receipt</h1>
+								</div>
+								<div class="right">
+									<p><a href="#" class="ismodal" data-modal="addReceipt">Add Receipt</a></p>
+								</div>
+							</div>
 						</div>
 						<div class="panelContent">
 							
@@ -239,5 +241,45 @@ $itemArray 		= crm\Services\Expenses::items($expenseArray->id);		#	Get Expense I
 		</div>
 
 	</div>
+
+</div>
+
+
+
+<!-- Modal Container -->
+<div class="modalContainer">
+	
+	<!-- Edit Lead Profile -->
+	<div class="modal this-addReceipt" style="display:none;position:fixed; top:0; left:0;">
+		
+		<div class="cover"></div>
+		<div class="inner">
+			<div class="close">
+				<svg 
+					aria-hidden="true" 
+					focusable="false" 
+					data-prefix="fal" 
+					data-icon="times" 
+					role="img" 
+					xmlns="http://www.w3.org/2000/svg" 
+					viewBox="0 0 320 512" 
+					class="svg-inline--fa fa-times fa-w-10 fa-3x">
+					<path 
+						fill="currentColor" 
+						d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" 
+						class="">
+					</path>
+				</svg>
+			</div>
+
+			<div class="modalHeader">
+				<h1>Add Receipt</h1>
+			</div>
+
+			<div class="modalContent"></div>
+
+		</div>
+	</div>
+
 
 </div>

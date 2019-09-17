@@ -66,7 +66,7 @@ use uziiuzair\crm;
 /**
  * Functions
  */
-// echo crm\Functions::getCountry(46);
+// echo crm\Functions::country(46);
 // print_r(crm\Functions::getContinent('Americas'));
 
 // $staffArray = array(
@@ -83,3 +83,10 @@ use uziiuzair\crm;
 // // new User
 // echo crm\Users::create($staffArray);
 // echo crm\Users::departmentCreate('PR Team');
+// print_r(crm\Services\Expenses::expensesIncurred(1));
+
+// echo crm\Routes::getServerRequest('');
+// echo crm\Templates::getSystemWorkingDirectory();
+
+// echo SystemWorkingDirectory;
+

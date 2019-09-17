@@ -19,7 +19,7 @@ class Functions
 	/**
 	 * Get Country
 	 */
-	public static function getCountry($id, $value = 'name') {
+	public static function country($id, $value = 'name') {
 		
 		if (!Config::$db) {
 			Config::db();
@@ -56,7 +56,7 @@ class Functions
 	/**
 	 * Get Countries
 	 */
-	public static function getCountries() {
+	public static function countries() {
 		
 		if (!Config::$db) {
 			Config::db();
@@ -235,7 +235,8 @@ class Functions
 			'user_log', 
 			'api_log', 
 			'project_log', 
-			'lead_log'
+			'lead_log',
+			'upload_log'
 		);
 		
 		# Allow only the following fields to be 
@@ -243,6 +244,7 @@ class Functions
 			'client_id', 
 			'project_id', 
 			'staff_id',
+			'media_id',
 			'title', 
 			'log', 
 			'created', 
@@ -416,6 +418,30 @@ class Functions
 		
 		# What day was it?
 		return date('d M Y', $todaysDate - $secondsSubtracted);
+
+	}
+
+
+
+
+	/**
+	 * 
+	 * @param  [type] $name [description]
+	 * @return [type]       [description]
+	 */
+	public static function getSystemValue($name) {
+
+	}
+
+
+
+
+	/**
+	 * [setSystemOption description]
+	 * @param [type] $name  [description]
+	 * @param [type] $value [description]
+	 */
+	public static function setSystemOption($name, $value) {
 
 	}
 

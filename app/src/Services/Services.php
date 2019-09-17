@@ -163,7 +163,7 @@ class Services
 	 * Services Purchased
 	 *******************************/
 
-	public static function getForProject($id) {
+	public static function forProject($id) {
 
 		if (!Config::$db) {
 			Config::db();

@@ -24,7 +24,7 @@ class Expenses
 	 * @param  $details [<description>]
 	 * @return [type] [description]
 	 */
-	public static function create($staff_id, array $details) {
+	public static function create(array $details) {
 
 		# Invoce Statuses:
 		# 1	-	Unpaid
@@ -80,7 +80,7 @@ class Expenses
 		$stmt->fetch();
 
 		if ($expense->id === '') {
-			return 'Invoice not found';
+			return 'Expense not found';
 		} else {
 			return $expense;
 		}
@@ -137,7 +137,7 @@ class Expenses
 	 * @param  array  $details [description]
 	 * @return [type]          [description]
 	 */
-	public static function update($id, array $details) {
+	public static function update($invoice_id, array $details) {
 
 	}
 
@@ -160,11 +160,17 @@ class Expenses
 
 
 
-	public static function expensesOccured($account_id) {
+	public static function expensesIncurred($account_id) {
 
 		if (!Config::$db) {
 			Config::db();
 		}
+
+		$query = Config::$db->query("SELECT SUM(amount) FROM expenses WHERE `account_id` = $account_id");
+
+		$resultArray = $query->fetch_all(MYSQLI_ASSOC);
+
+		return $resultArray[0]['SUM(amount)'];
 
 	}
 

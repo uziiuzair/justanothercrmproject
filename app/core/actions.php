@@ -158,7 +158,7 @@ switch ($page) {
 			} else {
 
 				$response['success'] = false;
-				$response['request']['message'] = 'Unkown error occurred.';
+				$response['request']['message'] = 'Unknown error occurred.';
 
 			}
 
@@ -299,6 +299,59 @@ switch ($page) {
 
 
 
+	case 'client/create':
+
+
+		if (!empty($_POST['clientFirstName'])) {
+		
+		
+			/**
+			 * Create an Array for all possible Values.
+			 * @var array
+			 */
+			$clientArray = array(
+				'staff_id' 		=> $_POST['staff_id'],
+				'firstname' 	=> $_POST['clientFirstName'],
+				'lastname' 		=> $_POST['clientLastName'],
+				'email' 		=> $_POST['clientEmailAddress'],
+				'phone' 		=> $_POST['clientPhoneNumber'],
+				'company' 		=> $_POST['clientCompanyName'],
+				'address' 		=> $_POST['clientAddress'],
+				'city' 			=> $_POST['clientCity'],
+				'state' 		=> $_POST['clientState'],
+				'zip' 			=> $_POST['clientZip'],
+				'country_id' 		=> $_POST['clientCountry']
+			);
+
+			/**
+			 * Make an attempt to create new client
+			 */
+			if (crm\Services\Clients::create($clientArray)) {
+				
+				$response['success'] = true;
+				$response['request']['message'] = 'Client created!';
+
+			} else {
+
+				$response['success'] = false;
+				$response['request']['message'] = 'Unknown error occurred.';
+
+			}
+
+
+
+		} else {
+			$response['success'] = false;
+			$response['request']['message'] = 'Client name not provided.';
+		}
+
+
+
+	break;
+
+
+
+
 	/**
 	 * Update Client's Profile
 	 */
@@ -354,7 +407,7 @@ switch ($page) {
 			} else {
 
 				$response['success'] = false;
-				$response['request']['message'] = 'Unkown error occurred.';
+				$response['request']['message'] = 'Unknown error occurred.';
 
 			}
 
@@ -400,7 +453,7 @@ switch ($page) {
 			} else {
 
 				$response['success'] = false;
-				$response['request']['message'] = 'Unkown error occurred.';
+				$response['request']['message'] = 'Unknown error occurred.';
 
 			}
 
@@ -484,8 +537,41 @@ switch ($page) {
 	 */
 	case 'meetings/delete': 
 
+
 	break;
 
+
+
+	/**
+	 * Set theme to Dark
+	 */
+	case 'theme/dark':
+
+		if (crm\Users::theme('dark')) {
+			$response['success'] = true;
+			$response['request']['message'] = 'Theme set to Dark';
+		} else {
+			$response['success'] = false;
+			$response['request']['message'] = 'An unknown error occured, theme reverted.';
+		}	
+
+	break;
+
+
+	/**
+	 * Set theme to Light
+	 */
+	case 'theme/light':
+
+		if (crm\Users::theme('light')) {
+			$response['success'] = true;
+			$response['request']['message'] = 'Theme set to Light';
+		} else {
+			$response['success'] = false;
+			$response['request']['message'] = 'An unknown error occured, theme reverted.';
+		}	
+
+	break;
 
 
 

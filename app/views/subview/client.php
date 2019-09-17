@@ -212,17 +212,9 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 									<span>
 										<span class="svgContainer">
 											<i class="fal fa-map-marker"></i>
-										</span> Address Line 1:
+										</span> Address:
 									</span> 
-									<?php echo $clientArray->addressone; ?>
-								</p>
-								<p>
-									<span>
-										<span class="svgContainer">
-											<i class="fa fa-"></i>
-										</span> Address Line 2:
-									</span> 
-									<?php echo $clientArray->addresstwo; ?>
+									<?php echo $clientArray->address; ?>
 								</p>
 								<p>
 									<span>
@@ -251,10 +243,10 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 								<p>
 									<span>
 										<span class="svgContainer">
-											<i class="fal fa-globe-<?php echo crm\Functions::getCountry($clientArray->country, 'continent'); ?>"></i>
+											<i class="fal fa-globe-<?php echo strtolower(crm\Functions::country($clientArray->country, 'continent')); ?>"></i>
 										</span> Country:
 									</span> 
-									<?php echo crm\Functions::getCountry($clientArray->country); ?>
+									<?php echo crm\Functions::country($clientArray->country); ?>
 								</p>
 							</div>
 
@@ -555,14 +547,9 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 					</div>
 
 					<div class="row">
-						<label for="addressLineOne">Address Line One</label>
-						<input type="text" name="addressLineOne" id="addressLineOne" value="<?php echo $clientArray->addressone; ?>">
-					</div> 
-
-					<div class="row">
-						<label for="addressLineTwo">Address Line Two</label>
-						<input type="text" name="addressLineTwo" id="addressLineTwo" value="<?php echo $clientArray->addresstwo; ?>">
-					</div> 
+						<label for="addressLineOne">Address</label>
+						<input type="text" name="addressLineOne" id="addressLineOne" value="<?php echo $clientArray->address; ?>">
+					</div>
 
 					<div class="row clearfix">
 						<div class="third">
@@ -581,7 +568,13 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 
 					<div class="row">
 						<label for="clientCountry">Country</label>
-						<input type="text" name="clientCountry" id="clientCountry" value="<?php echo $clientArray->country; ?>">
+						<select name="clientCountry" class="selectbox" style="width:100%;">
+							<option value="<?php echo $clientArray->country ?>"><?php echo crm\Functions::country($clientArray->country) ?></option>
+							<?php $countries = crm\Functions::countries(); ?>
+							<?php foreach ($countries as $country): ?>
+								<option value="<?php echo $country['id'] ?>"><?php echo $country['name'] ?></option>
+							<?php endforeach ?>
+						</select>
 					</div>
 
 					<div class="row clearfix">
@@ -620,24 +613,51 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 
 					<!-- Upload -->
 					<div class="half">
-						<form action="" id="form-clientLogo" enctype="multipart/form-data" data-clientID="<?php echo $clientArray->id; ?>">
+
+						<form action="/upload/client/logo" method="post" id="form-clientLogo" enctype="multipart/form-data">
 							
+							<input type="hidden" name="client_id" value="<?php echo $clientArray->id; ?>">
+							<input type="hidden" name="upload_type" value="client_logo">
+
 							<div class="row">
 								
 								<label for="">Logo Type</label>
 
-								<p><input type="radio" name="logoType" value="gravarar" id="uploadGravatar"> <label for="uploadGravatar">Gravatar</label></p>
-								<p><input type="radio" name="logoType" value="upload" id="uploadLogo"> <label for="uploadLogo">Upload</label></p>
+								<ul>
+									<li>
+										<input type="radio" class="whatLogo" name="logoType" value="gravatar" checked id="gravatar"> 
+										<label for="gravatar">Gravatar</label>
+										<div class="check"></div>
+									</li>
+									<li>
+										<input type="radio" class="whatLogo" name="logoType" value="upload" id="logo"> 
+										<label for="logo">Upload</label>
+										<div class="check"></div>
+									</li>
+								</ul>
 
 							</div>
 
-							<div class="row" id="uploadTheLogo">
+							<div class="row" id="uploadTheLogo" data-selected="selected" style="display:none">
 								<div class="fallback">
-									<input name="file" type="file" multiple />
+									<input name="upload_photo" type="file" >
+								</div>
+							</div>
+
+							<div class="row clearfix">
+								<div class="span6">
+									<button class="submitting">
+										<span class="showProgress" style="display: none; padding-right:10px;"><i class="fa fa-spinner fa-spin"></i></span>
+										<span class="initial">Upload</span>
+									</button>
+								</div>
+								<div class="span6">
+									<p class="errorContainer" style="text-align:right; display:none;"></p>
 								</div>
 							</div>
 
 						</form>
+
 					</div>
 
 				</div>
@@ -736,6 +756,4 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 
 
 <!-- More Bleh -->
-<script src="/app/includes/js/dropzone.js"></script>
-<script src="/app/includes/js/forms.js"></script>
 <script src="/app/includes/js/page.client.js"></script>

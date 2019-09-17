@@ -22,7 +22,7 @@ $logs 	  			= Functions::getlogs('lead_log', $leadArray->id);	# User Logs
 $meetings 			= '';
 $proposals 			= '';
 $tasks 				= Tasks::get($leadArray->id, 'lead');
-$countries			= Functions::getCountries();
+$countries			= Functions::countries();
 $staffAssignedID 	= unserialize($leadArray->assigned); 				# Get Staff information
 $staffAssignedArray = Users::getAllWithID($staffAssignedID); 			# Staff Array
 
@@ -217,10 +217,10 @@ $staffAssignedArray = Users::getAllWithID($staffAssignedID); 			# Staff Array
 								<p class="clearfix">
 									<span class="span-left">
 										<span class="svgContainer">
-											<i class="fal fa-globe-<?php echo strtolower(Functions::getCountry($leadArray->addressCountry, 'continent')); ?>"></i>
+											<i class="fal fa-globe-<?php echo strtolower(Functions::country($leadArray->addressCountry, 'continent')); ?>"></i>
 										</span> Country:
 									</span> 
-									<span class="span-right"><?php echo Functions::getCountry($leadArray->addressCountry); ?></span>
+									<span class="span-right"><?php echo Functions::country($leadArray->addressCountry); ?></span>
 								</p>
 							</div>
 
@@ -677,7 +677,7 @@ $staffAssignedArray = Users::getAllWithID($staffAssignedID); 			# Staff Array
 								class="selectbox" 
 								>
 								
-								<option value="<?php echo $leadArray->addressCountry; ?>" selected><?php echo Functions::getCountry($leadArray->addressCountry); ?></option>
+								<option value="<?php echo $leadArray->addressCountry; ?>" selected><?php echo Functions::country($leadArray->addressCountry); ?></option>
 								<?php foreach ($countries as $country): ?>
 								<option value="<?php echo $country['id'] ?>"><?php echo $country['name'] ?></option>
 								<?php endforeach ?>

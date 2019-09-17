@@ -89,6 +89,15 @@ $logs = Services::allCategories();
 
 				<!-- Invoices -->
 				<div class="row expensesContainer" id="servicesList">
+
+					<div class="row clearfix">
+						<div class="inline-float">
+							<label class="search-label" for="search-services">Search Services:</label>
+						</div>
+						<div class="inline-float">
+							<input class="search" id="search-services" placeholder="Search Services">
+						</div>
+					</div>
 					
 					<ul class="list">
 

@@ -11,19 +11,21 @@ $response = array();
 
 switch ($page) {
 
-	case 'client/profile':
 
-		if (!empty($_FILES)) {
+	case 'client/logo':
 
-			$uploadedImage 	= $_FILES['file']['tmp_name']; 
-  			$temp 			= explode(".", $_FILES["file"]["name"]);
-  			$finalName 		= app\Watchdog::generateRandomString('25') . '.' . end($temp);
+		if (!empty($_POST['client_id'])) {
 
-  			$media_id = app\Media::genMediaId();
+			$mediaArray = array(
+				'staff_id'		=> crm\Sessions::get('studioUserLogin')->id,
+				'client_id'		=> $_POST['client_id'],
+			);
 
-  			if (app\Services\Clients::addBusinessLogo($media_id)) {
-  				app\Files::upload($uploadedLogo, $finalName, 'businessLogo', $media_id);
-  			}
+			if (crm\Media::upload($_FILES['upload_photo'], $mediaArray, $_POST['upload_type'], SystemWorkingDirectory)) {
+				$response['success'] = true;
+				$response['error']['message'] = 'Image Uploaded.';
+			}
+
 
 		} else {
 			$response['success'] = false;

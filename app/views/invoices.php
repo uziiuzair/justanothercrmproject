@@ -86,6 +86,15 @@ $logs = '';
 
 				<!-- Invoices -->
 				<div class="row invoicesContainer" id="invoiceList">
+
+					<div class="row clearfix">
+						<div class="inline-float">
+							<label class="search-label" for="search-invoices">Search Invoice:</label>
+						</div>
+						<div class="inline-float">
+							<input class="search" id="search-invoices" placeholder="Search Invoice">
+						</div>
+					</div>
 					
 					<ul class="list">
 
@@ -236,7 +245,7 @@ $logs = '';
 <!-- Scripts -->
 <script>
 	var options = {
-		valueNames: [ 'invName', 'invNumber', 'invDate', 'invDue', 'invTotal' ],
+		valueNames: [ 'invoiceProjectName', 'invoiceNumber' ],
 		page:6,
 		pagination: true
 	};

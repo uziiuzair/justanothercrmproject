@@ -326,7 +326,7 @@ class Users
 
 
 	/**
-	 * Get Client by ID Number
+	 * Get User by ID Number
 	 * @param  int 		$client_id
 	 * @return string 	
 	 */
@@ -383,6 +383,7 @@ class Users
 			'lastname',
 			'signup_date',
 			'last_update',
+			'theme',
 			'status',
 			'isadmin',
 			'loginCounter'
@@ -634,6 +635,52 @@ class Users
 	
 		return $url;
 	
+	}
+
+
+
+
+
+	/**
+	 * Set Theme
+	 */
+	public static function theme($theme) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		$theme = stripslashes($theme);
+		$theme = Config::$db->escape_string($theme);
+
+		$currentUser = Sessions::get('studioUserLogin');
+
+		$fieldWhitelist = array(
+			'dark',
+			'light'
+		);
+
+		if (in_array($theme, $fieldWhitelist)) {
+			
+
+			$stmt = Config::$db->prepare("UPDATE `users` SET `theme` = ? WHERE `users`.`username` = ?");
+			$stmt->bind_param('ss', $theme, $currentUser->username);
+			
+			if ($stmt->execute()) {
+				return true;
+			} else {
+				return false;	
+			}
+
+			$stmt->close();
+
+
+		} else {
+
+			return false;
+
+		}
+
 	}
 
 

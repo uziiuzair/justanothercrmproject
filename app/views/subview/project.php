@@ -23,11 +23,11 @@ $staffAssignedID 	= unserialize($projectsArray->assigned); 					# Get Staff info
 $staffAssignedArray = crm\Users::getAllWithID($staffAssignedID); 				# Get Staff information
 $staffArray 		= crm\Users::getAll(); 										# Get All Staff (Consider doing this with Ajax)
 $milestones 		= crm\Services\Projects::milestones($projectsArray->id); 	# Get All Milestones
-$servicesPurchased 	= crm\Services\Services::getForProject($projectsArray->id);		# Get All Services Purchased by this Project
+$servicesPurchased 	= crm\Services\Services::forProject($projectsArray->id);		# Get All Services Purchased by this Project
 $servicesArray 		= crm\Services\Services::all(); 								# All Services
-$proposals 			= crm\Services\Projects::proposals($projectsArray->id); 		# All proposals for this Project
+$proposals 			= crm\Services\Proposals::forProject($projectsArray->id); 		# All proposals for this Project
 $invoices 			= crm\Services\Invoices::forProject($projectsArray->id); 			# All invoices for this Project
-$files 				= crm\Media::getAllForProject($projectsArray->id); 				# All files for this Project
+$files 				= crm\Media::forProject($projectsArray->id); 				# All files for this Project
 
 # The following will be moved to the Translation File
 $statusTranslation = array('1' => 'Not Started', '2' => 'Pending', '3' => 'Started', '4' => 'Due Soon', '5' => 'Overdue', '6' => 'Done', '7' => 'Awaiting Feedback', '8' => 'Cancelled');
@@ -178,10 +178,10 @@ $statusTranslation = array('1' => 'Not Started', '2' => 'Pending', '3' => 'Start
 										</div>
 										<div class="row clearfix">
 											<div class="half">
-												<p class="staffDepartment">Marketing Department</p>
+												<p class="staffDepartment"><?php echo crm\Users::department($staff['department_id']) ?></p>
 											</div>
 											<div class="half">
-												<p class="staffActions"><a href="#!">Remove</a></p>
+												<p class="staffActions"><a href="#!" data-ajax="removeStaffFromProject" data-staff-id="<?php echo $staff['id']; ?>" class="isajax">Remove</a></p>
 											</div>
 										</div>
 									</div>
