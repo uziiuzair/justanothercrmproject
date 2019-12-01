@@ -17,7 +17,7 @@ $lead_id = crm\Routes::getServerRequest('leads/id/');
 $lead_id = stripcslashes($lead_id);
 $leadArray = Leads::get($lead_id);
 
-$gravatar 			= Leads::getBusinessLogo($leadArray->email); 		# User Logo (Uploaded or Gravatar)
+$gravatar 			= Leads::getBusinessLogo($leadArray->id); 		# User Logo (Uploaded or Gravatar)
 $logs 	  			= Functions::getlogs('lead_log', $leadArray->id);	# User Logs
 $meetings 			= '';
 $proposals 			= '';
@@ -58,7 +58,7 @@ $staffAssignedArray = Users::getAllWithID($staffAssignedID); 			# Staff Array
 								<ul class="clearfix">
 									<li><a data-modal="editLeadProfile" class="ismodal" href="#editProfile">Edit Profile</a></li>
 									<li><a data-modal="convertToClient" class="ismodal" href="#editProfile">Convert to Client</a></li>
-									<li><a data-modal="uploadPhoto" 	class="ismodal" href="#editProfile">Upload Photo</a></li>
+									<li><a data-modal="uploadLeadPhoto" class="ismodal" href="#uploadLeadPhoto">Upload Photo</a></li>
 									<li><a data-ajax="deleteLead" 		data-id="<?php echo $leadArray->id; ?>" data-delete-active="0" href="#deleteLead">Delete Lead</a></li>
 									<li><a data-ajax="markLeadAsLost" 	data-id="<?php echo $leadArray->id; ?>" href="#markAsLost">Mark as Lost</a></li>
 									<li><a data-ajax="markLeadAsJunk" 	data-id="<?php echo $leadArray->id; ?>" href="#masAsJunk">Mark as Junk</a></li>
@@ -324,6 +324,85 @@ $staffAssignedArray = Users::getAllWithID($staffAssignedID); 			# Staff Array
 			
 			<!-- Section 3 -->
 			<div class="span4 column">
+
+				<!-- Lead Status -->
+				<div class="panel leadStatus no-padding">
+					<div class="inner">
+						<div class="panelHeader">
+							<div class="row clearfix">
+								<div class="half">
+									<h1>Status</h1>
+								</div>
+								<div class="half"></div>
+							</div>
+						</div>
+						<div class="panelContent">
+							<?php 
+
+							$statusTranslate	=	array(
+								1	=> 	'New',
+								2	=> 	'Contacted',
+								3	=> 	'Working',
+								4	=> 	'Qualified',
+								5	=> 	'Unqualified',
+								6	=> 	'Lost',
+								7	=> 	'Junk',
+								8	=> 	'Converted'
+							);
+
+							$statusLineTranslate 	=	array(
+								1 	=> 	0, 
+								2 	=> 	25, 
+								3 	=> 	50, 
+								4 	=> 	75, 
+								5 	=> 	100, 
+								6 	=> 	100, 
+								7 	=> 	100, 
+								8 	=> 	100, 
+							);
+
+							$statusLineColor	=	array(
+								1 	=> 	'00afb2', 
+								2 	=> 	'00afb2', 
+								3 	=> 	'00afb2', 
+								4 	=> 	'ffc400', 
+								5 	=> 	'fa5855', 
+								6 	=> 	'fa5855', 
+								7 	=> 	'fa5855', 
+								8 	=> 	'00afb2', 
+							);
+
+							?>
+							<style>
+								.leadPage .leadStatus .statusContainer .line:before { width: <?php echo $statusLineTranslate[$leadArray->status] ?>%; background: #<?php echo $statusLineColor[$leadArray->status] ?> }
+								.leadPage .leadStatus .statusContainer .line li.active:before { background: #<?php echo $statusLineColor[$leadArray->status] ?> }
+								.leadPage .leadStatus .statusContainer .theStatus li.active p { color: #<?php echo $statusLineColor[$leadArray->status] ?>; }
+							</style>
+							<div class="statusContainer">
+								<div class="line">
+									<ul class="clearfix">
+										<li <?php if ($leadArray->status >= 1): ?> class="active" <?php endif ?> id="first">New</li>
+										<li <?php if ($leadArray->status >= 2): ?> class="active" <?php endif ?> id="second">Contacted</li>
+										<li <?php if ($leadArray->status >= 3): ?> class="active" <?php endif ?> id="third">Working</li>
+										<li <?php if ($leadArray->status >= 4): ?> class="active" <?php endif ?> id="fourth">Qualified</li>
+										<li id="fifth" <?php if ($leadArray->status >= 5): ?> class="active" <?php endif ?>><?php echo $statusTranslate[$leadArray->status]; ?></li>
+									</ul>
+								</div>
+								<ul class="theStatus clearfix">
+									<li <?php if ($leadArray->status >= 1): ?> class="active" <?php endif ?> id="first"><p>New</p></li>
+									<li <?php if ($leadArray->status >= 2): ?> class="active" <?php endif ?> id="second"><p>Contacted</p></li>
+									<li <?php if ($leadArray->status >= 3): ?> class="active" <?php endif ?> id="third"><p>Working</p></li>
+									<li <?php if ($leadArray->status >= 4): ?> class="active" <?php endif ?> id="fourth"><p>Qualified</p></li>
+									<?php if ($leadArray->status == 5 || $leadArray->status == 6 || $leadArray->status == 7 || $leadArray->status == 8): ?>
+										<li id="fifth"><p style="color: #<?php echo $statusLineColor[$leadArray->status] ?>;"><?php echo $statusTranslate[$leadArray->status]; ?></p></li>
+									<?php else: ?>
+										<li id="fifth"><p <?php if ($leadArray->status == 8): ?> style="color: #00afb2;" <?php endif ?>><?php echo $statusTranslate[8]; ?></p></li>
+									<?php endif ?>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 				
 				<!--  -->
 				<div class="panel leadProposals no-padding">
@@ -804,6 +883,100 @@ $staffAssignedArray = Users::getAllWithID($staffAssignedID); 			# Staff Array
 
 	</div>
 	<!-- / Create Lead Reminder -->
+
+
+
+	<!-- Upload Lead Logo -->
+	<div class="modal this-uploadLeadPhoto" style="display:none;position:fixed; top:0; left:0;">
+		
+		<div class="cover"></div>
+		<div class="inner">
+			
+			<div class="close">
+				<svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10 fa-3x"><path fill="currentColor" d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z" class=""></path></svg>
+			</div>
+
+			<div class="modalHeader">
+				<h1>Upload Client Photo</h1>
+			</div>
+
+			<div class="modalContent">
+				
+				<div class="row clearfix">
+					
+					<!-- Profile Photo -->
+					<div class="half">
+						<div class="clientProfilePicture" style="background-image: url(<?php echo $gravatar; ?>);width: 90%; height: 291px; background-size: cover; background-position: center;"></div>
+					</div>
+
+					<!-- Upload -->
+					<div class="half">
+
+						<form action="/upload/lead/logo" method="post" id="form-leadLogo" enctype="multipart/form-data">
+							
+							<input type="hidden" name="lead_id" value="<?php echo $leadArray->id; ?>">
+							<input type="hidden" name="upload_type" value="lead_logo">
+
+							<div class="row">
+								
+								<label for="">Logo Type</label>
+
+								<ul>
+									<li>
+										<input type="radio" class="whatLogo" name="logoType" value="gravatar" checked id="gravatar"> 
+										<label for="gravatar">Gravatar</label>
+										<div class="check"></div>
+									</li>
+									<li>
+										<input type="radio" class="whatLogo" name="logoType" value="upload" id="logo"> 
+										<label for="logo">Upload</label>
+										<div class="check"></div>
+									</li>
+								</ul>
+
+							</div>
+
+							<div class="row" id="uploadTheLogo" data-selected="selected" style="display:none">
+								<div class="fallback">
+									<input name="upload_photo" id="uploadedFile" type="file" accept="image/*">
+								</div>
+							</div>
+
+							<div class="row  clearfix">
+								<div class="span12 uploadProgressContainer">
+									<div class="uploadProgress">
+										<div class="progress-inner"></div>
+									</div>
+								</div>
+								<div class="span12">
+									<div class="uploadStatement">uploaded</div>
+								</div>
+							</div>
+
+							<div class="row clearfix">
+								<div class="span6">
+									<button class="submitting">
+										<span class="showProgress" style="display: none; padding-right:10px;"><i class="fa fa-spinner fa-spin"></i></span>
+										<span class="initial">Upload</span>
+									</button>
+								</div>
+								<div class="span6">
+									<p class="errorContainer" style="text-align:right; display:none;"></p>
+								</div>
+							</div>
+
+						</form>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+	<!-- / Upload Lead logo -->
 
 </div>
 <script src="/app/includes/js/page.lead.js"></script>

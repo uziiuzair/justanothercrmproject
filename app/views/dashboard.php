@@ -9,7 +9,7 @@
 
 use uziiuzair\crm; 
 
-$meetings = crm\Services\Meetings::allForStaff(); 	# Upcoming Meetings
+$meetings = crm\Services\Meetings::forStaff(); 	# Upcoming Meetings
 
 ?>
 <div class="container dashboard">
@@ -38,7 +38,19 @@ $meetings = crm\Services\Meetings::allForStaff(); 	# Upcoming Meetings
 						<div class="inner">
 							<div class="row clearfix">
 								<div class="left">
-									<canvas id="projectsDue" style="width:90px; height:90px;"></canvas>
+									<svg xmlns="http://www.w3.org/2000/svg" width="90" height="90.184" viewBox="0 0 90 90.184">
+										<g id="Group_45" data-name="Group 45" transform="translate(-333.469 107.377)">
+											<path id="Path_18" data-name="Path 18" d="M1093.137,290.249l7.733-7.637a40.111,40.111,0,0,1,6.742,11.062,41.223,41.223,0,0,1,2.687,12.185H1099.37a31.6,31.6,0,0,0-1.822-7.911A34.524,34.524,0,0,0,1093.137,290.249Z" transform="translate(-693.362 -370.144)" fill="#ebecec"/>
+											<path id="Path_19" data-name="Path 19" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(375.51 -95.241) rotate(-45)" fill="#ebecec"/>
+											<path id="Path_20" data-name="Path 20" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.017, -1, 1, -0.017, 353.15, -83.021)" fill="#29aeb7"/>
+											<path id="Path_21" data-name="Path 21" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.719, -0.695, 0.695, -0.719, 345.815, -58.922)" fill="#29aeb7"/>
+											<path id="Path_22" data-name="Path 22" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.999, 0.035, -0.035, -0.999, 357.984, -36.845)" fill="#29aeb7"/>
+											<path id="Path_23" data-name="Path 23" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.695, 0.719, -0.719, -0.695, 381.792, -29.539)" fill="#29aeb7"/>
+											<path id="Path_24" data-name="Path 24" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(403.9 -41.124) rotate(90)" fill="#29aeb7"/>
+											<path id="Path_25" data-name="Path 25" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(411.334 -65.021) rotate(45)" fill="#ebecec"/>
+										</g>
+									</svg>
+
 								</div>
 								<div class="right">
 									<h2>Projects Due</h2>
@@ -57,7 +69,18 @@ $meetings = crm\Services\Meetings::allForStaff(); 	# Upcoming Meetings
 						<div class="inner">
 							<div class="row clearfix">
 								<div class="left">
-									<canvas id="tasksDue" style="width:90px; height:90px;"></canvas>
+									<svg xmlns="http://www.w3.org/2000/svg" width="90" height="90.184" viewBox="0 0 90 90.184">
+										<g id="Group_45" data-name="Group 45" transform="translate(-333.469 107.377)">
+											<path id="Path_18" data-name="Path 18" d="M1093.137,290.249l7.733-7.637a40.111,40.111,0,0,1,6.742,11.062,41.223,41.223,0,0,1,2.687,12.185H1099.37a31.6,31.6,0,0,0-1.822-7.911A34.524,34.524,0,0,0,1093.137,290.249Z" transform="translate(-693.362 -370.144)" fill="#ebecec"/>
+											<path id="Path_19" data-name="Path 19" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(375.51 -95.241) rotate(-45)" fill="#ebecec"/>
+											<path id="Path_20" data-name="Path 20" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.017, -1, 1, -0.017, 353.15, -83.021)" fill="#29aeb7"/>
+											<path id="Path_21" data-name="Path 21" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.719, -0.695, 0.695, -0.719, 345.815, -58.922)" fill="#29aeb7"/>
+											<path id="Path_22" data-name="Path 22" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.999, 0.035, -0.035, -0.999, 357.984, -36.845)" fill="#29aeb7"/>
+											<path id="Path_23" data-name="Path 23" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.695, 0.719, -0.719, -0.695, 381.792, -29.539)" fill="#29aeb7"/>
+											<path id="Path_24" data-name="Path 24" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(403.9 -41.124) rotate(90)" fill="#29aeb7"/>
+											<path id="Path_25" data-name="Path 25" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(411.334 -65.021) rotate(45)" fill="#ebecec"/>
+										</g>
+									</svg>
 								</div>
 								<div class="right">
 									<h2>Tasks Due</h2>
@@ -76,7 +99,18 @@ $meetings = crm\Services\Meetings::allForStaff(); 	# Upcoming Meetings
 						<div class="inner">
 							<div class="row clearfix">
 								<div class="left">
-									<canvas id="openTasks" style="width:90px; height:90px;"></canvas>
+									<svg xmlns="http://www.w3.org/2000/svg" width="90" height="90.184" viewBox="0 0 90 90.184">
+										<g id="Group_45" data-name="Group 45" transform="translate(-333.469 107.377)">
+											<path id="Path_18" data-name="Path 18" d="M1093.137,290.249l7.733-7.637a40.111,40.111,0,0,1,6.742,11.062,41.223,41.223,0,0,1,2.687,12.185H1099.37a31.6,31.6,0,0,0-1.822-7.911A34.524,34.524,0,0,0,1093.137,290.249Z" transform="translate(-693.362 -370.144)" fill="#ebecec"/>
+											<path id="Path_19" data-name="Path 19" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(375.51 -95.241) rotate(-45)" fill="#ebecec"/>
+											<path id="Path_20" data-name="Path 20" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.017, -1, 1, -0.017, 353.15, -83.021)" fill="#29aeb7"/>
+											<path id="Path_21" data-name="Path 21" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.719, -0.695, 0.695, -0.719, 345.815, -58.922)" fill="#29aeb7"/>
+											<path id="Path_22" data-name="Path 22" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.999, 0.035, -0.035, -0.999, 357.984, -36.845)" fill="#29aeb7"/>
+											<path id="Path_23" data-name="Path 23" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.695, 0.719, -0.719, -0.695, 381.792, -29.539)" fill="#29aeb7"/>
+											<path id="Path_24" data-name="Path 24" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(403.9 -41.124) rotate(90)" fill="#29aeb7"/>
+											<path id="Path_25" data-name="Path 25" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(411.334 -65.021) rotate(45)" fill="#ebecec"/>
+										</g>
+									</svg>
 								</div>
 								<div class="right">
 									<h2>Open Tasks</h2>
@@ -95,7 +129,18 @@ $meetings = crm\Services\Meetings::allForStaff(); 	# Upcoming Meetings
 						<div class="inner">
 							<div class="row clearfix">
 								<div class="left">
-									<canvas id="activeClient" style="width:90px; height:90px;"></canvas>
+									<svg xmlns="http://www.w3.org/2000/svg" width="90" height="90.184" viewBox="0 0 90 90.184">
+										<g id="Group_45" data-name="Group 45" transform="translate(-333.469 107.377)">
+											<path id="Path_18" data-name="Path 18" d="M1093.137,290.249l7.733-7.637a40.111,40.111,0,0,1,6.742,11.062,41.223,41.223,0,0,1,2.687,12.185H1099.37a31.6,31.6,0,0,0-1.822-7.911A34.524,34.524,0,0,0,1093.137,290.249Z" transform="translate(-693.362 -370.144)" fill="#ebecec"/>
+											<path id="Path_19" data-name="Path 19" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(375.51 -95.241) rotate(-45)" fill="#ebecec"/>
+											<path id="Path_20" data-name="Path 20" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.017, -1, 1, -0.017, 353.15, -83.021)" fill="#29aeb7"/>
+											<path id="Path_21" data-name="Path 21" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.719, -0.695, 0.695, -0.719, 345.815, -58.922)" fill="#29aeb7"/>
+											<path id="Path_22" data-name="Path 22" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.999, 0.035, -0.035, -0.999, 357.984, -36.845)" fill="#29aeb7"/>
+											<path id="Path_23" data-name="Path 23" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.695, 0.719, -0.719, -0.695, 381.792, -29.539)" fill="#29aeb7"/>
+											<path id="Path_24" data-name="Path 24" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(403.9 -41.124) rotate(90)" fill="#29aeb7"/>
+											<path id="Path_25" data-name="Path 25" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(411.334 -65.021) rotate(45)" fill="#ebecec"/>
+										</g>
+									</svg>
 								</div>
 								<div class="right">
 									<h2>Active Clients</h2>
@@ -114,7 +159,18 @@ $meetings = crm\Services\Meetings::allForStaff(); 	# Upcoming Meetings
 						<div class="inner">
 							<div class="row clearfix">
 								<div class="left">
-									<canvas id="unpaidInvoices" style="width:90px; height:90px;"></canvas>
+									<svg xmlns="http://www.w3.org/2000/svg" width="90" height="90.184" viewBox="0 0 90 90.184">
+										<g id="Group_45" data-name="Group 45" transform="translate(-333.469 107.377)">
+											<path id="Path_18" data-name="Path 18" d="M1093.137,290.249l7.733-7.637a40.111,40.111,0,0,1,6.742,11.062,41.223,41.223,0,0,1,2.687,12.185H1099.37a31.6,31.6,0,0,0-1.822-7.911A34.524,34.524,0,0,0,1093.137,290.249Z" transform="translate(-693.362 -370.144)" fill="#ebecec"/>
+											<path id="Path_19" data-name="Path 19" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(375.51 -95.241) rotate(-45)" fill="#ebecec"/>
+											<path id="Path_20" data-name="Path 20" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.017, -1, 1, -0.017, 353.15, -83.021)" fill="#29aeb7"/>
+											<path id="Path_21" data-name="Path 21" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.719, -0.695, 0.695, -0.719, 345.815, -58.922)" fill="#29aeb7"/>
+											<path id="Path_22" data-name="Path 22" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.999, 0.035, -0.035, -0.999, 357.984, -36.845)" fill="#29aeb7"/>
+											<path id="Path_23" data-name="Path 23" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="matrix(-0.695, 0.719, -0.719, -0.695, 381.792, -29.539)" fill="#29aeb7"/>
+											<path id="Path_24" data-name="Path 24" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(403.9 -41.124) rotate(90)" fill="#29aeb7"/>
+											<path id="Path_25" data-name="Path 25" d="M0,7.637,7.733,0a40.112,40.112,0,0,1,6.742,11.062,41.226,41.226,0,0,1,2.687,12.185H6.233a31.586,31.586,0,0,0-1.821-7.912A34.521,34.521,0,0,0,0,7.637Z" transform="translate(411.334 -65.021) rotate(45)" fill="#ebecec"/>
+										</g>
+									</svg>
 								</div>
 								<div class="right">
 									<h2>Unpaid Invoices</h2>
@@ -156,7 +212,7 @@ $meetings = crm\Services\Meetings::allForStaff(); 	# Upcoming Meetings
 							<div class="about">
 								<div class="row clearfix">
 									<div class="left">
-										<div class="image" style="background-image: url(<?php echo crm\Services\Clients::getBusinessLogo($meeting['recipientEmail']) ?>)"></div>
+										<div class="image" style="background-image: url(<?php echo crm\Services\Clients::getBusinessLogo($meeting['client_id']) ?>)"></div>
 									</div>
 									<div class="right">
 										<h2 class="meetingName"><?php echo $meeting['recipientName']; ?></h2>

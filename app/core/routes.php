@@ -171,26 +171,6 @@ switch ($page) {
 		break;
 		
 
-	case 'tasks':
-
-		crm\Templates::get_header('Tasks');
-		crm\Templates::view('tasks');
-		crm\Templates::get_footer();
-		
-
-		break;
-		
-
-	case 'tickets':
-
-		crm\Templates::get_header('Tickets');
-		crm\Templates::view('tickets');
-		crm\Templates::get_footer();
-		
-
-		break;
-		
-
 	case 'services':
 
 		crm\Templates::get_header('Services');

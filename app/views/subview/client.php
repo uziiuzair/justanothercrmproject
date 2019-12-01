@@ -9,18 +9,19 @@
 
 use uziiuzair\crm;
 
-$customer_id = crm\Routes::getServerRequest('clients/id/');
-$customer_id = stripcslashes($customer_id);
-$clientArray = crm\Services\Clients::get($customer_id);
+$customer_id = crm\Routes::getServerRequest('clients/id/');					# The Customer's ID
+$customer_id = stripcslashes($customer_id);									# The Customer's ID but with Slashs Stripped
+$clientArray = crm\Services\Clients::get($customer_id);						# The Customer's Information
 
-$gravatar = crm\Services\Clients::getBusinessLogo($clientArray->email);
-$projects = crm\Services\Projects::forClient($clientArray->id);
-$invoices = crm\Services\Invoices::forClient($clientArray->id);
-$logs 	  = crm\Functions::getlogs('client_log', $customer_id);
-$services = '';
-$notes 	  = '';
-$meetings = '';
-$tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
+$gravatar 	= crm\Services\Clients::getBusinessLogo($clientArray->id);		# The Customer's Profile Pic.. because why not?
+$projects 	= crm\Services\Projects::forClient($clientArray->id);			# The Customer's Projects
+$invoices 	= crm\Services\Invoices::forClient($clientArray->id);			# The Customer's Invoices
+$logs 	  	= crm\Functions::getlogs('client_log', $customer_id);			# The Customer's Logs
+$services 	= crm\Services\Services::forClient($clientArray->id);			# The Customer's Purchased Services
+// $notes 	  	= '';
+$meetings 	= crm\Services\Meetings::forClient($clientArray->id);			# The Customer's Meetings. TODO: Change to only upcoming.
+$tasks 	  	= crm\Services\Tasks::get($clientArray->id, 'client');			# The Customer's Tasks
+$files 		= crm\Media::forClient($clientArray->id);						# The Customer's Files
 
 ?>
 <div class="container clientPage">
@@ -41,10 +42,10 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 
 							<div class="clientControls">
 								<ul class="clearfix">
-									<li><a data-modal="editClientProfile" class="ismodal" href="#editProfile">Edit Profile</a></li>
-									<li><a data-ajax="allowClientLogin" class="isajax" href="#allowClientLogin">Allow Client Login</a></li>
-									<li><a data-modal="uploadClientPhoto" class="ismodal" href="#uploadPhoto">Upload Photo</a></li>
-									<li><a data-modal="deleteThisClient" class="ismodal" href="#deleteClient">Delete Client</a></li>
+									<li><a data-modal="editClientProfile" 	class="ismodal" 	href="#editProfile">Edit Profile</a></li>
+									<li><a data-ajax="allowClientLogin" 	class="isajax" 		href="#allowClientLogin">Allow Client Login</a></li>
+									<li><a data-modal="uploadClientPhoto" 	class="ismodal" 	href="#uploadPhoto">Upload Photo</a></li>
+									<li><a data-modal="deleteThisClient" 	class="ismodal" 	href="#deleteClient">Delete Client</a></li>
 								</ul>
 							</div>
 
@@ -94,76 +95,47 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 						</div>
 						<div class="panelContent">
 							<div class="existingFilesWrapper">
+
+								<?php if (empty($files)): ?>
+
+									<p>No Files Found <a href="#">Upload one?</a></p>
+									
+								<?php else: ?>
+
+									<?php foreach ($files as $file): ?>
+									
+										<div class="individualFile" data-file-id="<?php echo $file['id'] ?>">
+											
+											<div class="row clearfix">
+												<div class="half">
+													<h2 class="fileName"><?php echo $file['name'] ?></h2>
+												</div>
+												<div class="half">
+													<p class="fileDate"><?php echo date('d M Y', $file['created']) ?></p>
+												</div>
+											</div>
+											<div class="row clearfix">
+												<div class="half">
+													<p class="fileTag">Proposals</p>
+												</div>
+												<div class="half">
+													<p class="fileActions"><a href="">View</a> . <a href="#!" class="isModal" data-modal="deleteFile">Delete</a></p>
+												</div>
+											</div>
+
+										</div>
+
+									<?php endforeach ?>
+
+								<?php endif ?>
 								
-								<div class="individualFile" data-file-id="">
-									
-									<div class="row clearfix">
-										<div class="half">
-											<h2 class="fileName">Web Hosting Proposal</h2>
-										</div>
-										<div class="half">
-											<p class="fileDate">May 23, 2019</p>
-										</div>
-									</div>
-									<div class="row clearfix">
-										<div class="half">
-											<p class="fileTag">Proposals</p>
-										</div>
-										<div class="half">
-											<p class="fileActions"><a href="">View</a> . <a href="#!" class="isModal" data-modal="deleteFile">Delete</a></p>
-										</div>
-									</div>
-
-								</div>
-
-								<div class="individualFile" data-file-id="">
-									
-									<div class="row clearfix">
-										<div class="half">
-											<h2 class="fileName">Web Hosting Proposal</h2>
-										</div>
-										<div class="half">
-											<p class="fileDate">May 23, 2019</p>
-										</div>
-									</div>
-									<div class="row clearfix">
-										<div class="half">
-											<p class="fileTag">Proposals</p>
-										</div>
-										<div class="half">
-											<p class="fileActions"><a href="">View</a> . <a href="#!" class="isModal" data-modal="deleteFile">Delete</a></p>
-										</div>
-									</div>
-
-								</div>
-
-								<div class="individualFile" data-file-id="">
-									
-									<div class="row clearfix">
-										<div class="half">
-											<h2 class="fileName">Web Hosting Proposal</h2>
-										</div>
-										<div class="half">
-											<p class="fileDate">May 23, 2019</p>
-										</div>
-									</div>
-									<div class="row clearfix">
-										<div class="half">
-											<p class="fileTag">Proposals</p>
-										</div>
-										<div class="half">
-											<p class="fileActions"><a href="">View</a> . <a href="#!" class="isModal" data-modal="deleteFile">Delete</a></p>
-										</div>
-									</div>
-
-								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<!-- Client Notes -->
-				<div class="panel clientNotes">
+				<!-- <div class="panel clientNotes">
 					<div class="inner">
 						<div class="panelHeader">
 							<h1>Notes</h1>
@@ -172,9 +144,10 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 							<p>#clientNotes</p>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			
 			</div>
+			<!-- / Section 1 -->
 
 			<!-- Section 2 -->
 			<div class="span5 column">
@@ -361,6 +334,7 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 				</div>
 			
 			</div>
+			<!-- / Section 2 -->
 
 			<!-- Section 3 -->
 			<div class="span4 column">
@@ -498,6 +472,7 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 				</div>
 
 			</div>
+			<!-- / Section 3 -->
 
 		</div>
 		
@@ -524,6 +499,9 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 			<div class="modalContent">
 
 				<form action="" id="form-clientUpdate" data-clientID="<?php echo $clientArray->id; ?>">
+
+					<input type="hidden" name="client_id" value="<?php echo $clientArray->id; ?>">
+					<input type="hidden" name="form-name" value="client_update">
 					
 					<div class="row clearfix">
 						<div class="half"><label for="firstName">First Name</label><input id="firstName" type="text" name="firstName" value="<?php echo $clientArray->firstname; ?>"></div>
@@ -542,27 +520,27 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 						</div>
 						<div class="half">
 							<label for="clientPhoen">Phone</label>
-							<input type="text" name="clientPhoenNumber" id="clientPhoen" value="<?php echo $clientArray->phone; ?>">
+							<input type="text" name="clientPhoneNumber" id="clientPhoen" value="<?php echo $clientArray->phone; ?>">
 						</div>
 					</div>
 
 					<div class="row">
-						<label for="addressLineOne">Address</label>
-						<input type="text" name="addressLineOne" id="addressLineOne" value="<?php echo $clientArray->address; ?>">
+						<label for="clientAddress">Address</label>
+						<input type="text" name="clientAddress" id="clientAddress" value="<?php echo $clientArray->address; ?>">
 					</div>
 
 					<div class="row clearfix">
 						<div class="third">
 							<label for="">City</label>
-							<input type="text" name="" value="<?php echo $clientArray->city; ?>">
+							<input type="text" name="clientCity" value="<?php echo $clientArray->city; ?>">
 						</div>
 						<div class="third">
 							<label for="">Postal Code</label>
-							<input type="text" name="" value="<?php echo $clientArray->zip ?>">
+							<input type="text" name="clientZip" value="<?php echo $clientArray->zip ?>">
 						</div>
 						<div class="third">
 							<label for="">State</label>
-							<input type="text" name="" value="<?php echo $clientArray->state ?>">
+							<input type="text" name="clientState" value="<?php echo $clientArray->state ?>">
 						</div>
 					</div>
 
@@ -640,7 +618,18 @@ $tasks 	  = crm\Services\Tasks::get($clientArray->id, 'client');
 
 							<div class="row" id="uploadTheLogo" data-selected="selected" style="display:none">
 								<div class="fallback">
-									<input name="upload_photo" type="file" >
+									<input name="upload_photo" id="uploadedFile" type="file" accept="image/*">
+								</div>
+							</div>
+
+							<div class="row  clearfix">
+								<div class="span12 uploadProgressContainer">
+									<div class="uploadProgress">
+										<div class="progress-inner"></div>
+									</div>
+								</div>
+								<div class="span12">
+									<div class="uploadStatement">uploaded</div>
 								</div>
 							</div>
 

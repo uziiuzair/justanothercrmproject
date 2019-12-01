@@ -118,53 +118,146 @@ $(document).ready(function() {
 	/**
 	 * Upload Logo
 	 */
-	// $('#form-clientLogo').validate({
-	// 	// Override to submit the form via ajax
-	// 	errorPlacement: function(){
- //            return false;  // suppresses error message text
- //        },
- //        submitHandler: function(form) {
-	// 		$.ajax({
-	// 			 type: 'post',
-	// 			 url: '/upload/client/logo',
-	// 			 data: $(form).serialize(),
-	// 			 dataType: 'json',
-	// 			 beforeSend: function() {
-	// 				$('.submitting > .showProgress').fadeIn();
-	// 				$('.errorContainer').html('');
-	// 			 },
-	// 			 success: function(data){
-	// 				console.log(data);
+	$('#form-clientLogo').validate({
+		// Override to submit the form via ajax
+		errorPlacement: function(){
+			return false;  // suppresses error message text
+		},
+		submitHandler: function(form) {
+			
+			// Form Data
+			var form = document.getElementById('form-clientLogo');
+			var formData = new FormData(form);
 
-	// 				// Show Success
-	// 				$('.errorContainer').fadeIn();
-	// 				$('.errorContainer').html(data.request.message);
+			var fileUploadRequest = new XMLHttpRequest();
+			
+			fileUploadRequest.addEventListener("onprogress", updateProgress);
+			fileUploadRequest.addEventListener("load", transferComplete);
+			fileUploadRequest.addEventListener("error", transferFailed);
+			fileUploadRequest.addEventListener("abort", transferCanceled);
 
-	// 				if (data.success === true) {
-	// 					window.location.reload();
-	// 				}
-	// 			 },
-	// 			 error: function(XMLHttpRequest, textStatus, errorThrown){
 
-	// 			 	// Log Errors
-	// 			 	console.log(XMLHttpRequest);
-	// 				console.log(textStatus);
-	// 				console.log(errorThrown);
+			fileUploadRequest.open('POST', '/upload/client/logo', true);
+			fileUploadRequest.send(formData);
 
-	// 				// Seriously. Log an error in DB!
+			function updateProgress (oEvent) {
+				// if (oEvent.lengthComputable) {
+					console.log(oEvent.loaded);
+					console.log(oEvent.total);
+					var percentComplete = oEvent.loaded / oEvent.total * 100;
+				
+					$('.uploadStatement').fadeOut();
+					$('#submitting > .showProgress').fadeOut();
 
-	// 				// Show Errors
-	// 				$('.errorContainer').fadeIn();
-	// 				$('.errorContainer').html('Uh oh! Something does not seem right. Request aborted!');
+					$('.uploadProgressContainer').fadeIn();
+					$('#submitting > .initial').fadeIn();
+					$('.errorContainer').html('');
+
+					$('.uploadProgressContainer .progress-inner').width(percentComplete);
+
+				// } else {
+				// 	console.log('um');
+				//     // Unable to compute progress information since the total size is unknown
+				// }
+			}
+
+			// The Transfer is Complete!
+			function transferComplete(evt) {
+			
+				console.log("The transfer is complete.");
+				// console.log(evt);
+
+				$('.uploadProgressContainer').fadeOut();
+				$('.uploadStatement').fadeIn();
+
+				window.location.reload();
+
+			}
+
+			// An error occured 
+			function transferFailed(evt) {
+			
+				console.log("An error occurred while transferring the file.");
+				// console.log(evt);
+			
+				$('.uploadProgressContainer').fadeOut();
+				$('.errorContainer').html('An error occurred while transferring the file.');
+			
+			}
+
+			// Canceled by User
+			function transferCanceled(evt) {
+		
+				console.log("The transfer has been canceled by the user.");
+				// console.log(evt);
+
+				$('.uploadProgressContainer').fadeOut();
+				$('.errorContainer').html('The transfer has been canceled by the user.');
+		
+			}
+
+			return false; // required to block normal submit since you used ajax
+		}
+	});
+
+
+
+
+	/**
+	 * form-clientUpdate
+	 */
+	$('#form-clientUpdate').validate({
+		// Override to submit the form via ajax
+		errorPlacement: function(){
+            return false;  // suppresses error message text
+        },
+        submitHandler: function(form) {
+			$.ajax({
+				 type: 'post',
+				 url: '/action/client/update',
+				 data: $(form).serialize(),
+				 dataType: 'json',
+				 beforeSend: function() {
+					$('.submitting > .showProgress').fadeIn();
+					$('.errorContainer').html('');
+				 },
+				 success: function(data){
+					console.log(data);
+
+					// Show Success
+					$('.errorContainer').fadeIn();
+					$('.errorContainer').html(data.request.message);
+
+					$.notify(data.request.message, { position: 'right bottom', className: 'success', style: 'crmLight' });
+
+					if (data.success === true) {
+						window.location.reload();
+					}
+				 },
+				 error: function(XMLHttpRequest, textStatus, errorThrown){
+
+				 	// Log Errors
+				 	console.log(XMLHttpRequest);
+					console.log(textStatus);
+					console.log(errorThrown);
+
+					// Seriously. Log an error in DB!
+
+					// Show Errors
+					$('.errorContainer').fadeIn();
+					$('.errorContainer').html('Uh oh! Something does not seem right. Request aborted!');
+
+					$.notify('Unexpected Error Occured.', { position: 'right bottom', className: 'error', style: 'crmLight' });
 					
-	// 			 },
-	// 			 complete: function() {
-	// 			 	$('.submitting > .showProgress').fadeOut();
-	// 			 }
-	// 		});
-	// 		return false; // required to block normal submit since you used ajax
-	// 	}
-	// });
+				 },
+				 complete: function() {
+				 	$('.submitting > .showProgress').fadeOut();
+				 	// $('.submitting > .initial').fadeIn();
+				 }
+			});
+			return false; // required to block normal submit since you used ajax
+		}
+	});
 	
 
 

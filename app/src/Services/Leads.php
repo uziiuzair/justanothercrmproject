@@ -3,6 +3,7 @@ namespace uziiuzair\crm\Services;
 use uziiuzair\crm\Config;
 use uziiuzair\crm\Sessions;
 use uziiuzair\crm\Users;
+use uziiuzair\crm\Media;
 
 /**
  * Class Leads
@@ -28,10 +29,11 @@ class Leads
 		# 1 :	New
 		# 2 :	Contacted
 		# 3 :	Working
-		# 4 :	Qualifie
-		# 5 :	UnQualified
+		# 4 :	Qualified
+		# 5 :	Unqualified
 		# 7 :	Lost
 		# 8 :	Junk
+		# 9 :	Converted
 		# 9 :	Archived
 		# 10 :	Deleted
 
@@ -244,6 +246,7 @@ class Leads
 		$stmt->bind_result(
 			$profile->id,
 			$profile->staff_id,
+			$profile->media_id,
 			$profile->assigned,
 			$profile->honorific,
 			$profile->name,
@@ -311,13 +314,47 @@ class Leads
 
 
 	/**
-	 * [getBusinessLogo description]
-	 * @param  [type] $email [description]
-	 * @return [type]        [description]
+	 * 
 	 */
-	public static function getBusinessLogo($email) {
+	public static function getBusinessLogo($lead_id) {
 
-		return Users::getGravatar($email, 500);
+		$media_id = Leads::get($lead_id)->media_id;
+
+		if ($media_id != '0') {
+			$media_url = Media::get($media_id)->link;
+		} else {
+			$media_url = Users::getGravatar(Leads::get($lead_id)->email, 500);
+		}
+
+		return $media_url;
+
+	}
+
+
+
+
+
+	public static function assignBusinessLogo($media_id, $lead_id) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		$media_id 	= stripslashes($media_id);
+		$lead_id 	= stripslashes($lead_id);
+		$media_id 	= Config::$db->escape_string($media_id);
+		$lead_id 	= Config::$db->escape_string($lead_id);
+
+		$stmt = Config::$db->prepare("UPDATE leads SET `media_id` = ? WHERE `id` = ?");
+		$stmt->bind_param('si', $media_id, $lead_id);
+
+		if ($stmt->execute()) {
+			return true;
+		} else {
+			return false;
+		}
+
+		$stmt->close();
 
 	}
 
@@ -338,12 +375,13 @@ class Leads
 			1 => 'New Lead',
 			2 => 'Contacted',
 			3 => 'Working',
-			4 => 'Qualifie',
-			5 => 'UnQualified',
+			4 => 'Qualified',
+			5 => 'Unqualified',
 			6 => 'Lost',
 			7 => 'Junk',
-			8 => 'Archived',
-			9 => 'Deleted'
+			8 => 'Converted',
+			9 => 'Archived',
+			10 => 'Deleted'
 		);
 
 		return $statusArray[$status_id];

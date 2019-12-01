@@ -46,12 +46,16 @@ use uziiuzair\crm;
 
 						$leads = crm\Services\Leads::getAll(); 
 						$reverseLeads = array_reverse($leads);
+
+						$dontPost = array(9,10);
 						?>
 
 						<?php foreach ($reverseLeads as $lead): ?>
 
+						<?php if (!in_array($lead['status'], $dontPost)): ?>
+
 						<li>
-		
+						
 							<div class="customer">
 								<a href="<?php echo crm\Config::SystemPublicURL; ?>leads/id/<?php echo $lead['id'] ?>">
 									
@@ -87,16 +91,16 @@ use uziiuzair\crm;
 											<p class="title">Status</p>
 											<p class="value"><?php echo crm\Services\Leads::translateStatus($lead['status']); ?></p>
 										</div>
-	
+						
 									</div>
 
 								</a>
 							</div>
 
 						</li>
-
+							
+						<?php endif ?>
 						
-
 						<?php  endforeach ?>
 					</ul>	
 

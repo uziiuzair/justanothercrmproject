@@ -56,13 +56,15 @@ class Media
 
 		# Response
 		$response				= array();
-		$response['media_id']   = $media_id
+		$response['media_id']   = $media_id;
+		$response['media_url'] 	= $file_link;
 
 
 		# Acceptable Fields
 		$acceptableValues = array(
 			'staff_id',
 			'client_id',
+			'lead_id',
 			'project_id',
 			'name',
 			'tags',
@@ -254,6 +256,7 @@ class Media
 			$media->media_id,
 			$media->staff_id,
 			$media->client_id,
+			$media->lead_id,
 			$media->project_id,
 			$media->name,
 			$media->link,

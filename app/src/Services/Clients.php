@@ -11,6 +11,7 @@ namespace uziiuzair\crm\Services;
 use uziiuzair\crm\Config;
 use uziiuzair\crm\Sessions;
 use uziiuzair\crm\Users;
+use uziiuzair\crm\Media;
 
 /**
  * Class Clients
@@ -25,6 +26,10 @@ class Clients
 	 * @return [type] [description]
 	 */
 	public static function create(array $attributes) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
 
 		# Client Statuses
 		# 1 - Active
@@ -83,6 +88,81 @@ class Clients
 
 		# Query
 		$stmt = Config::$db->prepare($theFinalQuery);
+
+		# Run Query
+		if ($stmt->execute()) {
+
+			# You're good! This was fun.
+			return true;
+
+		} else {
+
+			# You seriously messed up.
+			return false;
+
+		}
+
+		$stmt->close();
+
+
+		// return $theFinalQuery;
+
+
+	}
+
+
+
+
+
+	/**
+	 * Update Client
+	 * @return [type] [description]
+	 */
+	public static function update($client_id, array $attributes) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+		
+		# Acceptable Values
+		$acceptableValues = array(
+			'firstname', 'lastname', 'email', 
+			'phone', 'company', 'address', 'city', 
+			'state', 'zip', 'country_id'
+		);
+
+		$client_id 		= stripslashes($client_id);
+		$client_id 		= Config::$db->escape_string($client_id);
+
+		$queryValues 	= '';
+
+		foreach ($attributes as $attribute => $value) {
+			
+			if (in_array($attribute, $acceptableValues)) {
+
+				$attribute 	= stripslashes($attribute);
+				$value 		= stripslashes($value);
+				$attribute 	= Config::$db->escape_string($attribute);
+				$value 		= Config::$db->escape_string($value);
+
+				$queryValues .= "`". $attribute ."` = '" . $value . "', ";
+
+			}
+
+		}
+
+
+		# Append Defaults
+		$appendedDefaults 	= "`updated` = '". time() ."'";
+
+
+		# Build Query
+		$theFinalQuery 		= 'UPDATE `clients` SET ' . $queryValues . $appendedDefaults . ' WHERE `clients`.`id` = ' . $client_id;
+
+
+		# Query
+		$stmt = Config::$db->prepare($theFinalQuery);
+
 
 		# Run Query
 		if ($stmt->execute()) {
@@ -266,25 +346,44 @@ class Clients
 
 
 
+
+
+
+
 	/**
-	 * Add Business Logo
 	 * 
-	 * @param $id
-	 * @return bool
 	 */
-	public static function addBusinessLogo($id, $client_id) {
+	public static function getBusinessLogo($client_id) {
+
+		$media_id = Clients::get($client_id)->media_id;
+
+		if ($media_id != '0') {
+			$media_url = Media::get($media_id)->link;
+		} else {
+			$media_url = Users::getGravatar(Clients::get($client_id)->email, 500);
+		}
+
+		return $media_url;
+
+	}
+
+
+
+
+
+	public static function assignBusinessLogo($media_id, $client_id) {
 
 		if (!Config::$db) {
 			Config::db();
 		}
 
-		$id 	= stripslashes($id);
-		$id 	= Config::$db->escape_string($id);
+		$media_id 	= stripslashes($media_id);
 		$client_id 	= stripslashes($client_id);
+		$media_id 	= Config::$db->escape_string($media_id);
 		$client_id 	= Config::$db->escape_string($client_id);
 
-		$stmt = Config::$db->prepare("UPDATE business SET `logo` = ?");
-		$stmt->bind_param('i', $id);
+		$stmt = Config::$db->prepare("UPDATE clients SET `media_id` = ? WHERE `id` = ?");
+		$stmt->bind_param('si', $media_id, $client_id);
 
 		if ($stmt->execute()) {
 			return true;
@@ -295,19 +394,6 @@ class Clients
 		$stmt->close();
 
 	}
-
-
-
-
-	/**
-	 * 
-	 */
-	public static function getBusinessLogo($email) {
-
-		return Users::getGravatar($email, 500);
-
-	}
-
 
 
 

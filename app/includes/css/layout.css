@@ -453,6 +453,28 @@ form {
 		transition: all 0.3s ease-out;
 	}
 
+	form button {
+		width: 150px;
+		padding: 10px;
+		background: #000;
+		color: #fff;
+		font-family: inherit;
+		font-size: 12px;
+		font-weight: 400;
+		border: 0;
+		cursor: pointer;
+		outline: 0;
+		margin-top: 15px;
+	}
+
+		form button:hover {
+			opacity: 0.8;
+		}
+
+		form button:focus {
+			opacity: 0.7;
+		}
+
 /**
  * Notification
  */
@@ -1895,7 +1917,10 @@ form {
 			}
 
 			.clientPage .clientTaskAdd .panelContent ul li button {
+				padding: 0;
+				width: auto;
 				border: 0;
+				margin: 0;
 				background: transparent;
 				color: #7057D2;
 				font-size: 12px;
@@ -2043,6 +2068,7 @@ form {
 	position:fixed; 
 	top:0; 
 	left:0;
+	z-index: 9999;
 }
 
 	.modal .cover {
@@ -2699,26 +2725,152 @@ form {
 		    padding: 8px 10px;
 		}
 
-		/* .modal.this-uploadClientPhoto form {
-			height: 200px;
-			background: #EFEFEF;
-			position: relative;
-			cursor: pointer;
+		.modal.this-uploadClientPhoto .uploadProgressContainer {
+			display: none;
 		}
 
-			.modal.this-uploadClientPhoto form:after {
-			    position: absolute;
-			    width: 100%;
-			    line-height: 200px;
-			    display: block;
-			    content: "drop photo here";
-			    text-align: center;
-			    font-size: 10px;
-			    font-family: inherit;
-			    font-weight: 300;
-			    color: #9B9B9B;
+			.modal.this-uploadClientPhoto .uploadProgress {
+				width: 100%;
+				height: 3px;
+				background: #f5f5f5;
+				margin-top: 15px;
+				position: relative;
 			}
- */
+
+				.modal.this-uploadClientPhoto .uploadProgress .progress-inner {
+					width: 0%;
+					background: #00afb2;
+					height: 3px;
+				}
+
+			.modal.this-uploadClientPhoto .uploadStatement {
+				font-size: 12px;
+				color: #3A3D4E;
+				margin-top: 10px;
+				display: none;
+			}
+
+
+
+
+
+	/**
+	 * Modal: uploadClientPhoto
+	 */
+	.modal.this-uploadLeadPhoto {
+
+	}
+
+		.modal.this-uploadLeadPhoto ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			height: 50px;
+		}
+
+		.modal.this-uploadLeadPhoto ul li {
+			color: #8a8fa2;
+			display: inline-block;
+			position: relative;
+			float: left;
+			width: 49%;
+			height: 35px;
+		}
+
+		.modal.this-uploadLeadPhoto ul li input[type=radio]{
+			position: absolute;
+			visibility: hidden;
+		}
+
+		.modal.this-uploadLeadPhoto ul li label{
+			display: block;
+		    position: relative;
+		    font-weight: 300;
+		    font-size: 14px;
+		    padding: 16px 0 0 35px;
+		    z-index: 9;
+		    cursor: pointer;
+		    color: #8a8fa2;
+			-webkit-transition: all 0.25s linear;
+		}
+
+		.modal.this-uploadLeadPhoto ul li:hover label{
+			color: #212121;
+		}
+
+		.modal.this-uploadLeadPhoto ul li .check{
+			display: block;
+			position: absolute;
+			border: 2px solid #8a8fa2;
+			border-radius: 0;
+			height: 15px;
+			width: 15px;
+			top: 20px;
+			left: 0;
+			z-index: 5;
+			transition: border .25s linear;
+			-webkit-transition: border .25s linear;
+		}
+
+		.modal.this-uploadLeadPhoto ul li:hover .check {
+			border: 2px solid #212121;
+		}
+
+		.modal.this-uploadLeadPhoto ul li .check::before {
+			display: block;
+		    position: absolute;
+		    content: '';
+		    border-radius: 0;
+		    height: 15px;
+		    width: 15px;
+		    top: -2px;
+		    left: -2px;
+		    margin: auto;
+		    transition: background 0.25s linear;
+		    -webkit-transition: background 0.25s linear;
+		}
+
+		.modal.this-uploadLeadPhoto input[type=radio]:checked ~ .check {
+			border: 2px solid #7052d5;
+		}
+
+		.modal.this-uploadLeadPhoto input[type=radio]:checked ~ .check::before{
+			background: #7052d5;
+		}
+
+		.modal.this-uploadLeadPhoto input[type=radio]:checked ~ label{
+			color: #7052d5;
+		}
+
+		.modal.this-uploadLeadPhoto button {
+			width: 120px;
+		    padding: 8px 10px;
+		}
+
+		.modal.this-uploadLeadPhoto .uploadProgressContainer {
+			display: none;
+		}
+
+			.modal.this-uploadLeadPhoto .uploadProgress {
+				width: 100%;
+				height: 3px;
+				background: #f5f5f5;
+				margin-top: 15px;
+				position: relative;
+			}
+
+				.modal.this-uploadLeadPhoto .uploadProgress .progress-inner {
+					width: 0%;
+					background: #00afb2;
+					height: 3px;
+				}
+
+			.modal.this-uploadLeadPhoto .uploadStatement {
+				font-size: 12px;
+				color: #3A3D4E;
+				margin-top: 10px;
+				display: none;
+			}
 
 /**
  * Staff Page
@@ -3524,12 +3676,12 @@ form {
 
 				.dashboard .overview .overviewBox .left {
 					float: left;
+					height: 90px;
 				}
 
-					.dashboard .overview .overviewBox .left .image {
+					.dashboard .overview .overviewBox .left svg {
 						width: 90px;
 						height: 90px;
-						/* background-color: #f2f2f2; */
 						-webkit-transition: all 0.3s ease-out;
 						-moz-transition: all 0.3s ease-out;
 						-o-transition: all 0.3s ease-out;
@@ -3771,22 +3923,17 @@ form {
 
 			.projects .projectsOverview .overviewBox .left {
 				float: left;
+				height: 70px;
 			}
-
-				.projects .projectsOverview .overviewBox .left .image {
-					width: 80px;
-					height: 80px;
-					background-color: #f2f2f2;
-				}
 
 			.projects .projectsOverview .overviewBox .right {
 				float: left;
 				padding-left: 15px;
-				padding-top: 15px;
+				padding-top: 10px;
 			}
 
 				.projects .projectsOverview .overviewBox .right h2 {
-					font-size: 16px;
+					font-size: 14px;
 					line-height: 22px;
 					font-weight: 500;
 					margin: 0;
@@ -3794,9 +3941,9 @@ form {
 				}
 
 					.projects .projectsOverview .overviewBox .right p {
-						font-size: 34px;
+						font-size: 26px;
 						margin-bottom: 0;
-						margin-top: 14px;
+						margin-top: 7px;
 						text-align: left;
 						color: #7052d5;
 					}
@@ -5179,6 +5326,9 @@ form {
 
 				.projectPage .projectTaskAdd .panelContent ul li button {
 					border: 0;
+					width: auto;
+					padding: 0;
+					margin: 0;
 					background: transparent;
 					color: #7057D2;
 					font-size: 12px;
@@ -5707,7 +5857,7 @@ form {
 	}
 
 		.adminSettings .panelCompanyLogo .companyLogoContainer {
-
+			padding: 35px 0 15px;
 		}
 
 			.adminSettings .panelCompanyLogo .companyLogoContainer img {
@@ -5717,14 +5867,57 @@ form {
 			}
 
 		.adminSettings .panelCompanyLogo .companyLogoEdit {
-
+			padding: 5px 0;
+			display: none;
 		}
+
+			.adminSettings .panelCompanyLogo .companyLogoEdit input {
+				margin: 0;
+			}
+
+			.adminSettings .panelCompanyLogo .companyLogoEdit #suggested {
+				font-size: 12px;
+				font-weight: 300;
+				color: #9B9B9B;
+				margin-top: 15px;
+			}
+
+			.adminSettings .panelCompanyLogo .companyLogoEdit button {
+				width: 124px;
+				padding: 8px;
+			}
 
 		.adminSettings .panelCompanyLogo a {
 			font-size: 14px;
 			margin-top: 25px;
 			display: inline-block;
 		}
+
+		.adminSettings .panelCompanyLogo .uploadProgressContainer {
+			display: none;
+		}
+
+			.adminSettings .panelCompanyLogo .uploadProgress {
+				width: 100%;
+				height: 3px;
+				background: #f5f5f5;
+				margin-top: 15px;
+				position: relative;
+			}
+
+				.adminSettings .panelCompanyLogo .uploadProgress .progress-inner {
+					width: 0%;
+					background: #00afb2;
+					height: 3px;
+				}
+
+			.adminSettings .panelCompanyLogo .uploadStatement {
+				font-size: 12px;
+				color: #3A3D4E;
+				margin-top: 10px;
+				display: none;
+			}
+
 
 
 	.adminSettings .panelCompanyInformation {
@@ -5781,22 +5974,17 @@ form {
 
 			.invoicesPage .invoicesOverview .overviewBox .left {
 				float: left;
+				height: 70px;
 			}
-
-				.invoicesPage .invoicesOverview .overviewBox .left .image {
-					width: 80px;
-					height: 80px;
-					background-color: #f2f2f2;
-				}
 
 			.invoicesPage .invoicesOverview .overviewBox .right {
 				float: left;
 				padding-left: 15px;
-				padding-top: 15px;
+				padding-top: 10px;
 			}
 
 				.invoicesPage .invoicesOverview .overviewBox .right h2 {
-					font-size: 16px;
+					font-size: 14px;
 					line-height: 22px;
 					font-weight: 500;
 					margin: 0;
@@ -5804,9 +5992,9 @@ form {
 				}
 
 					.invoicesPage .invoicesOverview .overviewBox .right p {
-						font-size: 34px;
+						font-size: 26px;
 						margin-bottom: 0;
-						margin-top: 14px;
+						margin-top: 7px;
 						text-align: left;
 						color: #7052d5;
 					}
@@ -7259,6 +7447,9 @@ form {
 
 			.leadPage .clientTaskAdd .panelContent ul li button {
 				border: 0;
+				width: auto;
+				padding: 0;
+				margin: 0;
 				background: transparent;
 				color: #7057D2;
 				font-size: 12px;
@@ -7355,6 +7546,118 @@ form {
 				outline: 0;
 				text-align: center;
 			}
+
+	
+	.leadPage .leadStatus {
+
+	}
+
+		.leadPage .leadStatus .panelHeader {
+			padding: 10px 15px;
+		}
+
+		.leadPage .leadStatus .statusContainer {
+			padding: 15px 15px;
+		}
+
+			.leadPage .leadStatus .statusContainer .line {
+				height: 2px;
+				background: #ededf1;
+				width: 100%;
+				position: relative;
+			}
+
+				.leadPage .leadStatus .statusContainer .line:before {
+					content: " ";
+					display: block;
+					width: 0;
+					max-width: 100%;
+					z-index: 1;
+					height: 2px;
+					background: #00afb2;
+					top: 0;
+					position: absolute;
+				}
+
+				.leadPage .leadStatus .statusContainer .line ul {
+					list-style: none;
+					width: 101%;
+					position: absolute;
+					top: -5px;
+					left: -1px;
+					z-index: 2;
+				}
+
+				.leadPage .leadStatus .statusContainer .line li {
+					width: 20%;
+					float: left;
+					color: transparent;
+					font-size: 0.1px;
+					height: 10px;
+					position: relative;
+				}
+
+					.leadPage .leadStatus .statusContainer .line li:before {
+						width: 11px;
+						height: 11px;
+						border-radius: 50%;
+						background: #ededf1;
+						content: " ";
+						display: block;
+						position: absolute;
+					}
+
+						.leadPage .leadStatus .statusContainer .line li.active:before {
+							background: #00afb2;
+						}
+
+						.leadPage .leadStatus .statusContainer .line li#first:before {
+							left: 0;
+						}
+
+						.leadPage .leadStatus .statusContainer .line li#second:before {
+							left: 22%;
+						}
+
+						.leadPage .leadStatus .statusContainer .line li#third:before {
+							left: 50%;
+							margin-left: -5px;
+						}
+
+						.leadPage .leadStatus .statusContainer .line li#fourth:before {
+							right: 22%;
+						}
+
+						.leadPage .leadStatus .statusContainer .line li#fifth:before {
+							right: 0;
+						}
+
+
+			.leadPage .leadStatus .statusContainer .theStatus {
+				list-style: none;
+				margin-top: 10px;
+				width: 100%;
+			}
+
+				.leadPage .leadStatus .statusContainer .theStatus li {
+					width: 20%;
+					float: left;
+					position: relative;
+				}
+
+				.leadPage .leadStatus .statusContainer .theStatus li p {
+					color: #8a8fa2;
+					font-size: 10px;
+				}
+
+					.leadPage .leadStatus .statusContainer .theStatus li.active p { color: #00afb2; }
+
+					.leadPage .leadStatus .statusContainer .theStatus li#first p 	{ text-align: left; }
+					.leadPage .leadStatus .statusContainer .theStatus li#second p 	{ text-align: left; }
+					.leadPage .leadStatus .statusContainer .theStatus li#third p 	{ text-align: center; }
+					.leadPage .leadStatus .statusContainer .theStatus li#fourth p 	{ text-align: right }
+					.leadPage .leadStatus .statusContainer .theStatus li#fifth p 	{ text-align: right }
+
 
 
 
@@ -7600,22 +7903,17 @@ form {
 
 			.expensesPage .expensesOverview .overviewBox .left {
 				float: left;
+				height: 70px;
 			}
-
-				.expensesPage .expensesOverview .overviewBox .left .image {
-					width: 80px;
-					height: 80px;
-					background-color: #f2f2f2;
-				}
 
 			.expensesPage .expensesOverview .overviewBox .right {
 				float: left;
 				padding-left: 15px;
-				padding-top: 15px;
+				padding-top: 10px;
 			}
 
 				.expensesPage .expensesOverview .overviewBox .right h2 {
-					font-size: 16px;
+					font-size: 14px;
 					line-height: 22px;
 					font-weight: 500;
 					margin: 0;
@@ -7623,9 +7921,9 @@ form {
 				}
 
 					.expensesPage .expensesOverview .overviewBox .right p {
-						font-size: 34px;
+						font-size: 26px;
 						margin-bottom: 0;
-						margin-top: 14px;
+						margin-top: 7px;
 						text-align: left;
 						color: #7052d5;
 					}
@@ -7926,22 +8224,17 @@ form {
 
 			.proposalsPage .proposalOverview .overviewBox .left {
 				float: left;
+				height: 70px;
 			}
-
-				.proposalsPage .proposalOverview .overviewBox .left .image {
-					width: 70px;
-					height: 80px;
-					background-color: #f2f2f2;
-				}
 
 			.proposalsPage .proposalOverview .overviewBox .right {
 				float: left;
 				padding-left: 15px;
-				padding-top: 15px;
+				padding-top: 10px;
 			}
 
 				.proposalsPage .proposalOverview .overviewBox .right h2 {
-					font-size: 16px;
+					font-size: 14px;
 					line-height: 22px;
 					font-weight: 500;
 					margin: 0;
@@ -7949,9 +8242,9 @@ form {
 				}
 
 					.proposalsPage .proposalOverview .overviewBox .right p {
-						font-size: 34px;
+						font-size: 26px;
 						margin-bottom: 0;
-						margin-top: 14px;
+						margin-top: 7px;
 						text-align: left;
 						color: #7052d5;
 					}

@@ -351,6 +351,59 @@ switch ($page) {
 
 
 
+	case 'client/update':
+
+
+		if (!empty($_POST['form-name']) && $_POST['form-name'] == 'client_update') {
+		
+		
+			$client_id = stripslashes($_POST['client_id']);
+
+			/**
+			 * Create an Array for all possible Values.
+			 * @var array
+			 */
+			$clientArray = array(
+				'firstname' 		=> $_POST['firstName'],
+				'lastname' 			=> $_POST['lastName'],
+				'email' 			=> $_POST['clientEmailAddress'],
+				'phone' 			=> $_POST['clientPhoneNumber'],
+				'company' 			=> $_POST['companyName'],
+				'address' 			=> $_POST['clientAddress'],
+				'city' 				=> $_POST['clientCity'],
+				'state' 			=> $_POST['clientState'],
+				'zip' 				=> $_POST['clientZip'],
+				'country_id' 		=> $_POST['clientCountry']
+			);
+
+			/**
+			 * Make an attempt to create new client
+			 */
+			if (crm\Services\Clients::update($client_id, $clientArray)) {
+				
+				$response['success'] = true;
+				$response['request']['message'] = 'Client updated!';
+
+			} else {
+
+				$response['success'] = false;
+				$response['request']['message'] = 'Unknown error occurred.';
+
+			}
+
+
+
+		} else {
+			$response['success'] = false;
+			$response['request']['message'] = 'Client name not provided.';
+		}
+
+
+
+	break;
+
+
+
 
 	/**
 	 * Update Client's Profile
@@ -476,7 +529,7 @@ switch ($page) {
 	case 'meetings/all': 
 
 		# Get all meetings for current user
-		$meetings 	= crm\Services\Meetings::allForStaff();
+		$meetings 	= crm\Services\Meetings::forStaff();
 
 		$count = 0;
 

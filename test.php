@@ -71,13 +71,7 @@ use uziiuzair\crm;
 
 // $staffArray = array(
 // 	'firstname' 		=> 'Manolo',
-// 	'lastname' 			=> 'Tan',
-// 	'username' 			=> 'manolo',
-// 	'email' 			=> 'business@uziiuzair.com',
-// 	'phone' 			=> '123456789011',
-// 	'password'			=> 'test',
-// 	'department_id' 	=> '1',
-// 	'is_admin' 			=> '0'
+// 	'lastname' 			=> 'Santiago Tan'
 // );
 
 // // new User
@@ -90,3 +84,5 @@ use uziiuzair\crm;
 
 // echo SystemWorkingDirectory;
 
+// echo crm\Services\Clients::getBusinessLogo(1);
+// echo crm\Services\Clients::update(2, $staffArray);

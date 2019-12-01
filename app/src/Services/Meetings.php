@@ -33,10 +33,15 @@ class Meetings
 
 		return $query->fetch_all(MYSQLI_ASSOC);
 		
+	}
+
+
+	public static function delete($meeting_id) {
+		
 	}	
 
 
-	public static function allForStaff() {
+	public static function forStaff() {
 
 		if (!Config::$db) {
 			Config::db();
@@ -50,8 +55,22 @@ class Meetings
 		
 	}	
 
-	public static function delete($meeting_id) {
+
+	public static function forClient($client_id) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		$client_id 	= stripslashes($client_id);
+		$client_id 	= Config::$db->escape_string($client_id);
+
+		$query = Config::$db->query("SELECT * FROM meetings WHERE `client_id` = $client_id");
+
+		return $query->fetch_all(MYSQLI_ASSOC);
 		
 	}	
+
+	
 
 }

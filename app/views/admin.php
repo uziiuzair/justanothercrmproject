@@ -7,7 +7,17 @@
  * @since 		v1.0
  */
 
-use uziiuzair\crm; ?>
+use uziiuzair\crm; 
+
+$systemLogo 	= crm\Functions::getSystemValue('system-logo');
+
+if ($systemLogo != '0') {
+	$systemDefaultLogo	=	crm\Media::get($systemLogo)->link;
+} else {
+	$systemDefaultLogo	=	'https://crm.envato.dev:8890/app/includes/images/logo.png';
+}
+
+?>
 <div class="container adminSettings">
 	
 	<div class="wrapper">
@@ -18,9 +28,9 @@ use uziiuzair\crm; ?>
 					<div class="span6">
 						<h1>Settings for Just Another CRM</h1>
 					</div>
-					<div class="span6">
+					<!-- <div class="span6">
 						<a href="#!" class="updateSettings">Save Changes</a>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -61,21 +71,55 @@ use uziiuzair\crm; ?>
 											<h1>Company Logo</h1>
 										</div>
 										<div class="panelContent">
-											<form action="" id="form-companyLogo">
+											
 												
-												<div class="companyLogoContainer">
-													<img src="https://crm.envato.dev:8890/app/includes/images/logo.png" alt="">
-												</div>
+											<div class="companyLogoContainer">
+												<img src="<?php echo $systemDefaultLogo; ?>" alt="">
+											</div>
 
-												<div class="companyLogoEdit">
-													<div class="dropArea"></div>
-												</div>
+											<div class="companyLogoEdit">
+												<form id="form-companyLogo" action="/upload/system/logo" method="post" enctype="multipart/form-data">
 
-												<div class="row">
-													<a href="#!">Edit Logo</a>
-												</div>
+													<input type="hidden" name="upload_type" value="system_logo">
 
-											</form>
+													<div class="row" id="uploadTheLogo">
+														<input name="upload_photo" id="uploadedFile" type="file" accept="image/*">
+													</div>
+
+													<div class="row">
+														<p id="suggested">Suggested: 430px x 100px (w x h). Horizontal Logo</p>
+													</div>
+
+													<div class="row  clearfix">
+														<div class="span12 uploadProgressContainer">
+															<div class="uploadProgress">
+																<div class="progress-inner"></div>
+															</div>
+														</div>
+														<div class="span12">
+															<div class="uploadStatement">uploaded</div>
+														</div>
+													</div>
+
+													<div class="row clearfix">
+														<div class="span6">
+															<button class="submitting">
+																<span class="showProgress" style="display: none; padding-right:10px;"><i class="fa fa-spinner fa-spin"></i></span>
+																<span class="initial">Upload</span>
+															</button>
+														</div>
+														<div class="span6">
+															<p class="errorContainer" style="text-align:right; display:none;"></p>
+														</div>
+													</div>
+
+												</form>
+											</div>
+
+											<div class="row">
+												<a href="#!" id="editSystemLogo">Edit Logo</a>
+											</div>
+
 										</div>
 									</div>
 								</div>

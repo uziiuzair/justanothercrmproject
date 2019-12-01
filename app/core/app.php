@@ -22,12 +22,14 @@ if (crm\Config::SentryEnable) {
 
 
 # System Defaults
-define('SystemWorkingDirectory', dirname(__DIR__, 2));			# System Current Working Directory
-define('SystemRequestStartTime', time());			# System Request Start Time
-
+# Do NOT edit these values
+define('SystemWorkingDirectory'	, dirname(__DIR__, 2));				# System Current Working Directory
+define('SystemRequestStartTime'	, time());							# System Request Start Time
+define('SystemDebug'			, crm\Config::SystemDebug);			# System Debug
+define('SystemEnvironment'		, crm\Config::SystemEnvironment);	# System Environment
 
 # System Development
-if (crm\Config::SystemEnvironment == 'development') {
+if (SystemEnvironment == 'development') {
 	ini_set('display_errors', 1); 
 }
 

@@ -215,7 +215,7 @@ class Functions
 	/**
 	 * Create Log
 	 * @param  string $type    
-	 * @param  string $message 
+	 * @param  string $attribute 
 	 * @return bool          
 	 */
 	public static function createLog($type = 'system_log', array $attributes) {
@@ -431,6 +431,30 @@ class Functions
 	 */
 	public static function getSystemValue($name) {
 
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		$name 	= stripslashes($name);
+		$name 	= Config::$db->escape_string($name);
+
+		$system = new \stdClass();
+
+		$stmt = Config::$db->prepare("SELECT * FROM `system` WHERE `name` = ?");
+		$stmt->bind_param('s', $name);
+		$stmt->bind_result(
+			$system->id,
+			$system->name,
+			$system->value,
+			$system->updated
+		);
+		$stmt->execute();
+		$stmt->fetch();
+
+		return $system->value;
+
+		$stmt->close();
+
 	}
 
 
@@ -442,6 +466,26 @@ class Functions
 	 * @param [type] $value [description]
 	 */
 	public static function setSystemOption($name, $value) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+
+		$name 	= stripslashes($name);
+		$value 	= stripslashes($value);
+		$name 	= Config::$db->escape_string($name);
+		$value 	= Config::$db->escape_string($value);
+
+		$stmt = Config::$db->prepare("UPDATE system SET `value` = ? WHERE `name` = ?");
+		$stmt->bind_param('ss', $value, $name);
+
+		if ($stmt->execute()) {
+			return true;
+		} else {
+			return false;
+		}
+
+		$stmt->close();
 
 	}
 

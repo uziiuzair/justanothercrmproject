@@ -163,18 +163,36 @@ class Services
 	 * Services Purchased
 	 *******************************/
 
-	public static function forProject($id) {
+	public static function forProject($project_id) {
 
 		if (!Config::$db) {
 			Config::db();
 		}
 		
-		$id 	= stripslashes($id);
-		$id 	= Config::$db->escape_string($id);
+		$project_id 	= stripslashes($project_id);
+		$project_id 	= Config::$db->escape_string($project_id);
 
-		$query 	= Config::$db->query("SELECT * FROM servicesPurchased WHERE `project_id` = $id");
+		$query 	= Config::$db->query("SELECT * FROM servicesPurchased WHERE `project_id` = $project_id");
 		
 		return $query->fetch_all(MYSQLI_ASSOC);	
+	
+	}
+
+
+
+	public static function forClient($client_id) {
+
+		if (!Config::$db) {
+			Config::db();
+		}
+		
+		$client_id 	= stripslashes($client_id);
+		$client_id 	= Config::$db->escape_string($client_id);
+
+		$query 	= Config::$db->query("SELECT * FROM servicesPurchased WHERE `client_id` = $client_id");
+		
+		return $query->fetch_all(MYSQLI_ASSOC);	
+	
 	}
 
 
